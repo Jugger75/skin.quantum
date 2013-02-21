@@ -1,0 +1,165 @@
+﻿<window id="2600">
+  <defaultcontrol always="true">6000</defaultcontrol>
+  <allowoverlay>no</allowoverlay>
+  <controls>
+    <!-- el_Paraguayo mod -->
+    <control type="multiimage">
+      <!-- weather fanart - weather plus -->
+      <posx>0</posx>
+      <posy>0</posy>
+      <width>1920</width>
+      <height>1080</height>
+      <timeperimage>30000</timeperimage>
+      <imagepath>$INFO[Skin.String(HomeWeatherFanartFolder)]$INFO[Window(Weather).Property(Current.FanartCode)]</imagepath>
+      <randomize>true</randomize>
+      <fadetime>600</fadetime>
+      <include>Animation_CommonFadeNoHide</include>
+      <visible>Weather.IsFetched + StringCompare(Weather.Plugin,weather.weatherplus) + Skin.HasSetting(HomeWeatherFanart)</visible>
+    </control>
+    <control type="multiimage">
+      <!-- weather fanart - not weather plus -->
+      <posx>0</posx>
+      <posy>0</posy>
+      <width>1920</width>
+      <height>1080</height>
+      <timeperimage>30000</timeperimage>
+      <imagepath>$INFO[Skin.String(HomeWeatherFanartFolder)]$INFO[Weather.FanartCode]</imagepath>
+      <randomize>true</randomize>
+      <fadetime>600</fadetime>
+      <include>Animation_CommonFadeNoHide</include>
+      <visible>Weather.IsFetched + !StringCompare(Weather.Plugin,weather.weatherplus) + Skin.HasSetting(HomeWeatherFanart)</visible>
+    </control>
+    <!-- end el_P mod -->
+    <control type="multiimage">
+      <posx>0</posx>
+      <posy>0</posy>
+      <width>1920</width>
+      <height>1080</height>
+      <imagepath>$INFO[Skin.String(Home_Custom_Back_Weather_Folder)]</imagepath>
+      <aspectratio>scale</aspectratio>
+      <timeperimage>5000</timeperimage>
+      <randomize>true</randomize>
+      <fadetime>2000</fadetime>
+      <visible>!Skin.HasSetting(HomeWeatherFanart)</visible>
+      <!-- el_P mod -->
+      <visible>StringCompare(Weather.Plugin,weather.weatherplus)</visible>
+    </control>
+    <control type="multiimage">
+      <posx>0</posx>
+      <posy>0</posy>
+      <width>1920</width>
+      <height>1080</height>
+      <imagepath>$INFO[Skin.String(Home_Custom_Back_Weather_Folder)]</imagepath>
+      <aspectratio>scale</aspectratio>
+      <timeperimage>5000</timeperimage>
+      <randomize>true</randomize>
+      <fadetime>2000</fadetime>
+      <visible>!Skin.HasSetting(HomeWeatherFanart)</visible>
+      <!-- el_P mod -->
+      <visible>!StringCompare(Weather.Plugin,weather.weatherplus)</visible>
+    </control>
+    <control type="group">
+      <include>CommonMediaPlayingBackgroundBrowser</include>
+      <include>ContentFade</include>
+      <include condition="!StringCompare(Weather.Plugin,weather.weatherplus)">weather</include>
+      <include condition="StringCompare(Weather.Plugin,weather.weatherplus)">weatherplus</include>
+    </control>
+    <control type="group">
+      <posx>-450</posx>
+      <posy>0</posy>
+      <animation effect="slide" start="0,0" end="435,0" time="400" tween="quadratic" easing="out" condition="ControlGroup(9000).HasFocus | ControlGroup(9001).HasFocus | Control.HasFocus(8999)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="-570,0" time="400" tween="quadratic" easing="out" condition="ControlGroup(9000).HasFocus | ControlGroup(9001).HasFocus">WindowClose</animation>
+      <visible>!Skin.HasSetting(KioskMode)</visible>
+	  <control type="button" id="8999">
+        <description>Fake button for mouse control</description>
+        <posx>-390</posx>
+        <posy>0</posy>
+        <width>398</width>
+        <height>1080</height>
+        <label>-</label>
+        <font>-</font>
+        <texturenofocus>-</texturenofocus>
+        <texturefocus>-</texturefocus>
+        <visible>true</visible>
+      </control>
+      <control type="group" id="9000">
+        <control type="image">
+		  <posx>10</posx>
+		  <posy>0</posy>
+		  <width>420</width>
+		  <height>1080</height>
+		  <texture border="5">skin/menu_tranz.png</texture>
+		  <aspectratio>stretch</aspectratio>
+		</control>
+		<control type="button" id="2">
+          <description>Refresh button</description>
+          <posx>30</posx>
+          <posy>70</posy>
+          <include>ButtonCommonValues</include>
+          <label>103</label>
+          <onleft>6000</onleft>
+          <onright>6000</onright>
+          <onup>610</onup>
+          <ondown>3</ondown>
+        </control>
+        <control type="spincontrolex" id="3">
+          <description>change location button</description>
+          <posx>30</posx>
+          <posy>112</posy>
+          <font>-</font>
+          <textoffsetx>8</textoffsetx>
+          <include>ButtonCommonValues</include>
+          <onleft>6000</onleft>
+          <onright>6000</onright>
+          <onup>2</onup>
+          <ondown>610</ondown>
+        </control>
+        <control type="label">
+          <description>change location label</description>
+          <posx>50</posx>
+          <posy>105</posy>
+          <height>66</height>
+          <width>405</width>
+          <font>font-20</font>
+          <label>21873</label>
+          <textcolor>white</textcolor>
+          <align>left</align>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="610">
+          <description>PlayerControls</description>
+          <posx>30</posx>
+          <posy>238</posy>
+          <include>ButtonCommonValues</include>
+          <label>16003</label>
+          <onleft>6000</onleft>
+          <onright>6000</onright>
+          <onup>3</onup>
+          <ondown>2</ondown>
+          <onclick>ActivateWindow(playercontrols)</onclick>
+          <visible>Player.HasAudio | Player.HasVideo</visible>
+        </control>
+        <control type="button">
+          <description>Fake button for mouse control</description>
+          <posx>-30</posx>
+          <posy>0</posy>
+          <width>450</width>
+          <height>1080</height>
+          <label>-</label>
+          <font>-</font>
+          <texturenofocus>-</texturenofocus>
+          <texturefocus>-</texturefocus>
+          <visible>true</visible>
+        </control>
+      </control>
+    </control>
+    <control type="group">
+      <include>ContentFade</include>
+      <control type="grouplist">
+        <include>Breadcrumbs</include>
+        <include>Breadcrumbs-Weather</include>
+      </control>
+      <include>clock</include>
+    </control>
+  </controls>
+</window>

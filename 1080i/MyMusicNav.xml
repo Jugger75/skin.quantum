@@ -1,0 +1,323 @@
+﻿<window id="502">
+  <defaultcontrol always="true">55</defaultcontrol>
+  <allowoverlay>no</allowoverlay>
+  <views>55,102,104,107,109,511</views>
+  <!-- Hide menu if kiosk mode turned ON -->
+  <visible>!Skin.HasSetting(kiosk)</visible>
+  <controls>
+    <include>CommonMusicBackground</include>
+    <!-- FANART IMAGES -->
+    <control type="group">
+      <animation type="WindowOpen" reversible="false">
+        <effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="300" />
+        <effect type="fade" start="0" end="100" time="300" />
+      </animation>
+      <animation type="WindowClose" reversible="false">
+        <effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="300" />
+        <effect type="fade" start="100" end="0" time="300" />
+      </animation>
+      <include>Window_OpenClose_Animation</include>
+      <control type="image">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>1920</width>
+        <height>1080</height>
+        <texture background="true" fallback="black-back.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
+        <include>backgroundfade</include>
+        <fadetime>700</fadetime>
+        <visible>!Skin.HasSetting(MusicLibraryFanart) | Control.IsVisible(511) | Control.IsVisible(566) | Control.IsVisible(525) | Control.IsVisible(555) | Control.IsVisible(701)</visible>
+        <visible>!Container.Content(genres) | Container.Content(Artists) | Container.Content(Albums)</visible>
+      </control>
+      <!-- ExtrafanartFanart Mod -->
+      <control type="multiimage">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>1920</width>
+        <height>1080</height>
+        <imagepath background="true">$INFO[Skin.String(Music_Folder_Path)]$INFO[ListItem.Artist]/extrafanart</imagepath>
+        <timeperimage>7000</timeperimage>
+        <randomize>false</randomize>
+        <fadetime>FanartCrossfadeTime</fadetime>
+        <visible>System.IdleTime(10) + Skin.HasSetting(ExtraFanMusic) + Container.Content(Artists)</visible>
+      </control>
+      <control type="multiimage">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>1920</width>
+        <height>1080</height>
+        <imagepath background="true">$INFO[Skin.String(Music_Folder_Path)]$INFO[ListItem.Artist]/extrafanart</imagepath>
+        <timeperimage>7000</timeperimage>
+        <randomize>false</randomize>
+        <fadetime>FanartCrossfadeTime</fadetime>
+        <visible>System.IdleTime(10) + Skin.HasSetting(ExtraFanMusic) + Container.Content(Albums)</visible>
+      </control>
+      <!-- GenreFanart Mod -->
+
+      <control type="image">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>1920</width>
+        <height>1080</height>
+        <texture background="true">special://skin/extras/musicgenrefanart/$INFO[ListItem.Label].jpg</texture>
+        <include>600</include>
+        <fadetime>FanartCrossfadeTime</fadetime>
+        <visible>Container.Content(genres)</visible>
+      </control>
+
+    </control>
+    <include>CommonMediaPlayingBackgroundBrowser</include>
+    <include>Window_OpenClose_Animation</include>
+    <include>BehindDialogFadeOut</include>
+    <include>ScrollOffsetLabel</include>
+    <include>View_55_FileMode</include> 
+	<include>View_102_SmartPanel</include>
+	<include>View_104_BigMusikCover</include>
+	<include>View_107_MusikCoverList</include>
+	<include>View_109_MusikRadio</include>      
+    <include>CommonPageCount</include>
+    <!-- ==================== VIEW OPTIONS FLYOUT MENU ========================== -->
+    <!-- LABELS FOR MUSIC VIDEO BREADCRUMB TRAIL -->
+    <control type="group">
+      <posx>30</posx>
+      <posy>15</posy>
+      <visible>Container.Content(MusicVideos)</visible>
+      <include>VisibleFadeEffect</include>
+      <control type="label">
+        <include>WindowTitleCommons</include>
+        <posx>0</posx>
+        <label>[COLOR=white]$INFO[System.Time]   [B]$LOCALIZE[20389][/B]   $INFO[ListItem.label][/COLOR]</label>
+        <visible>!Skin.HasSetting(nobreadcrumb)</visible>
+      </control>
+    </control>
+    <!-- LABELS FOR MUSIC ARTISTS BREADCRUMB TRAIL -->
+    <control type="group">
+      <posx>30</posx>
+      <posy>15</posy>
+      <visible>Container.Content(Artists)</visible>
+      <include>VisibleFadeEffect</include>
+      <control type="label">
+        <include>WindowTitleCommons</include>
+        <posx>0</posx>
+        <label>[COLOR=white]$INFO[System.Time]   $LOCALIZE[10516]   [B]$LOCALIZE[133][/B][/COLOR]</label>
+        <visible>!Skin.HasSetting(nobreadcrumb)</visible>
+      </control>
+    </control>
+    <!-- LABELS FOR MUSIC SONGS BREADCRUMB TRAIL -->
+    <control type="group">
+      <posx>30</posx>
+      <posy>15</posy>
+      <visible>Container.Content(Songs)</visible>
+      <include>VisibleFadeEffect</include>
+      <control type="label">
+        <include>WindowTitleCommons</include>
+        <posx>0</posx>
+        <label>[COLOR=white]$INFO[System.Time]   $LOCALIZE[10516]   [B]$LOCALIZE[134][/B][/COLOR]</label>
+        <visible>!Skin.HasSetting(nobreadcrumb)</visible>
+      </control>
+    </control>
+    <!-- LABELS FOR MUSIC ALBUMS BREADCRUMB TRAIL -->
+    <control type="group">
+      <posx>30</posx>
+      <posy>15</posy>
+      <visible>Container.Content(Albums)</visible>
+      <include>VisibleFadeEffect</include>
+      <control type="label">
+        <include>WindowTitleCommons</include>
+        <posx>0</posx>
+        <label>[COLOR=white]$INFO[System.Time]   $LOCALIZE[10516]   [B]$LOCALIZE[132][/B][/COLOR]</label>
+        <visible>!Skin.HasSetting(nobreadcrumb)</visible>
+      </control>
+    </control>
+    <control type="group">
+      <posx>30</posx>
+      <posy>15</posy>
+      <visible>Container.Content(Genres)</visible>
+      <include>VisibleFadeEffect</include>
+      <control type="label">
+        <include>WindowTitleCommons</include>
+        <posx>0</posx>
+        <label>[COLOR=white]$INFO[System.Time]   $LOCALIZE[10516]   [B]$LOCALIZE[135][/B][/COLOR]</label>
+        <visible>!Skin.HasSetting(nobreadcrumb)</visible>
+      </control>
+    </control>
+    <control type="group">
+      <posx>30</posx>
+      <posy>15</posy>
+      <visible>Container.Content(Years)</visible>
+      <include>VisibleFadeEffect</include>
+      <control type="label">
+        <include>WindowTitleCommons</include>
+        <posx>0</posx>
+        <label>[COLOR=white]$INFO[System.Time]   $LOCALIZE[10516]   [B]$LOCALIZE[652][/B][/COLOR]</label>
+        <visible>!Skin.HasSetting(nobreadcrumb)</visible>
+      </control>
+    </control>
+    <control type="group">
+      <posx>30</posx>
+      <posy>15</posy>
+      <visible>Container.Content(Files)</visible>
+      <include>VisibleFadeEffect</include>
+      <control type="label">
+        <include>WindowTitleCommons</include>
+        <posx>0</posx>
+        <label>[COLOR=white]$INFO[System.Time]   [B]$LOCALIZE[31022][/B][/COLOR]</label>
+        <visible>!Skin.HasSetting(nobreadcrumb)</visible>
+      </control>
+    </control>
+    <control type="group">
+      <visible>!Skin.HasSetting(kiosk)</visible>
+      <animation effect="slide" start="0,0" end="480,0" time="400" tween="quadratic" easing="out" condition="ControlGroup(9000).HasFocus | ControlGroup(9001).HasFocus | Control.HasFocus(8999)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="-570,0" time="400" tween="quadratic" easing="out" condition="ControlGroup(9000).HasFocus | ControlGroup(9001).HasFocus">WindowClose</animation>
+      <control type="button" id="8999">
+        <description>Fake button for mouse control</description>
+        <posx>-390</posx>
+        <posy>0</posy>
+        <width>398</width>
+        <height>1080</height>
+        <label>-</label>
+        <font>-</font>
+        <texturenofocus>-</texturenofocus>
+        <texturefocus>-</texturefocus>
+        <visible>true</visible>
+      </control>
+      <control type="image">
+        <posx>-495</posx>
+        <posy>0</posy>
+        <width>420</width>
+        <height>1080</height>
+        <texture border="5">skin/menu_tranz.png</texture>
+        <aspectratio>stretch</aspectratio>
+      </control>
+      <!-- eye image and view options label at top of menu -->
+      <control type="group">
+        <posx>-457</posx>
+        <posy>60</posy>
+        <control type="label">
+          <description>View options</description>
+          <posx>0</posx>
+          <posy>0</posy>
+          <width>375</width>
+          <height>45</height>
+          <font>primal_24</font>
+          <textcolor>blue</textcolor>
+          <scroll>false</scroll>
+          <align>left</align>
+          <aligny>center</aligny>
+          <label>$LOCALIZE[14018]</label>
+        </control>
+      </control>
+      <!-- MENU ITEMS BELOW -->
+      <control type="group" id="9000">
+        <posx>-472</posx>
+        <posy>120</posy>
+        <!-- <include>CommonNowPlaying</include> -->
+        <!-- GET RID OF FROM INCLUDES? -->
+        <control type="button" id="2">
+          <description>View As button</description>
+          <posx>0</posx>
+          <posy>0</posy>
+          <include>ButtonCommonValues</include>
+          <label>-</label>
+          <onleft>55</onleft>
+          <onright>55</onright>
+          <onup>201</onup>
+          <ondown>3</ondown>
+        </control>
+        <control type="button" id="3">
+          <description>Sort by button</description>
+          <posx>0</posx>
+          <posy>60</posy>
+          <include>ButtonCommonValues</include>
+          <label>103</label>
+          <onleft>55</onleft>
+          <onright>4</onright>
+          <onup>2</onup>
+          <ondown>99</ondown>
+        </control>
+        <control type="togglebutton" id="4">
+          <description>Sort asc</description>
+          <posx>330</posx>
+          <posy>70</posy>
+          <label>-</label>
+          <onleft>3</onleft>
+          <onright>55</onright>
+          <onup>2</onup>
+          <ondown>99</ondown>
+        </control>
+        <control type="radiobutton" id="99">
+          <description>Library button</description>
+          <posx>0</posx>
+          <posy>120</posy>
+          <label>$LOCALIZE[29800]</label>
+          <onclick>ReplaceWindow(MusicFiles)</onclick>
+          <selected>Window.IsVisible(MusicLibrary)</selected>
+          <include>ButtonCommonValues</include>
+          <onleft>55</onleft>
+          <onright>55</onright>
+          <onup>3</onup>
+          <ondown>16</ondown>
+        </control>
+        <control type="radiobutton" id="16">
+          <description>PartyMode</description>
+          <posx>0</posx>
+          <posy>170</posy>
+          <label>589</label>
+          <include>ButtonCommonValues</include>
+          <onleft>55</onleft>
+          <onright>55</onright>
+          <onup>99</onup>
+          <ondown>19</ondown>
+        </control>
+        <control type="radiobutton" id="19">
+          <description>Filter</description>
+          <posx>0</posx>
+          <posy>220</posy>
+          <include>ButtonCommonValues</include>
+          <label>587</label>
+          <onleft>55</onleft>
+          <onright>55</onright>
+          <onup>16</onup>
+          <ondown>8</ondown>
+        </control>
+		<control type="button" id="8">
+          <description>Search</description>
+          <posx>0</posx>
+          <posy>265</posy>
+          <include>ButtonCommonValues</include>
+          <label>137</label>
+          <onleft>55</onleft>
+          <onright>55</onright>
+          <onup>19</onup>
+          <ondown>201</ondown>
+        </control>
+		<control type="label">
+          <description>View options</description>
+          <posx>16</posx>
+          <posy>345</posy>
+          <width>375</width>
+          <height>45</height>
+          <font>primal_24</font>
+          <textcolor>blue</textcolor>
+          <scroll>false</scroll>
+          <align>left</align>
+          <aligny>center</aligny>
+          <label>$LOCALIZE[80004]</label>
+        </control>
+        <control type="radiobutton" id="201">
+          <description>Toggle CDArt</description>
+          <posx>0</posx>
+          <posy>405</posy>
+          <include>ButtonCommonValues</include>
+          <label>31307</label>
+          <onclick>Skin.ToggleSetting(MusicCDArt)</onclick>
+          <selected>Skin.HasSetting(MusicCDArt)</selected>
+          <onleft>55</onleft>
+          <onright>55</onright>
+          <onup>8</onup>
+          <ondown>2</ondown>
+		  <visible>Control.IsVisible(107) | Control.IsVisible(109)</visible>
+        </control>
+      </control>
+    </control>
+  </controls>
+</window>

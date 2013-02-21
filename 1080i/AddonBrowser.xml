@@ -1,0 +1,120 @@
+﻿<window id="20">
+  <defaultcontrol always="true">55</defaultcontrol>
+  <allowoverlay>no</allowoverlay>
+  <views>55,102</views>
+  <controls>
+    <include>CommonSettingsBackground</include>
+    <include>CommonMediaPlayingBackgroundBrowser</include>
+	<include>Window_OpenClose_Animation</include>
+	<include>View_55_FileMode</include><!-- view id = 55 -->
+	<include>View_102_SmartPanel</include><!-- view id = 102 -->
+	<include>CommonPageCount</include>
+	<include>BehindDialogFadeOut</include>
+	<include>ScrollOffsetLabel</include>
+	  
+    <control type="group">
+      <posx>30</posx>
+      <posy>15</posy>
+      <animation effect="slide" end="-465,0" time="400" tween="quadratic" easing="out">WindowClose</animation>
+      <animation effect="slide" start="-465,0" time="400" tween="quadratic" easing="out">WindowOpen</animation>
+      <control type="label">
+        <include>WindowTitleCommons</include>
+        <posx>0</posx>
+        <label>[COLOR=white]$INFO[System.Time]   [B]$LOCALIZE[24001][/B]   $INFO[Container.Property(RepoName)]   $INFO[Container.Property(AddonCategory)][/COLOR]</label>
+      </control>
+    </control>
+    <control type="group">
+      <animation effect="slide" start="0,0" end="480,0" time="400" tween="quadratic" easing="out" condition="ControlGroup(9000).HasFocus | Control.HasFocus(8999)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="-570,0" time="400" tween="quadratic" easing="out" condition="ControlGroup(9000).HasFocus | Control.HasFocus(8999)">WindowClose</animation>
+      <control type="button" id="8999">
+        <description>Fake button for mouse control</description>
+        <posx>-375</posx>
+        <posy>0</posy>
+        <width>398</width>
+        <height>1080</height>
+        <label>-</label>
+        <font>-</font>
+        <texturenofocus>-</texturenofocus>
+        <texturefocus>-</texturefocus>
+        <visible>true</visible>
+      </control>
+      <control type="image">
+        <posx>-495</posx>
+        <posy>0</posy>
+        <width>420</width>
+        <height>1080</height>
+        <texture border="5">skin/menu_tranz.png</texture>
+        <aspectratio>stretch</aspectratio>
+      </control>
+      <control type="group" id="9000">
+        <posx>-475</posx>
+        <posy>195</posy>
+        <control type="button" id="2">
+          <description>View As button</description>
+          <posx>0</posx>
+          <posy>0</posy>
+          <include>ButtonCommonValues</include>
+          <label>-</label>
+          <onleft>55</onleft>
+          <onright>55</onright>
+          <onup>611</onup>
+          <ondown>3</ondown>
+        </control>
+        <control type="button" id="3">
+          <description>Sort by button</description>
+          <posx>0</posx>
+          <posy>60</posy>
+          <include>ButtonCommonValues</include>
+          <label>103</label>
+          <onleft>55</onleft>
+          <onright>4</onright>
+          <onup>2</onup>
+          <ondown>5</ondown>
+        </control>
+        <control type="togglebutton" id="4">
+          <description>Sort asc</description>
+          <posx>330</posx>
+          <posy>80</posy>
+          <label>-</label>
+          <onleft>3</onleft>
+          <onright>55</onright>
+          <onup>2</onup>
+          <ondown>5</ondown>
+        </control>
+        <control type="label">
+          <posx>0</posx>
+          <posy>135</posy>
+          <width>375</width>
+          <height>68</height>
+          <font>cirrus_24</font>
+          <label>$LOCALIZE[24002]</label>
+          <textcolor>dialogheader</textcolor>
+          <align>center</align>
+          <aligny>center</aligny>
+        </control>
+        <control type="radiobutton" id="5">
+          <description>Enable auto-updates</description>
+          <posx>0</posx>
+          <posy>195</posy>
+          <include>ButtonCommonValues</include>
+          <label>24063</label>
+          <onleft>55</onleft>
+          <onright>55</onright>
+          <onup>3</onup>
+          <ondown>6</ondown>
+        </control>
+        <control type="radiobutton" id="6">
+          <description>No notifications</description>
+          <posx>0</posx>
+          <posy>255</posy>
+          <include>ButtonCommonValues</include>
+          <label>25000</label>
+          <onleft>55</onleft>
+          <onright>55</onright>
+          <onup>5</onup>
+          <ondown>610</ondown>
+        </control>
+      </control>
+    </control>
+  </controls>
+</window>

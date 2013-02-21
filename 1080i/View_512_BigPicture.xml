@@ -1,0 +1,315 @@
+﻿<includes>
+  <include name="View_512_BigPicture">
+  
+	<control type="image">
+	  <posx>0</posx>
+	  <posy>0</posy>
+	  <width>1920</width>
+	  <height>1080</height>
+	  <texture>skin/slidermenu.png</texture>
+	  <visible>Control.IsVisible(512)</visible>
+	</control>
+	<control type="image">
+	  <posx>0</posx>
+	  <posy>0</posy>
+	  <width>1920</width>
+	  <height>1080</height>
+	  <texture>skin/tvsonstiges.png</texture>
+	  <visible>Control.IsVisible(512)</visible>
+	</control>
+
+    <control type="group">
+      <visible>Control.IsVisible(512)</visible>
+      <control type="list" id="512">
+        <posx>162</posx>
+        <posy>120</posy>
+        <width>1596</width>
+        <height>864</height>
+        <onleft>512</onleft>
+		<onright>512</onright>
+		<onup>512</onup>
+		<ondown>60</ondown>
+        <viewtype label="Big Picture">list</viewtype>
+        <pagecontrol>60</pagecontrol>
+        <scrolltime tween="quadratic" easing="out">600</scrolltime>
+        <preloaditems>2</preloaditems>
+		<focusposition>-</focusposition>
+		<orientation>horizontal</orientation>
+        <itemlayout height="600" width="1130">
+		  <control type="image">
+			<posx>250</posx>
+			<posy>0</posy>
+			<width>1100</width>
+			<height>800</height>
+			<texture background="true">$INFO[ListItem.FilenameAndPath]</texture>
+			<bordertexture border="10">Thumbborder.png</bordertexture>
+            <bordersize>10</bordersize>
+			<colordiffuse>FF302e2e</colordiffuse>
+			<aspectratio>scale</aspectratio>
+		  </control>
+        </itemlayout>
+        <focusedlayout height="600" width="1130">
+		  <control type="image">
+			<posx>250</posx>
+			<posy>0</posy>
+			<width>1100</width>
+			<height>800</height>
+			<texture background="true">$INFO[ListItem.FilenameAndPath]</texture>
+			<bordertexture border="10">Thumbborder.png</bordertexture>
+            <bordersize>10</bordersize>
+			<aspectratio>scale</aspectratio>
+		  </control>
+        </focusedlayout>
+      </control>
+				
+	  <control type="group" id="30185">
+	    <animation effect="zoom" start="100" end="0" time="1000" delay="250" reversible="false" condition="!Control.HasFocus(3085)">Conditional</animation>
+		<animation effect="fade" start="0" end="100" time="1000" delay="500" reversible="false" condition="Control.HasFocus(3085)">Conditional</animation>
+		<animation effect="fade" start="100" end="50,50" time="450" delay="0" reversible="false">WindowClose</animation>
+        <posx>450</posx>
+        <posy>190</posy>
+		<visible>Control.IsVisible(512)</visible>
+	  <control type="image">
+		<posx>0</posx>
+		<posy>-20</posy>
+		<width>1000</width>
+		<height>700</height>
+		<texture>skin/info_hg3.png</texture>
+		<visible>Control.IsVisible(512)</visible>
+	  </control>
+	  <control type="label">
+        <description>Bild</description>
+        <posx>80</posx>
+        <posy>50</posy>
+        <width>550</width>
+        <height>22</height>
+        <label>$LOCALIZE[90008]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>primal_22_Bold</font>
+        <textcolor>white</textcolor>
+      </control>	
+      <control type="label">
+        <description>Title txt</description>
+        <posx>80</posx>
+        <posy>95</posy>
+        <width>550</width>
+        <height>22</height>
+        <label>$INFO[ListItem.Label,[COLOR=blue]$LOCALIZE[90003][/COLOR] - ]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>primal_22</font>
+        <textcolor>white</textcolor>
+        <shadowcolor>black</shadowcolor>
+      </control>
+      <control type="label">
+        <description>Date time txt</description>
+        <posx>80</posx>
+        <posy>140</posy>
+        <width>550</width>
+        <height>22</height>
+        <label>$INFO[ListItem.PictureDateTime,[COLOR=blue]$LOCALIZE[31326][/COLOR] - ]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>primal_22</font>
+        <textcolor>white</textcolor>
+        <shadowcolor>black</shadowcolor>
+      </control>
+      <control type="label">
+        <description>Resolution txt</description>
+        <posx>80</posx>
+        <posy>185</posy>
+        <width>550</width>
+        <height>22</height>
+        <label>$INFO[ListItem.PictureResolution,[COLOR=blue]$LOCALIZE[31327][/COLOR] - ]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>primal_22</font>
+        <textcolor>white</textcolor>
+        <shadowcolor>black</shadowcolor>
+      </control>
+	  <control type="label"><!-- ============ Kamera ============= -->
+        <description>Kamera</description>
+        <posx>80</posx>
+        <posy>240</posy>
+        <width>550</width>
+        <height>22</height>
+        <label>$LOCALIZE[90007]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>primal_22_Bold</font>
+        <textcolor>white</textcolor>
+      </control>
+	  <control type="label">
+        <description>Cam</description>
+        <posx>80</posx>
+        <posy>285</posy>
+        <width>550</width>
+        <height>22</height>
+        <label>$INFO[ListItem.PictureCamMake,[COLOR=blue]$LOCALIZE[90005][/COLOR] - ]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>primal_22</font>
+        <textcolor>white</textcolor>
+        <shadowcolor>black</shadowcolor>
+      </control>
+	  <control type="label">
+        <description>CamModel</description>
+        <posx>80</posx>
+        <posy>330</posy>
+        <width>550</width>
+        <height>22</height>
+        <label>$INFO[ListItem.PictureCamModel,[COLOR=blue]$LOCALIZE[90002][/COLOR] - ]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>primal_22</font>
+        <textcolor>white</textcolor>
+        <shadowcolor>black</shadowcolor>
+      </control>
+	  <control type="label">
+        <description>Blende</description>
+        <posx>80</posx>
+        <posy>375</posy>
+        <width>550</width>
+        <height>22</height>
+        <label>$INFO[ListItem.PictureAperture,[COLOR=blue]$LOCALIZE[90001][/COLOR] - ]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>primal_22</font>
+        <textcolor>white</textcolor>
+        <shadowcolor>black</shadowcolor>
+      </control>
+	  <control type="label">
+        <description>Blitz</description>
+        <posx>80</posx>
+        <posy>420</posy>
+        <width>550</width>
+        <height>200</height>
+        <label>$INFO[ListItem.PictureExpMode,[COLOR=blue]$LOCALIZE[90009][/COLOR] - ]</label>
+        <align>left</align>
+        <font>primal_22</font>
+        <textcolor>white</textcolor>
+		<shadowcolor>black</shadowcolor>
+      </control>
+	  <control type="label">
+        <description>Belichtungszeit</description>
+        <posx>80</posx>
+        <posy>465</posy>
+        <width>550</width>
+        <height>200</height>
+        <label>$INFO[ListItem.PictureExpTime,[COLOR=blue]$LOCALIZE[90006][/COLOR] - ]</label>
+        <align>left</align>
+        <font>primal_22</font>
+        <textcolor>white</textcolor>
+		<shadowcolor>black</shadowcolor>
+      </control>
+	   <control type="label">
+        <description>Belichtungszeit</description>
+        <posx>80</posx>
+        <posy>510</posy>
+        <width>550</width>
+        <height>200</height>
+        <label>$INFO[ListItem.PictureFocusDist,[COLOR=blue]$LOCALIZE[90006][/COLOR] - ]</label>
+        <align>left</align>
+        <font>primal_22</font>
+        <textcolor>white</textcolor>
+		<shadowcolor>black</shadowcolor>
+      </control>
+	  <control type="label">
+        <description>ISO-Filmempfindlichkeit</description>
+        <posx>80</posx>
+        <posy>555</posy>
+        <width>550</width>
+        <height>200</height>
+        <label>$INFO[ListItem.PictureIso,[COLOR=blue]$LOCALIZE[90010][/COLOR] - ]</label>
+        <align>left</align>
+        <font>primal_22</font>
+        <textcolor>white</textcolor>
+		<shadowcolor>black</shadowcolor>
+      </control>
+	  </control>
+	  <!--<control type="group"> 
+        <posx>0</posx>
+        <posy>720</posy>
+	  <control type="label">
+        <description>Kamera</description>
+        <posx>50</posx>
+        <posy>0</posy>
+        <width>550</width>
+        <height>22</height>
+        <label>$LOCALIZE[90011]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>primal_22_Bold</font>
+        <textcolor>white</textcolor>
+		<visible>ListItem.PictureGpsLat</visible>
+      </control>
+	  <control type="label">
+        <description>GpsLat</description>
+        <posx>50</posx>
+        <posy>285</posy>
+        <width>550</width>
+        <height>200</height>
+        <label>$INFO[ListItem.PictureGpsLat,[COLOR=blue]$LOCALIZE[90012][/COLOR] - ]</label>
+        <align>left</align>
+        <font>primal_22</font>
+        <textcolor>white</textcolor>
+		<shadowcolor>black</shadowcolor>
+      </control>
+	  <control type="label">
+        <description>GpsLon</description>
+        <posx>50</posx>
+        <posy>285</posy>
+        <width>550</width>
+        <height>200</height>
+        <label>$INFO[ListItem.PictureGpsLon,[COLOR=blue]$LOCALIZE[90013][/COLOR] - ]</label>
+        <align>left</align>
+        <font>primal_22</font>
+        <textcolor>white</textcolor>
+		<shadowcolor>black</shadowcolor>
+      </control>
+	  <control type="label">
+        <description>GpsAlt</description>
+        <posx>50</posx>
+        <posy>285</posy>
+        <width>550</width>
+        <height>200</height>
+        <label>$INFO[ListItem.PictureGpsAlt,[COLOR=blue]$LOCALIZE[90014][/COLOR] - ]</label>
+        <align>left</align>
+        <font>primal_22</font>
+        <textcolor>white</textcolor>
+		<shadowcolor>black</shadowcolor>
+      </control>
+	  </control>-->
+      <control type="scrollbar" id="60">
+        <posx>270</posx>
+        <posy>930</posy>
+        <width>1400</width>
+        <height>18</height>
+        <texturesliderbackground border="10,0,10,0">ScrollBarH.png</texturesliderbackground>
+		<textureslidernib>ScrollBarH_bar.png</textureslidernib>
+		<textureslidernibfocus>ScrollBarH.png</textureslidernibfocus>
+        <onup>512</onup>
+		<ondown>2</ondown>
+        <showonepage>true</showonepage>
+        <orientation>horizontal</orientation>
+        <visible>Control.IsVisible(512)</visible>
+      </control>
+      <control type="group">
+        <posx>60</posx>
+        <posy>120</posy>
+        <control type="image">
+          <posx>-14</posx>
+          <posy>52</posy>
+          <width>1095</width>
+          <height>834</height>
+          <texture background="true">-</texture>
+          <fadetime>200</fadetime>
+          <aspectratio aligny="center">keep</aspectratio>
+          <bordertexture border="8">ThumbShadow.png</bordertexture>
+          <bordersize>9</bordersize>
+        </control>
+      </control>
+    </control>
+  </include>
+</includes>

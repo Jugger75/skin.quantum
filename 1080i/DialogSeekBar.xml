@@ -1,0 +1,850 @@
+﻿<window id="115">
+  <defaultcontrol>1</defaultcontrol>
+  <allowoverlay>yes</allowoverlay>
+  <visible>Window.IsActive(fullscreenvideo) + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding] + !Window.IsVisible(142) + !Window.IsVisible(2901) + !Window.IsVisible(script-XBMC-Subtitles-main.xml) + !Skin.HasSetting(noinfopaused)</visible>
+  <animation effect="fade" start="0" end="100" time="300" tween="quadratic" easing="out">WindowOpen</animation>
+  <animation effect="fade" start="100" end="0" time="300" delay="150" tween="quadratic" easing="out">WindowClose</animation>
+  <coordinates>
+    <system>1</system>
+    <posx>0</posx>
+    <posy>248</posy>
+  </coordinates>
+  <controls>
+    <control type="group">
+      <control type="image">
+        <!-- background -->
+        <posx>342</posx>
+        <posy>360</posy>
+        <width>1236</width>
+        <height>450</height>
+        <aspectratio>stretch</aspectratio>
+        <texture>skin/info_hg_osd.png</texture>
+        <visible>!VideoPlayer.Content(Files)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="image">
+        <posx>342</posx>
+        <posy>495</posy>
+        <width>1236</width>
+        <height>285</height>
+        <aspectratio>stretch</aspectratio>
+        <texture>skin/info_hg_osd.png</texture>
+        <visible>VideoPlayer.Content(Files) | Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="image">
+        <description>Movie cover image</description>
+        <posx>366</posx>
+        <posy>390</posy>
+        <width>240</width>
+        <height>360</height>
+        <fadetime>200</fadetime>
+        <animation effect="fade" time="900">VisibleChange</animation>
+        <texture background="true">$INFO[VideoPlayer.Cover]</texture>
+        <bordertexture border="6">ContentPanelvertical.png</bordertexture>
+        <bordersize>6</bordersize>
+        <aspectratio aligny="bottom">stretch</aspectratio>
+        <visible>VideoPlayer.Content(Movies)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="image">
+        <!-- STARS-->
+        <description>IMDB rating</description>
+        <posx>372</posx>
+        <posy>758</posy>
+        <width>135</width>
+        <height>28</height>
+        <texture>$INFO[Player.StarRating]</texture>
+        <colordiffuse>FFFFFFFF</colordiffuse>
+        <visible>VideoPlayer.Content(Movies) + !Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="image">
+        <!-- STARS TV-->
+        <description>IMDB rating</description>
+        <posx>372</posx>
+        <posy>758</posy>
+        <width>135</width>
+        <height>28</height>
+        <texture>$INFO[Player.StarRating]</texture>
+        <colordiffuse>FFFFFFFF</colordiffuse>
+        <visible>VideoPlayer.Content(Episodes) + !Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="image">
+        <description>TV Show Poster cover image</description>
+        <posx>366</posx>
+        <posy>390</posy>
+        <width>240</width>
+        <height>360</height>
+        <fadetime>200</fadetime>
+        <animation effect="fade" time="900">VisibleChange</animation>
+        <texture fallback="blank.png">$INFO[Player.FolderPath]../poster.jpg</texture>
+        <bordertexture border="6">ContentPanelvertical.png</bordertexture>
+        <bordersize>6</bordersize>
+        <aspectratio aligny="bottom">stretch</aspectratio>
+        <visible>VideoPlayer.Content(Episodes)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible>
+      </control>
+      <!-- NOW PLAYING INFO LiveTV -->
+      <control type="image">
+        <description>LiveTV Channel Logo</description>
+        <posx>366</posx>
+        <posy>390</posy>
+        <width>150</width>
+        <height>150</height>
+        <fadetime>200</fadetime>
+        <animation effect="fade" time="900">VisibleChange</animation>
+        <texture background="true">$INFO[VideoPlayer.Cover]</texture>
+        <bordertexture border="6">ContentPanelVertical.png</bordertexture>
+        <bordersize>6</bordersize>
+        <aspectratio aligny="bottom">keep</aspectratio>
+        <visible>VideoPlayer.Content(LiveTV)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible> --&gt;
+			</control>
+      <control type="progress">
+        <description>Progressbar</description>
+        <posx>622</posx>
+        <posy>765</posy>
+        <width>915</width>
+        <height>21</height>
+        <info>Player.Progress</info>
+        <visible>!VideoPlayer.Content(Files)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="slider" id="401">
+        <description>Seek Slider</description>
+        <posx>578</posx>
+        <posy>760</posy>
+        <width>915</width>
+        <height>18</height>
+        <texturesliderbar>seekslider.png</texturesliderbar>
+        <textureslidernib>osd_slider_nib.png</textureslidernib>
+        <textureslidernibfocus>osd_slider_nib.png</textureslidernibfocus>
+        <visible>Player.Seeking</visible>
+        <visible>!VideoPlayer.Content(Files)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="progress">
+        <description>Progressbar</description>
+        <posx>375</posx>
+        <posy>738</posy>
+        <width>1170</width>
+        <height>21</height>
+        <info>Player.Progress</info>
+        <visible>VideoPlayer.Content(Files) | Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="slider" id="401">
+        <description>Seek Slider</description>
+        <posx>330</posx>
+        <posy>584</posy>
+        <width>1170</width>
+        <height>18</height>
+        <texturesliderbar>seekslider.png</texturesliderbar>
+        <textureslidernib>osd_slider_nib.png</textureslidernib>
+        <textureslidernibfocus>osd_slider_nib.png</textureslidernibfocus>
+        <visible>Player.Seeking</visible>
+        <visible>VideoPlayer.Content(Files) | Skin.HasSetting(slimseek)</visible>
+      </control>
+    </control>
+    <control type="group">
+      <posx>772</posx>
+      <posy>270</posy>
+      <control type="grouplist">
+        <visible>!VideoPlayer.Content(Files)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible>
+        <description>Media Codec Flagging Images</description>
+        <posx>-158</posx>
+        <posy>218</posy>
+        <width>810</width>
+        <align>left</align>
+        <itemgap>1</itemgap>
+        <orientation>horizontal</orientation>
+        <control type="image">
+          <description>Video rez Image</description>
+          <width>112</width>
+          <height>72</height>
+          <aspectratio>keep</aspectratio>
+          <texture>$INFO[VideoPlayer.VideoResolution,special://skin/extras/flagging/video/,.png]</texture>
+        </control>
+        <control type="image">
+          <description>Video rez Image</description>
+          <width>112</width>
+          <height>72</height>
+          <aspectratio>keep</aspectratio>
+          <texture>$INFO[VideoPlayer.VideoCodec,special://skin/extras/flagging/video/,.png]</texture>
+        </control>
+        <control type="image">
+          <description>Audio Codec Image</description>
+          <width>112</width>
+          <height>72</height>
+          <aspectratio>keep</aspectratio>
+          <texture>$INFO[VideoPlayer.AudioCodec,special://skin/extras/flagging/audio/,.png]</texture>
+        </control>
+        <control type="image">
+          <description>Audio Channels Image</description>
+          <width>112</width>
+          <height>72</height>
+          <aspectratio>keep</aspectratio>
+          <texture>$INFO[VideoPlayer.AudioChannels,special://skin/extras/flagging/audio/,.png]</texture>
+        </control>
+      </control>
+      <control type="label">
+        <posx>-150</posx>
+        <posy>120</posy>
+        <width>825</width>
+        <height>45</height>
+        <label>$INFO[VideoPlayer.TVShowTitle]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <scroll>true</scroll>
+        <font>primal_24_Bold</font>
+        <textcolor>white</textcolor>
+        <visible>VideoPlayer.Content(Episodes)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible>
+      </control>
+      <!-- <control type="label">
+					<posx>-100</posx>
+					<posy>110</posy>
+					<width>550</width>
+					<height>25</height>
+					<label>$INFO[VideoPlayer.Title]</label>
+					<align>left</align>
+					<aligny>center</aligny>
+					<scroll>true</scroll>
+					<font>primal_22</font>
+					<textcolor>white</textcolor>
+					<visible>VideoPlayer.Content(Episodes)</visible>
+					<visible>!Skin.HasSetting(slimseek)</visible>
+				</control> -->
+      <control type="label">
+        <posx>-38</posx>
+        <posy>285</posy>
+        <width>450</width>
+        <height>45</height>
+        <label>$INFO[VideoPlayer.TVShowTitle]</label>
+        <align>center</align>
+        <aligny>center</aligny>
+        <scroll>true</scroll>
+        <font>primal_24</font>
+        <textcolor>white</textcolor>
+        <visible>VideoPlayer.Content(Episodes)</visible>
+        <visible>Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="label">
+        <posx>-150</posx>
+        <posy>165</posy>
+        <width>825</width>
+        <height>45</height>
+        <label>$LOCALIZE[31063] $INFO[VideoPlayer.Season]  $LOCALIZE[31064] $INFO[VideoPlayer.Episode]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <scroll>true</scroll>
+        <font>primal_22_Bold</font>
+        <textcolor>white</textcolor>
+        <visible>VideoPlayer.Content(Episodes)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="label">
+        <posx>-38</posx>
+        <posy>330</posy>
+        <width>450</width>
+        <height>45</height>
+        <label>$LOCALIZE[31063] $INFO[VideoPlayer.Season]  $LOCALIZE[31064] $INFO[VideoPlayer.Episode]</label>
+        <align>center</align>
+        <aligny>center</aligny>
+        <scroll>true</scroll>
+        <font>primal_22_Bold</font>
+        <textcolor>white</textcolor>
+        <visible>VideoPlayer.Content(Episodes)</visible>
+        <visible>Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="label">
+        <posx>0</posx>
+        <posy>52</posy>
+        <width>1020</width>
+        <height>45</height>
+        <label>$INFO[VideoPlayer.Artist]$INFO[VideoPlayer.Album, - ]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>primal_20</font>
+        <textcolor>white</textcolor>
+        <visible>VideoPlayer.Content(MusicVideos)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="label">
+        <posx>-38</posx>
+        <posy>345</posy>
+        <width>450</width>
+        <height>45</height>
+        <label>$INFO[VideoPlayer.Artist]$INFO[VideoPlayer.Album, - ]</label>
+        <align>center</align>
+        <aligny>center</aligny>
+        <font>primal_20</font>
+        <textcolor>white</textcolor>
+        <visible>VideoPlayer.Content(MusicVideos)</visible>
+        <visible>Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="label">
+        <posx>-150</posx>
+        <posy>120</posy>
+        <width>825</width>
+        <height>45</height>
+        <label>$INFO[VideoPlayer.Title]</label>
+        <scroll>true</scroll>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>primal_24_Bold</font>
+        <textcolor>white</textcolor>
+        <visible>VideoPlayer.Content(Movies)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="label">
+        <posx>-150</posx>
+        <posy>165</posy>
+        <width>825</width>
+        <height>45</height>
+        <label>$INFO[VideoPlayer.Year]</label>
+        <scroll>true</scroll>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>primal_22_Bold</font>
+        <textcolor>white</textcolor>
+        <visible>VideoPlayer.Content(Movies)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible>
+      </control>
+      <!-- <control type="label">
+					<posx>-265</posx>
+					<posy>5</posy>
+					<width>780</width>
+					<height>30</height>
+					<label>$INFO[VideoPlayer.Title]</label>
+					<scroll>true</scroll>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>primal_24</font>
+					<textcolor>white</textcolor>
+					<visible>VideoPlayer.Content(Movies)</visible>
+					<visible>Skin.HasSetting(slimseek)</visible>
+				</control> -->
+      <control type="largeimage">
+        <description>TV Show Image</description>
+        <posx>300r</posx>
+        <posy>394</posy>
+        <width>300</width>
+        <height>168</height>
+        <texture fallback="blank.png">$INFO[Player.FolderPath]../clearart.png</texture>
+        <aspectratio>keep</aspectratio>
+        <visible>Skin.HasSetting(clearart) + VideoPlayer.Content(episodes)</visible>
+      </control>
+      <!-- <control type="largeimage">
+					<description>Movie Image Logo</description>
+					<posx>324r</posx>
+					<posy>382</posy> 
+					<width>300</width>
+					<height>168</height>
+					<texture fallback="blank.png">$INFO[Player.FolderPath]logo.png</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>VideoPlayer.Content(movies)</visible>
+				</control> -->
+      <control type="label">
+        <posx>-398</posx>
+        <posy>330</posy>
+        <width>1170</width>
+        <height>45</height>
+        <label>$LOCALIZE[41260] $INFO[VideoPlayer.Director]</label>
+        <scroll>true</scroll>
+        <align>center</align>
+        <aligny>center</aligny>
+        <font>primal_18</font>
+        <textcolor>white</textcolor>
+        <visible>VideoPlayer.Content(Movies)</visible>
+        <visible>Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="label">
+        <posx>-38</posx>
+        <posy>375</posy>
+        <width>450</width>
+        <height>30</height>
+        <label>$LOCALIZE[572]: $INFO[VideoPlayer.Studio]</label>
+        <scroll>true</scroll>
+        <align>center</align>
+        <aligny>center</aligny>
+        <font>primal_18</font>
+        <textcolor>white</textcolor>
+        <visible>VideoPlayer.Content(Movies) | VideoPlayer.Content(episodes)</visible>
+        <visible>Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="label">
+        <posx>0</posx>
+        <posy>112</posy>
+        <width>795</width>
+        <height>45</height>
+        <label>$INFO[VideoPlayer.Title]</label>
+        <scroll>true</scroll>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>primal_30</font>
+        <textcolor>white</textcolor>
+        <visible>VideoPlayer.Content(LiveTV)</visible>
+      </control>
+      <control type="label">
+        <posx>-398</posx>
+        <posy>285</posy>
+        <width>1170</width>
+        <height>45</height>
+        <label>$INFO[VideoPlayer.Title]</label>
+        <scroll>true</scroll>
+        <align>center</align>
+        <aligny>center</aligny>
+        <font>primal_24</font>
+        <textcolor>white</textcolor>
+        <visible>VideoPlayer.Content(Files) | Skin.HasSetting(slimseek)</visible>
+        <visible>!VideoPlayer.Content(episodes)</visible>
+      </control>
+      <control type="label">
+        <description>Playing Label</description>
+        <posx>-398</posx>
+        <posy>236</posy>
+        <width>1170</width>
+        <height>38</height>
+        <align>center</align>
+        <aligny>center</aligny>
+        <font>primal_22_Bold</font>
+        <textcolor>white</textcolor>
+        <label>$INFO[VideoPlayer.Year]</label>
+        <visible>Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="label">
+        <description>Paused Label</description>
+        <posx>-398</posx>
+        <posy>412</posy>
+        <width>1170</width>
+        <height>52</height>
+        <align>center</align>
+        <aligny>center</aligny>
+        <font>primal_24_Bold</font>
+        <textcolor>white</textcolor>
+        <label>31043</label>
+        <visible>[Player.Paused + !Player.Caching] + !Player.Seeking</visible>
+        <visible>VideoPlayer.Content(Files) | Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="label">
+        <description>Cache Label</description>
+        <posx>-398</posx>
+        <posy>412</posy>
+        <width>1170</width>
+        <height>52</height>
+        <align>center</align>
+        <aligny>center</aligny>
+        <font>primal_22_Bold</font>
+        <textcolor>white</textcolor>
+        <label>$LOCALIZE[15107] $INFO[Player.CacheLevel]%</label>
+        <visible>[Player.Paused + Player.Caching] + !Player.Seeking</visible>
+        <visible>VideoPlayer.Content(Files) | Skin.HasSetting(slimseek)</visible>
+      </control>
+      <!-- Plot and other Stuff when Paused -->
+      <control type="group">
+        <posx>0</posx>
+        <posy>0</posy>
+        <control type="textbox">
+          <posx>-150</posx>
+          <posy>300</posy>
+          <width>900</width>
+          <height>100</height>
+          <align>left</align>
+          <aligny>bottom</aligny>
+          <label>$INFO[VideoPlayer.Plot ]</label>
+          <autoscroll time="3000" delay="10000" repeat="5000"></autoscroll>
+          <font>primal_20</font>
+          <textcolor>white</textcolor>
+          <visible>!VideoPlayer.Content(Files)</visible>
+          <visible>!Skin.HasSetting(slimseek)</visible>
+          <visible>!Skin.HasSetting(noplotonpause)</visible>
+        </control>
+        <!-- el_Paraguayo Mod -->
+        <control type="label">
+          <description>System Time</description>
+          <posx>765</posx>
+          <posy>120</posy>
+          <width>765</width>
+          <height>30</height>
+          <label>$INFO[System.Time]</label>
+          <align>right</align>
+          <aligny>center</aligny>
+          <font>primal_20</font>
+          <textcolor>white</textcolor>
+          <visible>!VideoPlayer.Content(Files)</visible>
+          <visible>!Skin.HasSetting(slimseek)</visible>
+        </control>
+        <control type="label">
+          <description>System Time</description>
+          <posx>765</posx>
+          <posy>248</posy>
+          <width>765</width>
+          <height>30</height>
+          <label>$INFO[System.Time]</label>
+          <align>right</align>
+          <aligny>center</aligny>
+          <font>primal_18</font>
+          <textcolor>white</textcolor>
+          <visible>Skin.HasSetting(slimseek) | VideoPlayer.Content(Files)</visible>
+        </control>
+        <control type="label">
+          <description>Current Video End Time</description>
+          <posx>765</posx>
+          <posy>450</posy>
+          <width>765</width>
+          <height>30</height>
+          <label>$LOCALIZE[31049] $INFO[Player.FinishTime]</label>
+          <align>right</align>
+          <aligny>center</aligny>
+          <font>primal_20</font>
+          <textcolor>white</textcolor>
+          <visible>!VideoPlayer.Content(Files)</visible>
+          <visible>!Skin.HasSetting(slimseek)</visible>
+        </control>
+        <control type="label">
+          <description>Current Video End Time</description>
+          <posx>765</posx>
+          <posy>428</posy>
+          <width>765</width>
+          <height>30</height>
+          <label>$LOCALIZE[31049] $INFO[Player.FinishTime]</label>
+          <align>right</align>
+          <aligny>center</aligny>
+          <font>primal_20</font>
+          <textcolor>white</textcolor>
+          <visible>VideoPlayer.Content(Files) | Skin.HasSetting(slimseek)</visible>
+        </control>
+        <control type="label">
+          <description>Elapsed Time Label</description>
+          <posx>-150</posx>
+          <posy>450</posy>
+          <width>765</width>
+          <height>30</height>
+          <font>primal_20</font>
+          <textcolor>white</textcolor>
+          <align>left</align>
+          <aligny>center</aligny>
+          <label>$INFO[Player.Time] - $INFO[Player.Duration]</label>
+          <visible>!VideoPlayer.Content(Files)</visible>
+          <visible>!Skin.HasSetting(slimseek)</visible>
+        </control>
+        <control type="label">
+          <description>Player Times</description>
+          <posx>-393</posx>
+          <posy>428</posy>
+          <width>750</width>
+          <height>30</height>
+          <label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>primal_20</font>
+          <textcolor>white</textcolor>
+          <visible>VideoPlayer.Content(Files) | Skin.HasSetting(slimseek)</visible>
+        </control>
+      </control>
+      <control type="group">
+        <!-- images for ff rew pause etc -->
+        <posx>510</posx>
+        <posy>188</posy>
+        <visible>!VideoPlayer.Content(Files)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible>
+        <control type="image">
+          <posx>0</posx>
+          <posy>0</posy>
+          <width>98</width>
+          <height>82</height>
+          <texture>OSDRewindNF.png</texture>
+          <visible>Player.Rewinding</visible>
+        </control>
+        <control type="image">
+          <posx>0</posx>
+          <posy>0</posy>
+          <width>98</width>
+          <height>82</height>
+          <texture>OSDForwardNF.png</texture>
+          <visible>Player.Forwarding</visible>
+        </control>
+        <control type="image">
+          <posx>129</posx>
+          <posy>0</posy>
+          <width>146</width>
+          <height>82</height>
+          <texture>OSD2x.png</texture>
+          <visible>Player.Rewinding2x</visible>
+        </control>
+        <control type="image">
+          <posx>129</posx>
+          <posy>0</posy>
+          <width>146</width>
+          <height>82</height>
+          <texture>OSD4x.png</texture>
+          <visible>Player.Rewinding4x</visible>
+        </control>
+        <control type="image">
+          <posx>129</posx>
+          <posy>0</posy>
+          <width>146</width>
+          <height>82</height>
+          <texture>OSD8x.png</texture>
+          <visible>Player.Rewinding8x</visible>
+        </control>
+        <control type="image">
+          <posx>129</posx>
+          <posy>0</posy>
+          <width>146</width>
+          <height>82</height>
+          <texture>OSD16x.png</texture>
+          <visible>Player.Rewinding16x</visible>
+        </control>
+        <control type="image">
+          <posx>129</posx>
+          <posy>0</posy>
+          <width>146</width>
+          <height>82</height>
+          <texture>OSD32x.png</texture>
+          <visible>Player.Rewinding32x</visible>
+        </control>
+        <control type="image">
+          <posx>129</posx>
+          <posy>0</posy>
+          <width>146</width>
+          <height>82</height>
+          <texture>OSD2x.png</texture>
+          <visible>Player.Forwarding2x</visible>
+        </control>
+        <control type="image">
+          <posx>129</posx>
+          <posy>0</posy>
+          <width>146</width>
+          <height>82</height>
+          <texture>OSD4x.png</texture>
+          <visible>Player.Forwarding4x</visible>
+        </control>
+        <control type="image">
+          <posx>129</posx>
+          <posy>0</posy>
+          <width>146</width>
+          <height>82</height>
+          <texture>OSD8x.png</texture>
+          <visible>Player.Forwarding8x</visible>
+        </control>
+        <control type="image">
+          <posx>129</posx>
+          <posy>0</posy>
+          <width>146</width>
+          <height>82</height>
+          <texture>OSD16x.png</texture>
+          <visible>Player.Forwarding16x</visible>
+        </control>
+        <control type="image">
+          <posx>129</posx>
+          <posy>0</posy>
+          <width>146</width>
+          <height>82</height>
+          <texture>OSD32x.png</texture>
+          <visible>Player.Forwarding32x</visible>
+        </control>
+      </control>
+      <control type="group">
+        <!-- images for ff rew pause etc -->
+        <posx>60</posx>
+        <posy>408</posy>
+        <visible>VideoPlayer.Content(Files) | Skin.HasSetting(slimseek)</visible>
+        <control type="image">
+          <posx>60</posx>
+          <posy>15</posy>
+          <width>52</width>
+          <height>44</height>
+          <texture>OSDRewindNF.png</texture>
+          <visible>Player.Rewinding</visible>
+        </control>
+        <control type="image">
+          <posx>60</posx>
+          <posy>15</posy>
+          <width>52</width>
+          <height>44</height>
+          <texture>OSDForwardNF.png</texture>
+          <visible>Player.Forwarding</visible>
+        </control>
+        <control type="image">
+          <posx>129</posx>
+          <posy>0</posy>
+          <width>100</width>
+          <height>57</height>
+          <texture>OSD2x.png</texture>
+          <visible>Player.Rewinding2x</visible>
+        </control>
+        <control type="image">
+          <posx>129</posx>
+          <posy>0</posy>
+          <width>100</width>
+          <height>57</height>
+          <texture>OSD4x.png</texture>
+          <visible>Player.Rewinding4x</visible>
+        </control>
+        <control type="image">
+          <posx>129</posx>
+          <posy>0</posy>
+          <width>100</width>
+          <height>57</height>
+          <texture>OSD8x.png</texture>
+          <visible>Player.Rewinding8x</visible>
+        </control>
+        <control type="image">
+          <posx>129</posx>
+          <posy>0</posy>
+          <width>100</width>
+          <height>57</height>
+          <texture>OSD16x.png</texture>
+          <visible>Player.Rewinding16x</visible>
+        </control>
+        <control type="image">
+          <posx>129</posx>
+          <posy>0</posy>
+          <width>100</width>
+          <height>57</height>
+          <texture>OSD32x.png</texture>
+          <visible>Player.Rewinding32x</visible>
+        </control>
+        <control type="image">
+          <posx>129</posx>
+          <posy>0</posy>
+          <width>100</width>
+          <height>57</height>
+          <texture>OSD2x.png</texture>
+          <visible>Player.Forwarding2x</visible>
+        </control>
+        <control type="image">
+          <posx>129</posx>
+          <posy>0</posy>
+          <width>100</width>
+          <height>57</height>
+          <texture>OSD4x.png</texture>
+          <visible>Player.Forwarding4x</visible>
+        </control>
+        <control type="image">
+          <posx>129</posx>
+          <posy>0</posy>
+          <width>100</width>
+          <height>57</height>
+          <texture>OSD8x.png</texture>
+          <visible>Player.Forwarding8x</visible>
+        </control>
+        <control type="image">
+          <posx>129</posx>
+          <posy>0</posy>
+          <width>100</width>
+          <height>57</height>
+          <texture>OSD16x.png</texture>
+          <visible>Player.Forwarding16x</visible>
+        </control>
+        <control type="image">
+          <posx>129</posx>
+          <posy>0</posy>
+          <width>100</width>
+          <height>57</height>
+          <texture>OSD32x.png</texture>
+          <visible>Player.Forwarding32x</visible>
+        </control>
+      </control>
+      <!-- 	<control type="image">
+				<description>TV Show Image</description>
+				<posx>925</posx>
+				<posy>-200</posy> 
+				<width>356</width>
+				<height>200</height>
+				<align>right</align>
+				 <texture background="true">$INFO[Player.FolderPath]/clearart.png</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>Skin.HasSetting(clearart) + VideoPlayer.Content(episodes)</visible>
+			</control>
+			<control type="image">
+				<description>TV Show Image</description>
+				<posx>925</posx>
+				<posy>-200</posy> 
+				<width>356</width>
+				<height>200</height>
+				<align>right</align>
+				 <texture background="true">$INFO[Player.FolderPath]../clearart.png</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>Skin.HasSetting(clearart) + VideoPlayer.Content(episodes)</visible>
+			</control> -->
+      <control type="group">
+        <!-- Center labels -->
+        <posx>465</posx>
+        <posy>225</posy>
+        <align>center</align>
+        <control type="label">
+          <description>Paused Label</description>
+          <posx>0</posx>
+          <posy>-3</posy>
+          <width>300</width>
+          <height>52</height>
+          <align>center</align>
+          <aligny>center</aligny>
+          <font>primal_24_Bold</font>
+          <textcolor>white</textcolor>
+          <label>31043</label>
+          <visible>[Player.Paused + !Player.Caching] + !Player.Seeking</visible>
+          <visible>!VideoPlayer.Content(Files) + !Skin.HasSetting(slimseek)</visible>
+        </control>
+        <control type="label">
+          <description>Cache Label</description>
+          <posx>-30</posx>
+          <posy>-3</posy>
+          <width>360</width>
+          <height>52</height>
+          <align>center</align>
+          <aligny>center</aligny>
+          <font>primal_22_Bold</font>
+          <textcolor>white</textcolor>
+          <label>$LOCALIZE[15107] $INFO[Player.CacheLevel]%</label>
+          <visible>[Player.Paused + Player.Caching] + !Player.Seeking</visible>
+          <visible>!VideoPlayer.Content(Files) + !Skin.HasSetting(slimseek)</visible>
+        </control>
+      </control>
+      <control type="group">
+        <posx>0</posx>
+        <posy>128</posy>
+        <control type="grouplist">
+          <visible>VideoPlayer.Content(Files)</visible>
+          <description>Media Codec Flagging Images</description>
+          <posx>-232</posx>
+          <posy>218</posy>
+          <width>810</width>
+          <align>center</align>
+          <itemgap>1</itemgap>
+          <orientation>horizontal</orientation>
+          <control type="image">
+            <description>Video rez Image</description>
+            <width>112</width>
+            <height>72</height>
+            <aspectratio>keep</aspectratio>
+            <texture>$INFO[VideoPlayer.VideoResolution,special://skin/extras/flagging/video/,.png]</texture>
+          </control>
+          <control type="image">
+            <description>Video rez Image</description>
+            <width>112</width>
+            <height>72</height>
+            <aspectratio>keep</aspectratio>
+            <texture>$INFO[VideoPlayer.VideoCodec,special://skin/extras/flagging/video/,.png]</texture>
+          </control>
+          <control type="image">
+            <description>Audio Codec Image</description>
+            <width>112</width>
+            <height>72</height>
+            <aspectratio>keep</aspectratio>
+            <texture>$INFO[VideoPlayer.AudioCodec,special://skin/extras/flagging/audio/,.png]</texture>
+          </control>
+          <control type="image">
+            <description>Audio Channels Image</description>
+            <width>112</width>
+            <height>72</height>
+            <aspectratio>keep</aspectratio>
+            <texture>$INFO[VideoPlayer.AudioChannels,special://skin/extras/flagging/audio/,.png]</texture>
+          </control>
+        </control>
+      </control>
+    </control>
+  </controls>
+</window>

@@ -1,0 +1,818 @@
+﻿<window type="dialog" id="2901">
+  <defaultcontrol always="true">602</defaultcontrol>
+  <controls>
+    <control type="group">
+      <animation type="WindowOpen">
+		  <effect type="slide" time="700" start="0,800"  end="0,0" tween="sine" easing="out" reversible="false"/>
+		  <effect type="fade" time="600" start="0" end="100" reversible="false"/>
+	  </animation>
+      <animation type="WindowClose">
+		  <effect type="slide" time="500" start="0,0" end="0,800" tween="sine" easing="in" reversible="false" />
+		  <effect type="fade" time="600" start="100" end="0" />
+	  </animation>
+      <animation effect="fade" start="100" end="0" time="1000" tween="quadratic" easing="out" condition="Window.IsVisible(SliderDialog) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)">Conditional</animation>
+	  <control type="image">
+        <posx>115</posx>
+        <posy>700</posy>
+        <width>1675</width>
+        <height>300</height>
+        <aspectratio>stretch</aspectratio>
+        <texture>skin/info_hg_osd.png</texture>
+		<visible>VideoPlayer.Content(LiveTV)</visible>
+      </control>
+	  <control type="image">
+        <posx>115</posx>
+        <posy>700</posy>
+        <width>1675</width>
+        <height>300</height>
+        <aspectratio>stretch</aspectratio>
+        <texture>skin/info_hg_osd.png</texture>
+		<visible>VideoPlayer.Content(Movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(files) | VideoPlayer.Content(MusicVideos)</visible>
+      </control>
+	  
+	  <!-- GROUP FOR PLAYER CONTROLS -->
+      <control type="group" id="100">
+        <posx>170</posx>
+        <posy>690</posy>
+        <control type="button" id="600">
+          <posx>0</posx>
+          <posy>0</posy>
+          <width>60</width>
+          <height>60</height>
+          <label>210</label>
+          <font>-</font>
+          <texturefocus>primal_OSD/OSDPrevTrackFO.png</texturefocus>
+          <texturenofocus>primal_OSD/OSDPrevTrackNF.png</texturenofocus>
+          <onleft>707</onleft>
+          <onright>601</onright>
+		  <ondown>704</ondown>
+          <onclick>PlayerControl(Previous)</onclick>
+        </control>
+		<control type="image">
+          <posx>0</posx>
+          <posy>50</posy>
+          <width>60</width>
+          <height>60</height>
+          <aspectratio>stretch</aspectratio>
+          <texture flipy="true">primal_OSD/OSDPrevTrackNF.png</texture>
+		  <animation effect="fade" start="100" end="50" time="100">WindowOpen</animation>
+		  <animation effect="fade" start="50" end="50" time="100">WindowClose</animation>
+        </control>
+        <control type="button" id="601">
+          <posx>75</posx>
+          <posy>0</posy>
+          <width>60</width>
+          <height>60</height>
+          <label>31354</label>
+          <font>-</font>
+          <texturefocus>primal_OSD/OSDRewindFO.png</texturefocus>
+          <texturenofocus>primal_OSD/OSDRewindNF.png</texturenofocus>
+          <onleft>600</onleft>
+          <onright>602</onright>
+		  <ondown>704</ondown>
+          <onclick>PlayerControl(Rewind)</onclick>
+        </control>
+		<control type="image">
+          <posx>75</posx>
+          <posy>50</posy>
+          <width>60</width>
+          <height>60</height>
+          <aspectratio>stretch</aspectratio>
+          <texture flipy="true">primal_OSD/OSDRewindNF.png</texture>
+		  <animation effect="fade" start="100" end="50" time="100">WindowOpen</animation>
+		  <animation effect="fade" start="50" end="50" time="100">WindowClose</animation>
+        </control>
+        <control type="togglebutton" id="602">
+          <posx>150</posx>
+          <posy>0</posy>
+          <width>60</width>
+          <height>60</height>
+          <label>31351</label>
+          <altlabel>208</altlabel>
+          <font>-</font>
+          <texturefocus>primal_OSD/OSDPauseFO.png</texturefocus>
+          <texturenofocus>primal_OSD/OSDPauseNF.png</texturenofocus>
+          <usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+          <alttexturefocus>primal_OSD/OSDPlayFO.png</alttexturefocus>
+          <alttexturenofocus>primal_OSD/OSDPlayNF.png</alttexturenofocus>
+          <onleft>601</onleft>
+          <onright>603</onright>
+		  <ondown>704</ondown>
+          <onclick>PlayerControl(Play)</onclick>
+        </control>
+		<control type="image">
+          <posx>150</posx>
+          <posy>50</posy>
+          <width>60</width>
+          <height>60</height>
+          <aspectratio>stretch</aspectratio>
+          <texture flipy="true">primal_OSD/OSDPauseNF.png</texture>
+		  <animation effect="fade" start="100" end="50" time="100">WindowOpen</animation>
+		  <animation effect="fade" start="50" end="50" time="100">WindowClose</animation>
+        </control>
+        <control type="button" id="603">
+          <posx>225</posx>
+          <posy>0</posy>
+          <width>60</width>
+          <height>60</height>
+          <label>31352</label>
+          <font>-</font>
+          <texturefocus>primal_OSD/OSDStopFO.png</texturefocus>
+          <texturenofocus>primal_OSD/OSDStopNF.png</texturenofocus>
+          <onleft>602</onleft>
+          <onright>604</onright>
+		  <ondown>704</ondown>
+          <onclick>PlayerControl(Stop)</onclick>
+        </control>
+		<control type="image">
+          <posx>225</posx>
+          <posy>50</posy>
+          <width>60</width>
+          <height>60</height>
+          <aspectratio>stretch</aspectratio>
+          <texture flipy="true">primal_OSD/OSDStopNF.png</texture>
+		  <animation effect="fade" start="100" end="50" time="100">WindowOpen</animation>
+		  <animation effect="fade" start="50" end="50" time="100">WindowClose</animation>
+        </control>
+        <control type="button" id="604">
+          <posx>300</posx>
+          <posy>0</posy>
+          <width>60</width>
+          <height>60</height>
+          <label>31353</label>
+          <font>-</font>
+          <texturefocus>primal_OSD/OSDForwardFO.png</texturefocus>
+          <texturenofocus>primal_OSD/OSDForwardNF.png</texturenofocus>
+          <onleft>603</onleft>
+          <onright>605</onright>
+		  <ondown>704</ondown>
+          <onclick>PlayerControl(Forward)</onclick>
+        </control>
+		<control type="image">
+          <posx>300</posx>
+          <posy>50</posy>
+          <width>60</width>
+          <height>60</height>
+          <aspectratio>stretch</aspectratio>
+          <texture flipy="true">primal_OSD/OSDForwardNF.png</texture>
+		  <animation effect="fade" start="100" end="50" time="100">WindowOpen</animation>
+		  <animation effect="fade" start="50" end="50" time="100">WindowClose</animation>
+        </control>
+        <control type="button" id="605">
+          <posx>375</posx>
+          <posy>0</posy>
+          <width>60</width>
+          <height>60</height>
+          <label>209</label>
+          <font>-</font>
+          <texturefocus>primal_OSD/OSDNextTrackFO.png</texturefocus>
+          <texturenofocus>primal_OSD/OSDNextTrackNF.png</texturenofocus>
+          <onleft>604</onleft>
+          <onright>606</onright>
+		  <ondown>704</ondown>
+          <onclick>PlayerControl(Next)</onclick>
+        </control>
+		<control type="image">
+          <posx>375</posx>
+          <posy>50</posy>
+          <width>60</width>
+          <height>60</height>
+          <aspectratio>stretch</aspectratio>
+          <texture flipy="true">primal_OSD/OSDNextTrackNF.png</texture>
+		  <animation effect="fade" start="100" end="50" time="100">WindowOpen</animation>
+		  <animation effect="fade" start="50" end="50" time="100">WindowClose</animation>
+        </control>
+      </control>
+      <!-- SETTINGS GROUP (Bookmarks audio video) -->
+      <control type="group" id="200">
+        <posx>1450</posx>
+        <posy>690</posy>
+		 <control type="button" id="606">
+          <posx>-225</posx>
+          <posy>0</posy>
+          <width>60</width>
+          <height>60</height>
+          <label>31355</label>
+          <font>-</font>
+          <texturefocus>primal_OSD/OSDDvdFO.png</texturefocus>
+          <texturenofocus>primal_OSD/OSDDvdNF.png</texturenofocus>
+          <onleft>605</onleft>
+          <onright>708</onright>
+          <onclick>PlayerControl(ShowVideoMenu)</onclick>
+          <enable>VideoPlayer.HasMenu</enable>
+          <animation effect="fade" start="100" end="50" time="100" condition="!VideoPlayer.HasMenu">Conditional</animation>
+        </control>
+		<control type="image">
+          <posx>-225</posx>
+          <posy>50</posy>
+          <width>60</width>
+          <height>60</height>
+          <aspectratio>stretch</aspectratio>
+          <texture flipy="true">primal_OSD/OSDDvdNF.png</texture>
+		  <animation effect="fade" start="100" end="50" time="100">WindowOpen</animation>
+		  <animation effect="fade" start="50" end="50" time="100">WindowClose</animation>
+        </control>
+		<control type="button" id="708">
+          <posx>-150</posx>
+          <posy>0</posy>
+          <width>60</width>
+          <height>60</height>
+          <label>31355</label>
+          <font>-</font>
+          <texturefocus>primal_OSD/cast2.png</texturefocus>
+          <texturenofocus>primal_OSD/cast.png</texturenofocus>
+          <onleft>606</onleft>
+          <onright>709</onright>
+        </control>
+		<control type="image">
+          <posx>-150</posx>
+          <posy>50</posy>
+          <width>60</width>
+          <height>60</height>
+          <aspectratio>stretch</aspectratio>
+          <texture flipy="true">primal_OSD/cast.png</texture>
+		  <animation effect="fade" start="100" end="50" time="100">WindowOpen</animation>
+		  <animation effect="fade" start="50" end="50" time="100">WindowClose</animation>
+        </control>
+		<control type="button" id="709">
+          <posx>-75</posx>
+          <posy>0</posy>
+          <width>60</width>
+          <height>60</height>
+          <label>31355</label>
+          <font>-</font>
+          <texturefocus>primal_OSD/info.png</texturefocus>
+          <texturenofocus>primal_OSD/info2.png</texturenofocus>
+          <onleft>708</onleft>
+          <onright>700</onright>
+        </control>
+		<control type="image">
+          <posx>-75</posx>
+          <posy>50</posy>
+          <width>60</width>
+          <height>60</height>
+          <aspectratio>stretch</aspectratio>
+          <texture flipy="true">primal_OSD/cast.png</texture>
+		  <animation effect="fade" start="100" end="50" time="100">WindowOpen</animation>
+		  <animation effect="fade" start="50" end="50" time="100">WindowClose</animation>
+        </control>
+        <control type="button" id="700">
+          <posx>0</posx>
+          <posy>0</posy>
+          <width>60</width>
+          <height>60</height>
+          <label>298</label>
+          <font>-</font>
+          <texturefocus>primal_OSD/OSDBookMarksFO.png</texturefocus>
+          <texturenofocus>primal_OSD/OSDBookMarksNF.png</texturenofocus>
+          <onleft>709</onleft>
+          <onright>701</onright>
+          <onclick>ActivateWindow(125)</onclick>
+        </control>
+		<control type="image">
+          <posx>0</posx>
+          <posy>50</posy>
+          <width>60</width>
+          <height>60</height>
+          <aspectratio>stretch</aspectratio>
+          <texture flipy="true">primal_OSD/OSDBookMarksNF.png</texture>
+		  <animation effect="fade" start="100" end="50" time="100">WindowOpen</animation>
+		  <animation effect="fade" start="50" end="50" time="100">WindowClose</animation>
+        </control>
+        <control type="button" id="701">
+          <posx>75</posx>
+          <posy>0</posy>
+          <width>60</width>
+          <height>60</height>
+          <label>13396</label>
+          <font>-</font>
+          <texturefocus>primal_OSD/OSDAudioFO.png</texturefocus>
+          <texturenofocus>primal_OSD/OSDAudioNF.png</texturenofocus>
+          <onleft>700</onleft>
+          <onright>702</onright>
+          <onclick>ActivateWindow(124)</onclick>
+        </control>
+		<control type="image">
+          <posx>75</posx>
+          <posy>50</posy>
+          <width>60</width>
+          <height>60</height>
+          <aspectratio>stretch</aspectratio>
+          <texture flipy="true">primal_OSD/OSDAudioNF.png</texture>
+		  <animation effect="fade" start="100" end="50" time="100">WindowOpen</animation>
+		  <animation effect="fade" start="50" end="50" time="100">WindowClose</animation>
+        </control>
+        <control type="button" id="702">
+          <posx>150</posx>
+          <posy>0</posy>
+          <width>60</width>
+          <height>60</height>
+          <label>13395</label>
+          <font>-</font>
+          <texturefocus>primal_OSD/OSDVideoFO.png</texturefocus>
+          <texturenofocus>primal_OSD/OSDVideoNF.png</texturenofocus>
+          <onleft>701</onleft>
+          <onright>703</onright>
+          <onclick>ActivateWindow(123)</onclick>
+        </control>
+		<control type="image">
+          <posx>150</posx>
+          <posy>50</posy>
+          <width>60</width>
+          <height>60</height>
+          <aspectratio>stretch</aspectratio>
+          <texture flipy="true">primal_OSD/OSDVideoNF.png</texture>
+		  <animation effect="fade" start="100" end="50" time="100">WindowOpen</animation>
+		  <animation effect="fade" start="50" end="50" time="100">WindowClose</animation>
+        </control>
+        <control type="button" id="703">
+          <posx>225</posx>
+          <posy>0</posy>
+          <width>60</width>
+          <height>60</height>
+          <label>31356</label>
+          <font>-</font>
+          <texturefocus>primal_OSD/OSDSubtitlesFO.png</texturefocus>
+          <texturenofocus>primal_OSD/OSDSubtitlesNF.png</texturenofocus>
+          <onleft>702</onleft>
+          <onright>704</onright>
+          <onclick>Close</onclick>
+          <onclick>XBMC.RunScript($INFO[Skin.String(SubtitleScript_Path)])</onclick>
+          <enable>Skin.HasSetting(SubtitleDownload_Enable) + !IsEmpty(Skin.String(SubtitleScript_Path))</enable>
+          <animation effect="fade" start="100" end="50" time="100" condition="![Skin.HasSetting(SubtitleDownload_Enable) + !IsEmpty(Skin.String(SubtitleScript_Path))]">Conditional</animation>
+        </control>
+		<control type="image">
+          <posx>225</posx>
+          <posy>50</posy>
+          <width>60</width>
+          <height>60</height>
+          <aspectratio>stretch</aspectratio>
+          <texture flipy="true">primal_OSD/OSDSubtitlesNF.png</texture>
+		  <animation effect="fade" start="100" end="50" time="100">WindowOpen</animation>
+		  <animation effect="fade" start="50" end="50" time="100">WindowClose</animation>
+        </control>
+      </control>
+	  
+	  <control type="group" id="40200">
+		<posx>745</posx>
+		<posy>645</posy>
+	    <control type="button" id="704">
+          <posx>0</posx>
+          <posy>30</posy>
+          <width>80</width>
+          <height>80</height>
+          <label>41150</label>
+          <font>-</font>
+          <texturefocus>primal_OSD/OSDRecord2.png</texturefocus>
+          <texturenofocus>primal_OSD/OSDRecordNF2.png</texturenofocus>
+          <onleft>703</onleft>
+          <onright>705</onright>
+          <onclick>XBMC.PlayerControl(record)</onclick>
+          <enable>Player.CanRecord</enable>
+          <animation effect="fade" start="100" end="50" time="100" condition="!Player.CanRecord">Conditional</animation>
+          <visible>VideoPlayer.Content(LiveTV) + Player.CanRecord + !Player.Recording</visible>
+        </control>
+        <control type="button" id="704">
+          <posx>0</posx>
+          <posy>30</posy>
+          <width>80</width>
+          <height>80</height>
+          <label>41151</label>
+          <font>-</font>
+          <textcolor>blue</textcolor>
+          <texturefocus>primal_OSD/OSDRecord2.png</texturefocus>
+          <texturenofocus>primal_OSD/OSDRecordNF2.png</texturenofocus>
+          <onleft>703</onleft>
+          <onright>705</onright>
+          <onclick>XBMC.PlayerControl(record)</onclick>
+          <enable>Player.CanRecord</enable>
+          <animation effect="fade" start="100" end="50" time="100" condition="!Player.CanRecord">Conditional</animation>
+          <visible>VideoPlayer.Content(LiveTV) + Player.CanRecord + Player.Recording</visible>
+        </control>
+		<control type="image">
+          <posx>0</posx>
+          <posy>95</posy>
+          <width>80</width>
+          <height>80</height>
+          <aspectratio>stretch</aspectratio>
+          <texture flipy="true">primal_OSD/OSDRecordNF2.png</texture>
+		  <animation effect="fade" start="100" end="50" time="100">WindowOpen</animation>
+		  <animation effect="fade" start="50" end="50" time="100">WindowClose</animation>
+		  <visible>VideoPlayer.Content(LiveTV)</visible>
+        </control>
+        <control type="button" id="705">
+          <posx>90</posx>
+          <posy>30</posy>
+          <width>80</width>
+          <height>80</height>
+          <label>41152</label>
+          <font>-</font>
+          <texturefocus>primal_OSD/OSDChannelListFO.png</texturefocus>
+          <texturenofocus>primal_OSD/OSDChannelListNF.png</texturenofocus>
+          <onleft>704</onleft>
+          <onright>706</onright>
+          <onclick>ActivateWindow(PVROSDChannels)</onclick>
+          <onclick>Dialog.Close(VideoOSD)</onclick>
+          <visible>VideoPlayer.Content(LiveTV)</visible>
+        </control>
+		<control type="image">
+          <posx>90</posx>
+          <posy>95</posy>
+          <width>80</width>
+          <height>80</height>
+          <aspectratio>stretch</aspectratio>
+          <texture flipy="true">primal_OSD/OSDChannelListNF.png</texture>
+		  <animation effect="fade" start="100" end="50" time="100">WindowOpen</animation>
+		  <animation effect="fade" start="50" end="50" time="100">WindowClose</animation>
+		  <visible>VideoPlayer.Content(LiveTV)</visible>
+        </control>
+        <control type="button" id="706">
+          <posx>180</posx>
+          <posy>30</posy>
+          <width>80</width>
+          <height>80</height>
+          <label>$LOCALIZE[19029]$INFO[VideoPlayer.ChannelName, - ]</label>
+          <font>-</font>
+          <texturefocus>primal_OSD/OSDepgFO.png</texturefocus>
+          <texturenofocus>primal_OSD/OSDepgNF.png</texturenofocus>
+          <onleft>705</onleft>
+          <onright>707</onright>
+          <onclick>ActivateWindow(PVROSDGuide)</onclick>
+          <visible>VideoPlayer.Content(LiveTV)</visible>
+        </control>
+		<control type="image">
+          <posx>180</posx>
+          <posy>95</posy>
+          <width>80</width>
+          <height>80</height>
+          <aspectratio>stretch</aspectratio>
+          <texture flipy="true">primal_OSD/OSDepgNF.png</texture>
+		  <animation effect="fade" start="100" end="50" time="100">WindowOpen</animation>
+		  <animation effect="fade" start="50" end="50" time="100">WindowClose</animation>
+		  <visible>VideoPlayer.Content(LiveTV)</visible>
+        </control>
+        <control type="button" id="707">
+          <posx>270</posx>
+          <posy>30</posy>
+          <width>80</width>
+          <height>80</height>
+          <label>41153</label>
+          <font>-</font>
+          <texturefocus>primal_OSD/OSDTeleTextFO.png</texturefocus>
+          <texturenofocus>primal_OSD/OSDTeleTextNF.png</texturenofocus>
+          <onleft>706</onleft>
+          <onright>600</onright>
+          <onclick>ActivateWindow(Teletext)</onclick>
+          <visible>VideoPlayer.Content(LiveTV)</visible>
+        </control>
+		<control type="image">
+          <posx>270</posx>
+          <posy>95</posy>
+          <width>80</width>
+          <height>80</height>
+          <aspectratio>stretch</aspectratio>
+          <texture flipy="true">primal_OSD/OSDTeleTextNF.png</texture>
+		  <animation effect="fade" start="100" end="50" time="100">WindowOpen</animation>
+		  <animation effect="fade" start="50" end="50" time="100">WindowClose</animation>
+		  <visible>VideoPlayer.Content(LiveTV)</visible>
+        </control>
+	  </control>
+	  
+	  <control type="image">
+        <posx>100</posx>
+        <posy>750</posy>
+        <width>1700</width>
+        <height>300</height>
+        <aspectratio>stretch</aspectratio>
+        <texture>skin/info_hg_osd.png</texture>
+		<visible>VideoPlayer.Content(LiveTV)</visible>
+      </control>
+	  <control type="image">
+        <posx>100</posx>
+        <posy>750</posy>
+        <width>1700</width>
+        <height>300</height>
+        <aspectratio>stretch</aspectratio>
+        <texture>skin/info_hg_osd.png</texture>
+		<visible>VideoPlayer.Content(Movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(files) | VideoPlayer.Content(MusicVideos)</visible>
+      </control>
+	  
+	  <control type="group">
+	  <posx>155</posx>
+	  <posy>780</posy>
+	  <control type="image">
+		<description>thumb</description>
+		<posx>5</posx>
+		<posy>-30</posy>
+		<width>200</width>
+		<height>200</height>
+		<align>center</align>
+		<texture background="true" fallback="fanart_fallback.png">$INFO[VideoPlayer.Cover]</texture>
+		<aspectratio>keep</aspectratio>
+		<visible>VideoPlayer.Content(episodes) | VideoPlayer.Content(files) | VideoPlayer.Content(MusicVideos)</visible>
+	  </control>
+	  <control type="image">
+		<description>thumb</description>
+		<posx>0</posx>
+		<posy>0</posy>
+		<width>160</width>
+		<height>235</height>
+		<align>center</align>
+		<texture background="true" fallback="fanart_fallback.png">$INFO[VideoPlayer.Cover]</texture>
+		<aspectratio>stretch</aspectratio>
+		<visible>VideoPlayer.Content(movies)</visible>
+	  </control>
+	  <control type="largeimage"> 
+		<posx>600</posx> 
+		<posy>-150</posy> 
+		<width>270</width> 
+		<height>150</height> 
+		<texture background="true">$INFO[Player.Art(clearlogo)]</texture>
+		<fadetime>IconCrossfadeTime</fadetime>
+		<aspectratio scalediffuse="false" aligny="center" align="left">keep</aspectratio> 
+		<visible>VideoPlayer.Content(Movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(files)</visible>
+	  </control>
+	  <control type="image">
+		<description>thumb</description>
+		<posx>30</posx>
+		<posy>15</posy>
+		<width>200</width>
+		<height>200</height>
+		<align>center</align>
+		<texture background="true" fallback="fanart_fallback.png">$INFO[VideoPlayer.Cover]</texture>
+		<aspectratio>keep</aspectratio>
+		<visible>VideoPlayer.Content(LiveTV)</visible>
+	  </control>
+	</control>
+	  
+	  
+	  <!-- GROUP FOR CAST -->
+	  <control type="group" id="40101">
+		<animation effect="zoom" start="100" end="0" time="1000" delay="250" reversible="false" condition="!Control.HasFocus(708)">Conditional</animation>
+		<animation effect="fade" start="0" end="100" time="1000" delay="500" reversible="false" condition="Control.HasFocus(708)">Conditional</animation>
+		<animation effect="fade" start="100" end="50,50" time="450" delay="0" reversible="false">WindowClose</animation>
+		<posx>605</posx>
+		<posy>20</posy>
+		<visible>Control.HasFocus(708)</visible>
+		<control type="image">
+          <posx>240</posx>
+          <posy>305</posy>
+          <width>560</width>
+          <height>360</height>
+          <aspectratio>stretch</aspectratio>
+          <texture>skin/info_hg2.png</texture>
+        </control>
+		<control type="label">
+		  <description>CastandRole</description>
+		  <posx>280</posx>
+		  <posy>390</posy>
+		  <width>440</width>
+		  <height>190</height>
+		  <label>$INFO[VideoPlayer.CastandRole]</label>
+		  <font>primal_18</font>
+		  <align>center</align>
+		  <aligny>center</aligny>
+		  <textcolor>white</textcolor>
+		</control>
+	  </control>
+		
+	  <!-- GROUP FOR INFOS TVShows & Movies -->
+	  <control type="group">
+		<posx>300</posx>
+		<posy>300</posy>
+		<visible>VideoPlayer.Content(Movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(files) | VideoPlayer.Content(MusicVideos)</visible>
+		<control type="label">
+          <posx>330</posx>
+          <posy>490</posy>
+          <width>700</width>
+          <height>38</height>
+          <label>$INFO[VideoPlayer.Title]</label>
+          <scroll>true</scroll>
+          <align>center</align>
+          <aligny>center</aligny>
+          <font>primal_20_Bold</font>
+          <textcolor>blue</textcolor>
+        </control>
+		<control type="textbox">
+          <posx>80</posx>
+          <posy>585</posy>
+          <width>1320</width>
+          <height>130</height>
+          <label>$INFO[VideoPlayer.Plot]</label>
+          <align>justify</align>
+          <font>primal_16</font>
+          <textcolor>white</textcolor>
+		  <autoscroll delay="15000" time="2000" repeat="10000" />
+        </control>
+	  </control>
+	  
+	  <!-- GROUP FOR INFOS LiveTV -->
+	  <control type="group">
+		<posx>300</posx>
+		<posy>330</posy>
+		<visible>VideoPlayer.Content(LiveTV)</visible>
+		<control type="image">
+		  <posx>120</posx>
+		  <posy>438</posy>
+		  <width>2</width>
+		  <height>265</height>
+		  <texture>separator22.png</texture>
+		</control>
+		<control type="image">
+		  <posx>1170</posx>
+		  <posy>438</posy>
+		  <width>2</width>
+		  <height>265</height>
+		  <texture>separator22.png</texture>
+		</control>
+		<control type="label">
+		  <posx>150</posx>
+		  <posy>450</posy>
+		  <width>690</width>
+		  <height>38</height>
+		  <label>$INFO[VideoPlayer.ChannelName]</label>
+		  <scroll>true</scroll>
+		  <align>left</align>
+		  <aligny>center</aligny>
+		  <font>primal_20</font>
+		  <textcolor>white</textcolor>
+		  <shadowcolor>black</shadowcolor>
+		</control>
+		<control type="label">
+		  <description>time label</description>
+		  <posx>1150</posx>
+		  <posy>450</posy>
+		  <width>600</width>
+		  <height>42</height>
+		  <align>right</align>
+		  <font>primal_20</font>
+		  <textcolor>white</textcolor>
+		  <shadowcolor>black</shadowcolor>
+		  <label>$INFO[System.Time(hh:mm:ss)] - $INFO[System.Date(DDD)] $INFO[System.Date(dd.MM.YYYY)]</label>
+		</control>
+		<control type="label">
+          <posx>150</posx>
+          <posy>495</posy>
+          <width>800</width>
+          <height>38</height>
+          <label>$INFO[VideoPlayer.StartTime] - $INFO[VideoPlayer.EndTime]   $INFO[VideoPlayer.Title]</label>
+          <scroll>true</scroll>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>primal_20</font>
+          <textcolor>white</textcolor>
+		  <shadowcolor>black</shadowcolor>
+        </control>
+		<control type="textbox">
+          <posx>150</posx>
+          <posy>560</posy>
+          <width>1000</width>
+          <height>60</height>
+          <label>$INFO[VideoPlayer.Plot]</label>
+          <align>justify</align>
+          <font>primal_13</font>
+          <textcolor>white</textcolor>
+		  <autoscroll delay="15000" time="4000" repeat="10000" />
+        </control>
+		<control type="image">
+		  <posx>150</posx>
+		  <posy>640</posy>
+		  <width>1000</width>
+		  <height>3</height>
+		  <texture>separator.png</texture>
+		</control>
+		<control type="progress">
+		  <description>Progressbar</description>
+		  <posx>150</posx>
+		  <posy>540</posy>
+		  <width>1000</width>
+		  <height>13</height>
+		  <info>Player.Progress</info>
+		</control>
+		<control type="label">
+		  <posx>150</posx>
+		  <posy>650</posy>
+		  <width>800</width>
+		  <height>38</height>
+		  <label>$INFO[VideoPlayer.NextStartTime] - $INFO[VideoPlayer.NextEndTime]   $INFO[VideoPlayer.NextTitle]</label>
+		  <scroll>true</scroll>
+		  <align>left</align>
+		  <aligny>center</aligny>
+		  <font>primal_20</font>
+		  <textcolor>white</textcolor>
+		  <shadowcolor>black</shadowcolor>
+		</control>
+		<control type="label">
+		  <posx>1220</posx>
+		  <posy>470</posy>
+		  <width>690</width>
+		  <height>38</height>
+		  <label>$INFO[Pvr.BackendName]</label>
+		  <scroll>true</scroll>
+		  <align>left</align>
+		  <aligny>center</aligny>
+		  <font>primal_18</font>
+		  <textcolor>white</textcolor>
+		  <shadowcolor>black</shadowcolor>
+		</control>
+		<control type="label">
+		  <posx>1220</posx>
+		  <posy>510</posy>
+		  <width>690</width>
+		  <height>38</height>
+		  <label>Signal: $INFO[Pvr.ActStreamSignal]</label>
+		  <scroll>true</scroll>
+		  <align>left</align>
+		  <aligny>center</aligny>
+		  <font>primal_18</font>
+		  <textcolor>white</textcolor>
+		  <shadowcolor>black</shadowcolor>
+		</control>
+		<control type="label">
+		  <posx>1220</posx>
+		  <posy>550</posy>
+		  <width>690</width>
+		  <height>38</height>
+		  <label>VBR: $INFO[Pvr.ActStreamVideoBitRate]</label>
+		  <scroll>true</scroll>
+		  <align>left</align>
+		  <aligny>center</aligny>
+		  <font>primal_18</font>
+		  <textcolor>white</textcolor>
+		  <shadowcolor>black</shadowcolor>
+		</control>
+		<control type="label">
+		  <posx>1220</posx>
+		  <posy>590</posy>
+		  <width>690</width>
+		  <height>38</height>
+		  <label>ABR: $INFO[Pvr.ActStreamAudioBitRate]</label>
+		  <scroll>true</scroll>
+		  <align>left</align>
+		  <aligny>center</aligny>
+		  <font>primal_18</font>
+		  <textcolor>white</textcolor>
+		  <shadowcolor>black</shadowcolor>
+		</control>
+		<control type="image">
+		  <description>Video rez Image</description>
+		  <posx>1090</posx>
+		  <posy>650</posy>
+		  <width>72</width>
+		  <height>42</height>
+		  <aspectratio>keep</aspectratio>
+		  <texture>$INFO[VideoPlayer.VideoResolution,flagging/video/,.png] </texture>
+		</control>
+		<control type="image">
+		  <description>Audio Channels Image</description>
+		  <posx>1020</posx>
+		  <posy>651</posy>
+		  <width>62</width>
+		  <height>40</height>
+		  <aspectratio>keep</aspectratio>
+		  <texture>$INFO[VideoPlayer.AudioChannels,flagging/audio/,.png]</texture>
+		</control>
+	  </control>
+	  
+	  <control type="group">
+		<posx>250</posx>
+		<posy>600</posy>
+		<visible>VideoPlayer.Content(Movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(files) | VideoPlayer.Content(MusicVideos)</visible>
+      <control type="label">
+        <posx>130</posx>
+        <posy>190</posy>
+        <width>690</width>
+        <height>38</height>
+        <label>$INFO[VideoPlayer.Time]</label>
+        <scroll>true</scroll>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>primal_20</font>
+        <textcolor>white</textcolor>
+		<shadowcolor>black</shadowcolor>
+      </control>
+	  <control type="label">
+        <posx>1450</posx>
+        <posy>190</posy>
+        <width>690</width>
+        <height>38</height>
+        <label>$INFO[VideoPlayer.Duration]</label>
+        <scroll>true</scroll>
+        <align>right</align>
+        <aligny>center</aligny>
+        <font>primal_20</font>
+        <textcolor>white</textcolor>
+		<shadowcolor>black</shadowcolor>
+      </control>
+      <control type="progress">
+        <description>Progressbar</description>
+        <posx>130</posx>
+        <posy>250</posy>
+        <width>1320</width>
+        <height>13</height>
+        <info>Player.Progress</info>
+      </control>
+     </control>
+	 </control>
+  </controls>
+</window>

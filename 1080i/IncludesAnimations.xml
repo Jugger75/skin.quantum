@@ -1,0 +1,105 @@
+<includes>
+    <!-- ===================================================================================== -->
+	<!-- ================================== HOME ANIMATION =================================== -->
+	<!-- ===================================================================================== -->
+	<include name="HomeAnimation">
+        <animation type="WindowOpen">
+			<effect type="slide" time="700" start="800,0"  end="0,0" tween="sine" easing="out" reversible="false"/>
+		    <effect type="fade" time="600" start="0" end="100" reversible="false"/>
+		</animation>			
+		<animation type="WindowClose">
+			<effect type="slide" time="500" start="0,0" end="800,0" tween="sine" easing="in" reversible="false" />
+			<effect type="fade" time="600" start="100" end="0" />
+		</animation>
+	</include>		
+	<include name="HomeMenuAnimation">
+        <animation type="WindowOpen">
+			<effect type="slide" start="-800,0" end="0,0" time="700" tween="sine" easing="out" reversible="false"/>
+		    <effect type="fade" time="600" start="0" end="100" reversible="false"/>
+		</animation>			
+		<animation type="WindowClose">
+			<effect type="slide" start="0,0" end="-800,0" time="500" tween="sine" easing="in" reversible="false" />
+			<effect type="fade" time="600" start="100" end="0" />
+		</animation>
+	</include>
+	
+	<!-- ===================================================================================== -->
+	<!-- ================================== VIEW ANIMATION =================================== -->
+	<!-- ===================================================================================== -->
+	<include name="ViewsAnimation">
+        <animation type="WindowOpen">
+			<effect type="slide" time="700" start="800,0"  end="0,0" tween="sine" easing="out" reversible="false"/>
+		    <effect type="fade" time="600" start="0" end="100" reversible="false"/>
+		</animation>			
+		<animation type="WindowClose">
+			<effect type="slide" time="500" start="0,0" end="800,0" tween="sine" easing="in" reversible="false" />
+			<effect type="fade" time="600" start="100" end="0" />
+		</animation>
+    </include>	
+	<include name="Views2Animation">
+        <animation type="WindowOpen">
+			<effect type="slide" start="-800,0" end="0,0" time="700" tween="sine" easing="out" reversible="false"/>
+		    <effect type="fade" time="600" start="0" end="100" reversible="false"/>
+		</animation>			
+		<animation type="WindowClose">
+			<effect type="slide" start="0,0" end="-800,0" time="500" tween="sine" easing="in" reversible="false" />
+			<effect type="fade" time="600" start="100" end="0" />
+		</animation>
+	</include>	
+	<include name="ViewsWideAnimation">
+        <animation type="WindowOpen">
+			<effect type="slide" start="-800,0" end="0,0" time="700" tween="sine" easing="out" reversible="false"/>
+		    <effect type="fade" time="600" start="0" end="100" reversible="false"/>
+		</animation>			
+		<animation type="WindowClose">
+			<effect type="slide" start="0,0" end="-800,0" time="500" tween="sine" easing="in" reversible="false" />
+			<effect type="fade" time="600" start="100" end="0" />
+		</animation>
+	</include>
+	
+	<!-- ===================================================================================== -->
+	<!-- ====================================== VIEW PANEL =================================== -->
+	<!-- ===================================================================================== -->
+	<include name="ViewsPanelAnimation">
+        <animation type="WindowOpen">
+			<effect type="slide" time="700" start="0,-800"  end="0,0" tween="sine" easing="out" reversible="false"/>
+		    <effect type="fade" time="600" start="0" end="100" reversible="false"/>
+		</animation>			
+		<animation type="WindowClose">
+			<effect type="slide" time="500" start="0,0" end="0,-800" tween="sine" easing="in" reversible="false" />
+			<effect type="fade" time="600" start="100" end="0" />
+		</animation>
+    </include>
+	<include name="ViewsCoverAnimation">
+        <animation type="WindowOpen">
+			<effect type="slide" time="700" start="0,800"  end="0,0" tween="sine" easing="out" reversible="false"/>
+		    <effect type="fade" time="600" start="0" end="100" reversible="false"/>
+		</animation>			
+		<animation type="WindowClose">
+			<effect type="slide" time="500" start="0,0" end="0,800" tween="sine" easing="in" reversible="false" />
+			<effect type="fade" time="600" start="100" end="0" />
+		</animation>
+    </include>
+	
+	
+	<!-- ===================================================================================== -->
+	<!-- ======================================= SONSTIGES =================================== -->
+	<!-- ===================================================================================== -->
+	<include name="RecentlyAddedMoreAnimation">
+        <animation type="WindowOpen" reversible="false">
+          <effect type="fade" start="0" end="100" time="1000" />
+        </animation>
+        <animation type="WindowClose" reversible="false">
+          <effect type="fade" start="100" end="0" time="1000" />
+        </animation>
+	</include>
+	<include name="AnimationMusic180">
+        <animation type="Focus" reversible="false" >
+		<effect type="rotatey" center="145,0" start="0" end="180" time="400" delay="0"/>
+		</animation>
+    </include>
+	<include name="AnimationMusicSlide">
+        <animation effect="rotate" end="20" center="auto" time="0" reversible="false" condition="!Player.Paused">Conditional</animation>
+    </include>
+	
+</includes>

@@ -1,0 +1,581 @@
+﻿<includes>
+
+    <include name="CDArtNowPlayingLight">
+      <control type="group">
+	  <include>HomeAnimation</include>
+      <visible>Skin.HasSetting(cdartonhome)</visible>
+      <posx>590</posx>
+      <posy>530</posy>
+      <!-- CD Animation -->
+      <control type="image">
+        <animation effect="rotate" end="-360" center="auto" time="3000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+        <animation effect="rotate" end="-360" center="auto" time="5000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+        <width>148</width>
+        <height>148</height>
+        <posx>702</posx>
+        <posy>180</posy>
+        <texture fallback="cdartdefault.png">$INFO[Player.FolderPath]cdart.png</texture>
+        <aspectratio align="bottom">keep</aspectratio>
+        <visible>Skin.HasSetting(cdartonhome)</visible>
+        <visible>Player.HasAudio</visible>
+        <visible>!Skin.HasSetting(homepageNowplayingInfo)</visible>
+      </control>
+    </control>
+	</include>
+	
+	<include name="CDArtCoverNowPlayingLight">
+    <control type="group">
+	  <include>HomeAnimation</include>
+      <!-- cover image -->
+      <visible>Skin.HasSetting(cdartonhome)</visible>
+      <visible>Player.HasAudio</visible>
+      <visible>Skin.HasSetting(homepageNowplayingInfo)</visible>
+      <posx>890</posx>
+      <posy>600</posy>
+	  <control type="image">
+        <posx>330</posx>
+        <posy>100</posy>
+        <width>165</width>
+        <height>165</height>
+        <aspectratio>stretch</aspectratio>
+        <texture>views/musik_view/papercover_unten.png</texture>
+      </control>
+      <control type="image">
+        <posx>330</posx>
+        <posy>100</posy>
+        <width>165</width>
+        <height>165</height>
+        <aspectratio aligny="bottom">stretch</aspectratio>
+        <fadetime>IconCrossfadeTime</fadetime>
+        <texture background="true" diffuse="views/musik_view/papercover.png">$INFO[MusicPlayer.cover]</texture>
+        <bordertexture border="4">contentpanelvertical.png</bordertexture>
+        <bordersize>4</bordersize>
+      </control>
+    </control>
+	</include>
+	
+	<include name="CoverNowPlayingLight">
+    <control type="group">
+	  <include>HomeAnimation</include>
+      <!-- cover image -->
+      <visible>Player.HasAudio</visible>
+      <visible>!Skin.HasSetting(homepageNowplayingInfo)</visible>
+      <posx>890</posx>
+      <posy>600</posy>
+	  <control type="image">
+        <posx>330</posx>
+        <posy>100</posy>
+        <width>165</width>
+        <height>165</height>
+        <aspectratio>stretch</aspectratio>
+        <texture>views/musik_view/papercover_unten.png</texture>
+      </control>
+      <control type="image">
+        <posx>330</posx>
+        <posy>100</posy>
+        <width>165</width>
+        <height>165</height>
+        <aspectratio aligny="bottom">stretch</aspectratio>
+        <fadetime>IconCrossfadeTime</fadetime>
+        <texture background="true" diffuse="views/musik_view/papercover.png">$INFO[MusicPlayer.cover]</texture>
+        <bordertexture border="4">contentpanelvertical.png</bordertexture>
+        <bordersize>4</bordersize>
+      </control>
+    </control>
+	</include>
+	
+	<include name="NextTracksPlaylistLight">
+      <control type="label">
+        <include>HomeAnimation</include>
+        <description>Partymode Header label</description>
+        <posx>1500</posx>
+        <posy>460</posy>
+        <height>10</height>
+        <font>primal_20</font>
+        <aligny>left</aligny>
+        <textcolor>green</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <label>$LOCALIZE[589] ON</label>
+        <visible>MusicPartyMode.Enabled + Skin.HasSetting(playlist)</visible>
+      </control>
+      <control type="grouplist">
+        <posx>1490</posx>
+        <posy>700</posy>
+        <width>250</width>
+        <height>650</height>
+        <align>left</align>
+        <itemgap>5</itemgap>
+        <include>HomeAnimation</include>
+        <orientation>vertical</orientation>
+        <visible>Player.HasMedia + !IsEmpty(MusicPlayer.Offset(1).Title)</visible>
+		<visible>!Skin.HasSetting(homepageNowplayingInfo)</visible>
+      <control type="label">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>250</width>
+        <height>30</height>
+        <aligny>left</aligny>
+        <label>Playlist</label>
+        <font>primal_18_Bold</font>
+		<textcolor>blue</textcolor>
+      </control>
+      <control type="label">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>250</width>
+        <height>24</height>
+        <aligny>left</aligny>
+        <label>$INFO[MusicPlayer.Offset(1).Title]</label>
+        <font>primal_16</font>
+		<scroll>false</scroll>
+		<scrollspeed>20</scrollspeed>
+        <scrollsuffix> - </scrollsuffix>
+        <visible>!IsEmpty(MusicPlayer.Offset(1).Title)</visible>
+      </control>
+      <control type="label">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>250</width>
+        <height>24</height>
+        <aligny>left</aligny>
+        <label>$INFO[MusicPlayer.Offset(2).Title]</label>
+        <font>primal_16</font>
+		<scroll>false</scroll>
+		<scrollspeed>20</scrollspeed>
+        <scrollsuffix> - </scrollsuffix>
+        <visible>!IsEmpty(MusicPlayer.Offset(2).Title)</visible>
+      </control>
+      <control type="label">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>250</width>
+        <height>24</height>
+        <aligny>left</aligny>
+        <label>$INFO[MusicPlayer.Offset(3).Title]</label>
+        <font>primal_16</font>
+		<scroll>false</scroll>
+		<scrollspeed>20</scrollspeed>
+        <scrollsuffix> - </scrollsuffix>
+        <visible>!IsEmpty(MusicPlayer.Offset(3).Title)</visible>
+      </control>
+      <control type="label">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>250</width>
+        <height>24</height>
+        <aligny>left</aligny>
+        <label>$INFO[MusicPlayer.Offset(4).Title]</label>
+        <font>primal_16</font>
+		<scroll>false</scroll>
+		<scrollspeed>20</scrollspeed>
+        <scrollsuffix> - </scrollsuffix>
+        <visible>!IsEmpty(MusicPlayer.Offset(4).Title)</visible>
+      </control>
+      <control type="label">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>250</width>
+        <height>24</height>
+        <aligny>left</aligny>
+        <label>$INFO[MusicPlayer.Offset(5).Title]</label>
+        <font>primal_16</font>
+		<scroll>false</scroll>
+		<scrollspeed>20</scrollspeed>
+        <scrollsuffix> - </scrollsuffix>
+        <visible>!IsEmpty(MusicPlayer.Offset(5).Title)</visible>
+      </control>
+     </control>
+    </include>
+
+    <include name="HomeNowPlayingLight">
+    <!-- Music NOW PLAYING Info -->
+    <control type="group">
+      <include>HomeAnimation</include>
+      <posx>830</posx>
+      <posy>850</posy>
+      <visible>Player.HasAudio + !Skin.HasSetting(homepageNowplayingInfo)</visible>
+      <include>VisibleFadeEffect</include>
+      <include>Window_OpenClose_Animation</include>
+      <!--<control type="image">
+        <description>Logo image</description>
+        <posx>950</posx>
+        <posy>775</posy>
+        <width>250</width>
+        <height>150</height>
+        <aspectratio scalediffuse="false" aligny="center" align="right">keep</aspectratio>
+        <fadetime>200</fadetime>
+        <texture>$INFO[Skin.String(Music_Folder_Path)]$INFO[MusicPlayer.Artist]/logo.png</texture>
+      </control>-->
+      <control type="label">
+	    <description>NowPlaying label</description>
+		<posx>1130</posx>
+		<posy>-110</posy>
+		<height>45</height>
+		<width>225</width>
+		<label>$LOCALIZE[31040]</label>
+		<align>right</align>
+		<aligny>center</aligny>
+		<font>primal_20_Bold</font>
+		<textcolor>blue</textcolor>
+		<animation effect="rotate" end="-90" center="auto" loop="false" reversible="false" condition="!Player.Paused">Conditional</animation>
+	  </control>
+	  <control type="label">
+	    <description>Artist label</description>
+		<posx>400</posx>
+		<posy>40</posy>
+		<height>45</height>
+		<width>250</width>
+		<label>$INFO[MusicPlayer.Artist]</label>
+		<align>left</align>
+		<aligny>center</aligny>
+		<font>primal_16</font>
+		<textcolor>white</textcolor>
+		<scroll>true</scroll>
+	  </control>
+	  <control type="label">
+		<description>Title label</description>
+		<posx>400</posx>
+		<posy>70</posy>
+		<height>45</height>
+		<width>450</width>
+		<label>$INFO[MusicPlayer.Title]</label>
+		<align>left</align>
+		<aligny>center</aligny>
+		<font>primal_20</font>
+		<textcolor>white</textcolor>
+		<scroll>true</scroll>
+	  </control>
+	  <control type="label">
+		<description>Time remaining</description>
+		<posx>400</posx>
+		<posy>105</posy>
+		<height>45</height>
+		<width>225</width>
+		<label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
+		<align>left</align>
+		<aligny>center</aligny>
+		<font>primal_16</font>
+		<textcolor>white</textcolor>
+		<scroll>true</scroll>
+	  </control>
+	</control>
+    <!-- LiveTV Info -->
+    <control type="group">
+      <posx>900</posx>
+      <posy>112</posy>
+      <visible>Container(9000).HasFocus(33) + [PVR.IsRecording | PVR.HasTimer]</visible>
+      <animation type="Visible" reversible="false">
+        <effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="300" />
+        <effect type="fade" start="0" end="100" time="300" />
+      </animation>
+      <animation type="Hidden" reversible="false">
+        <effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="300" />
+        <effect type="fade" start="100" end="0" time="300" />
+      </animation>
+      <animation type="WindowOpen" reversible="false">
+        <effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="300" />
+        <effect type="fade" start="0" end="100" time="300" />
+      </animation>
+      <animation type="WindowClose" reversible="false">
+        <effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="300" />
+        <effect type="fade" start="100" end="0" time="300" />
+      </animation>
+      <animation effect="fade" start="100" end="0" time="200" condition="Window.IsActive(Favourites)">conditional</animation>
+      <control type="image">
+        <description>background</description>
+        <posx>520</posx>
+        <posy>8</posy>
+        <width>480</width>
+        <height>202</height>
+        <colordiffuse>DDFFFFFF</colordiffuse>
+        <texture border="20">DialogBackground.png</texture>
+      </control>
+      <control type="group">
+        <visible>!PVR.IsRecording + PVR.HasTimer</visible>
+        <control type="image">
+          <posx>900</posx>
+          <posy>22</posy>
+          <width>38</width>
+          <height>38</height>
+          <texture>PVR-HasTimer.png</texture>
+        </control>
+        <control type="label">
+          <description>Next Timer Header label</description>
+          <posx>555</posx>
+          <posy>22</posy>
+          <height>38</height>
+          <width>600</width>
+          <label>$LOCALIZE[19157]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>primal_25</font>
+          <textcolor>blue</textcolor>
+          <shadowcolor>white</shadowcolor>
+        </control>
+        <control type="label">
+          <description>NextRecordingTitle</description>
+          <posx>555</posx>
+          <posy>60</posy>
+          <height>45</height>
+          <width>660</width>
+          <label>$INFO[PVR.NextRecordingTitle]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>primal_20</font>
+          <shadowcolor>white</shadowcolor>
+          <scroll>true</scroll>
+        </control>
+        <control type="label">
+          <description>NextRecordingChannel</description>
+          <posx>555</posx>
+          <posy>105</posy>
+          <height>38</height>
+          <width>660</width>
+          <label>$INFO[PVR.NextRecordingChannel]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>primal_20</font>
+          <textcolor>blue</textcolor>
+          <shadowcolor>white</shadowcolor>
+        </control>
+        <control type="label">
+          <description>NextRecordingDateTime</description>
+          <posx>555</posx>
+          <posy>142</posy>
+          <height>38</height>
+          <width>660</width>
+          <label>$INFO[PVR.NextRecordingDateTime,$LOCALIZE[19126] - ]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>primal_20</font>
+          <shadowcolor>white</shadowcolor>
+        </control>
+      </control>
+      <control type="group">
+        <visible>PVR.IsRecording</visible>
+        <control type="image">
+          <posx>900</posx>
+          <posy>22</posy>
+          <width>56</width>
+          <height>38</height>
+          <texture>PVR-IsRecording.png</texture>
+        </control>
+        <control type="label">
+          <description>Is Recording Header label</description>
+          <posx>555</posx>
+          <posy>22</posy>
+          <height>38</height>
+          <width>585</width>
+          <label>$LOCALIZE[19158]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>primal_25</font>
+          <textcolor>blue</textcolor>
+          <shadowcolor>white</shadowcolor>
+        </control>
+        <control type="label">
+          <description>NextRecordingTitle</description>
+          <posx>555</posx>
+          <posy>60</posy>
+          <height>45</height>
+          <width>660</width>
+          <label>$INFO[PVR.NowRecordingTitle]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>primal_20</font>
+          <shadowcolor>white</shadowcolor>
+          <scroll>true</scroll>
+        </control>
+        <control type="label">
+          <description>NextRecordingChannel</description>
+          <posx>555</posx>
+          <posy>105</posy>
+          <height>38</height>
+          <width>660</width>
+          <label>$INFO[PVR.NowRecordingChannel]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>primal_20</font>
+          <textcolor>blue</textcolor>
+          <shadowcolor>white</shadowcolor>
+        </control>
+        <control type="label">
+          <description>NextRecordingDateTime</description>
+          <posx>555</posx>
+          <posy>142</posy>
+          <height>38</height>
+          <width>660</width>
+          <label>$INFO[PVR.NowRecordingDateTime,$LOCALIZE[19126] - ]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>primal_20</font>
+          <shadowcolor>white</shadowcolor>
+        </control>
+      </control>
+    </control>
+    <!-- PVR  -->
+    <!-- VIDEO NOW PLAYING -->
+    <control type="group">
+      <posx>650</posx>
+      <posy>0</posy>
+      <visible>Player.HasVideo + !Skin.HasSetting(homepageNowplayingInfo) + !Skin.HasSetting(Use_Startup_DreamVideo)</visible>
+      <include>VisibleFadeEffect</include>
+      <include>HomeAnimation</include>
+      <visible>Skin.HasSetting(homepageNowplayingVideoInfo)</visible>
+      <!-- Non-Library Video Now Playing Info -->
+      <control type="group">
+        <posx>0</posx>
+        <posy>0</posy>
+        <visible>!VideoPlayer.Content(Movies) + !VideoPlayer.Content(Episodes) + !VideoPlayer.Content(LiveTV) + !Skin.HasSetting(Use_Startup_DreamVideo)</visible>
+        <control type="label">
+          <description>Title label</description>
+          <posx>880</posx>
+          <posy>480</posy>
+          <height>45</height>
+          <width>480</width>
+          <label>$INFO[VideoPlayer.Title]$INFO[VideoPlayer.Year, (,)]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <font>primal_24</font>
+          <textcolor>white</textcolor>
+        </control>
+        <control type="label">
+          <description>Time Label</description>
+          <posx>880</posx>
+          <posy>520</posy>
+          <height>45</height>
+          <width>480</width>
+          <label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>primal_16</font>
+          <textcolor>white</textcolor>
+        </control>
+      </control>
+      <!-- NOW PLAYING INFO MOVIES -->
+      <control type="group">
+        <posx>0</posx>
+        <posy>430</posy>
+        <visible>VideoPlayer.Content(Movies)</visible>
+        <visible>Skin.HasSetting(homepageNowplayingVideoInfo)</visible>
+        <control type="image">
+          <description>Cover image</description>
+          <posx>940</posx>
+          <posy>270</posy>
+          <width>138</width>
+          <height>198</height>
+          <aspectratio aligny="top">stretch</aspectratio>
+          <texture fallback="cover_fallback.png" diffuse="Views/dvd_overlay.png">$INFO[VideoPlayer.Cover]</texture>
+        </control>
+        <control type="label">
+          <description>Title label</description>
+          <posx>570</posx>
+          <posy>480</posy>
+          <height>45</height>
+          <width>480</width>
+          <label>$INFO[VideoPlayer.Title]$INFO[VideoPlayer.Year, (,)]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <font>primal_20</font>
+          <textcolor>white</textcolor>
+        </control>
+        <control type="label">
+          <description>Time Label</description>
+          <posx>570</posx>
+          <posy>520</posy>
+          <height>45</height>
+          <width>480</width>
+          <label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>primal_16</font>
+          <textcolor>white</textcolor>
+        </control>
+      </control>
+      <!-- NOW PLAYING INFO LiveTV -->
+      <control type="group">
+        <posx>0</posx>
+        <posy>430</posy>
+        <visible>VideoPlayer.Content(LiveTV)</visible>
+        <visible>Skin.HasSetting(homepageNowplayingVideoInfo)</visible>
+        <control type="image">
+          <description>Cover image</description>
+          <posx>950</posx>
+          <posy>350</posy>
+          <width>120</width>
+          <height>120</height>
+          <aspectratio aligny="top">keep</aspectratio>
+          <texture>$INFO[VideoPlayer.Cover]</texture>
+        </control>
+        <control type="label">
+          <description>Title label</description>
+          <posx>570</posx>
+          <posy>480</posy>
+          <height>45</height>
+          <width>480</width>
+          <label>$INFO[VideoPlayer.Title]$INFO[VideoPlayer.Year,[COLOR=grey] (,)[/COLOR] ]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>primal_20</font>
+          <textcolor>white</textcolor>
+          <scroll>true</scroll>
+        </control>
+		<control type="label">
+          <description>Time Label</description>
+          <posx>570</posx>
+          <posy>520</posy>
+          <height>45</height>
+          <width>480</width>
+          <label>Endet um: $INFO[VideoPlayer.FinishTime] - Nächste: $INFO[VideoPlayer.NextTitle]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>primal_16</font>
+          <textcolor>white</textcolor>
+        </control>
+      </control>
+      <!-- NOW PLAYING EPISODES -->
+      <control type="group">
+        <posx>495</posx>
+        <posy>435</posy>
+        <visible>VideoPlayer.Content(Episodes)</visible>
+        <visible>Skin.HasSetting(homepageNowplayingVideoInfo)</visible>
+        <control type="image">
+          <description>Cover image</description>
+          <posx>450</posx>
+          <posy>265</posy>
+          <width>138</width>
+          <height>198</height>
+          <aspectratio aligny="top">stretch</aspectratio>
+          <texture fallback="cover_fallback.png" diffuse="Views/dvd_overlay.png">$INFO[Player.Art(tvshow.poster)]</texture>
+        </control>
+        <control type="label">
+          <description>TV Show label</description>
+          <posx>80</posx>
+          <posy>480</posy>
+          <height>45</height>
+          <width>480</width>
+          <label>$INFO[VideoPlayer.TVShowTitle] - S$INFO[VideoPlayer.Season] E$INFO[VideoPlayer.episode] - $INFO[VideoPlayer.Title]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <font>primal_20</font>
+          <textcolor>white</textcolor>
+        </control>
+        <control type="label">
+          <description>Time Label</description>
+          <posx>80</posx>
+          <posy>520</posy>
+          <height>45</height>
+          <width>480</width>
+          <label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>primal_16</font>
+          <textcolor>white</textcolor>
+        </control>
+      </control>
+    </control>
+  </include>
+</includes>

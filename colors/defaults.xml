@@ -1,0 +1,14 @@
+<colors>
+	<color name="white">FFFFFFFF</color>
+	<color name="grey">FFb4b4b4</color>
+	<color name="grey2">88FFFFFF</color>
+	<color name="grey3">FF313030</color>
+	<color name="grey4">88544f4f</color>
+	<color name="black">FF000000</color>
+	<color name="blue">FF4786db</color>
+	<color name="blue2">FF4c7799</color>
+	<color name="selected">FFe28c05</color>
+	<color name="dialogheader">DDced8da</color>
+	<color name="orange">FF4786db</color>
+	<color name="yellow">FFbdc808</color>
+</colors>

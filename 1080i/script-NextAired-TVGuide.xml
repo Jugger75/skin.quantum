@@ -1,0 +1,2285 @@
+<window>
+	<onload>ClearProperty(TVGuide.MondayList,Home)</onload>
+	<onload>ClearProperty(TVGuide.TuesdayList,Home)</onload>
+	<onload>ClearProperty(TVGuide.WednesdayList,Home)</onload>
+	<onload>ClearProperty(TVGuide.ThursdayList,Home)</onload>
+	<onload>ClearProperty(TVGuide.FridayList,Home)</onload>
+	<onload>ClearProperty(TVGuide.SaturdayList,Home)</onload>
+	<onload>ClearProperty(TVGuide.SundayList,Home)</onload>
+	<allowoverlay>no</allowoverlay>
+	<controls>
+		<control type="group">
+			<animation effect="fade" time="250">WindowOpen</animation>
+			<animation effect="fade" time="250">WindowClose</animation>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>1920</width>
+				<height>1080</height>
+				<aspectratio>scale</aspectratio>
+				<texture>skin/slidermenu2.png</texture>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>1920</width>
+				<height>1080</height>
+				<aspectratio>scale</aspectratio>
+				<texture>skin/home3.png</texture>
+			</control>
+			<include>MultiViewButtonMenu</include>
+			<control type="group">
+				<!--<visible>!IsEmpty(Window(home).Property(TVGuide.BackgroundFanart))</visible>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1920</width>
+				    <height>1080</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true">$INFO[Container(200).ListItem.Property(Fanart)]</texture>
+					<visible>Control.HasFocus(200) | !IsEmpty(Window(Home).property(TVGuide.MondayList))</visible>
+					<fadetime>600</fadetime>
+					<animation effect="fade" time="600">Visible</animation>
+					<animation effect="fade" time="600">Hidden</animation>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1920</width>
+				    <height>1080</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true">$INFO[Container(201).ListItem.Property(Fanart)]</texture>
+					<visible>Control.HasFocus(201) | !IsEmpty(Window(Home).property(TVGuide.TuesdayList))</visible>
+					<fadetime>600</fadetime>
+					<animation effect="fade" time="600">Visible</animation>
+					<animation effect="fade" time="600">Hidden</animation>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1920</width>
+				    <height>1080</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true">$INFO[Container(202).ListItem.Property(Fanart)]</texture>
+					<visible>Control.HasFocus(202) | !IsEmpty(Window(Home).property(TVGuide.WednesdayList))</visible>
+					<fadetime>600</fadetime>
+					<animation effect="fade" time="600">Visible</animation>
+					<animation effect="fade" time="600">Hidden</animation>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1920</width>
+				    <height>1080</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true">$INFO[Container(203).ListItem.Property(Fanart)]</texture>
+					<visible>Control.HasFocus(203) | !IsEmpty(Window(Home).property(TVGuide.ThursdayList))</visible>
+					<fadetime>600</fadetime>
+					<animation effect="fade" time="600">Visible</animation>
+					<animation effect="fade" time="600">Hidden</animation>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1920</width>
+				    <height>1080</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true">$INFO[Container(204).ListItem.Property(Fanart)]</texture>
+					<visible>Control.HasFocus(204) | !IsEmpty(Window(Home).property(TVGuide.FridayList))</visible>
+					<fadetime>600</fadetime>
+					<animation effect="fade" time="600">Visible</animation>
+					<animation effect="fade" time="600">Hidden</animation>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1920</width>
+				    <height>1080</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true">$INFO[Container(205).ListItem.Property(Fanart)]</texture>
+					<visible>Control.HasFocus(205) | !IsEmpty(Window(Home).property(TVGuide.SaturdayList))</visible>
+					<animation effect="fade" time="600">Visible</animation>
+					<animation effect="fade" time="600">Hidden</animation>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1920</width>
+				    <height>1080</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true">$INFO[Container(206).ListItem.Property(Fanart)]</texture>
+					<visible>Control.HasFocus(206) | !IsEmpty(Window(Home).property(TVGuide.SundayList))</visible>
+					<fadetime>600</fadetime>
+					<animation effect="fade" time="600">Visible</animation>
+					<animation effect="fade" time="600">Hidden</animation>
+				</control>-->
+			</control>
+		</control>
+		<!--<include>CommonMediaPlayingBackground</include>-->
+		<!-- =============== -->
+		<control type="group">
+			<animation effect="fade" time="250">WindowOpen</animation>
+			<animation effect="fade" time="250">WindowClose</animation>
+			<control type="group">
+				<!--<control type="image">
+					<posx>100</posx>
+					<posy>110</posy>
+					<width>1200</width>
+					<height>840</height>
+					<texture border="15">TVGuide/TVGuide-ContentPanel.png</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="image">
+					<posx>1340</posx>
+					<posy>110</posy>
+					<width>500</width>
+					<height>840</height>
+					<texture border="15">TVGuide/TVGuide-ContentPanel.png</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>-->
+			</control>
+		</control>
+		
+		  <control type="grouplist">
+			<posx>1420</posx>
+			<posy>640</posy>
+			<include>CommonNowPlaying</include>
+		  </control>
+		
+		<include>BehindDialogFadeOut</include>
+		<!-- =============== -->
+		<control type="group">
+			<animation effect="fade" time="250">WindowOpen</animation>
+			<animation effect="fade" time="250">WindowClose</animation>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>1920</width>
+				<height>1080</height>
+				<texture>TVGuide/TVGuide-Grid.png</texture>
+			</control>
+			<!--<control type="image">
+				<description>Current weekday highlight</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>1920</width>
+				<height>1080</height>
+				<texture>TVGuide/TVGuide-Grid-Highlight.png</texture>
+				<colordiffuse>DDFFFFFF</colordiffuse>
+				<animation effect="slide" end="0,79" time="0" condition="StringCompare(System.Date(ddd),$LOCALIZE[42])">Conditional</animation>
+				<animation effect="slide" end="0,158" time="0" condition="StringCompare(System.Date(ddd),$LOCALIZE[43])">Conditional</animation>
+				<animation effect="slide" end="0,237" time="0" condition="StringCompare(System.Date(ddd),$LOCALIZE[44])">Conditional</animation>
+				<animation effect="slide" end="0,316" time="0" condition="StringCompare(System.Date(ddd),$LOCALIZE[45])">Conditional</animation>
+				<animation effect="slide" end="0,395" time="0" condition="StringCompare(System.Date(ddd),$LOCALIZE[46])">Conditional</animation>
+				<animation effect="slide" end="0,474" time="0" condition="StringCompare(System.Date(ddd),$LOCALIZE[47])">Conditional</animation>
+			</control>-->
+			<control type="group">
+				<description>Day labels</description>
+				<posx>110</posx>
+				<posy>80</posy>
+				<control type="label">
+					<description>Monday</description>
+					<posx>50</posx>
+					<posy>50</posy>
+					<width>75</width>
+					<height>75</height>
+					<label>$LOCALIZE[41]</label>
+					<align>right</align>
+					<aligny>center</aligny>
+					<font>primal_22_Bold</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<animation effect="fade" start="100" end="65" time="0" condition="!StringCompare(System.Date(ddd),$LOCALIZE[41])">Conditional</animation>
+				</control>
+				<control type="label">
+					<description>Tuesday</description>
+					<posx>50</posx>
+					<posy>175</posy>
+					<width>75</width>
+					<height>75</height>
+					<label>$LOCALIZE[42]</label>
+					<align>right</align>
+					<aligny>center</aligny>
+					<font>primal_22_Bold</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<animation effect="fade" start="100" end="65" time="0" condition="!StringCompare(System.Date(ddd),$LOCALIZE[42])">Conditional</animation>
+				</control>
+				<control type="label">
+					<description>Wednesday</description>
+					<posx>50</posx>
+					<posy>300</posy>
+					<width>75</width>
+					<height>75</height>
+					<label>$LOCALIZE[43]</label>
+					<align>right</align>
+					<aligny>center</aligny>
+					<font>primal_22_Bold</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<animation effect="fade" start="100" end="65" time="0" condition="!StringCompare(System.Date(ddd),$LOCALIZE[43])">Conditional</animation>
+				</control>
+				<control type="label">
+					<description>Thursday</description>
+					<posx>50</posx>
+					<posy>415</posy>
+					<width>75</width>
+					<height>75</height>
+					<label>$LOCALIZE[44]</label>
+					<align>right</align>
+					<aligny>center</aligny>
+					<font>primal_22_Bold</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<animation effect="fade" start="100" end="65" time="0" condition="!StringCompare(System.Date(ddd),$LOCALIZE[44])">Conditional</animation>
+				</control>
+				<control type="label">
+					<description>Friday</description>
+					<posx>50</posx>
+					<posy>535</posy>
+					<width>75</width>
+					<height>75</height>
+					<label>$LOCALIZE[45]</label>
+					<align>right</align>
+					<aligny>center</aligny>
+					<font>primal_22_Bold</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<animation effect="fade" start="100" end="65" time="0" condition="!StringCompare(System.Date(ddd),$LOCALIZE[45])">Conditional</animation>
+				</control>
+				<control type="label">
+					<description>Saturday</description>
+					<posx>50</posx>
+					<posy>650</posy>
+					<width>75</width>
+					<height>75</height>
+					<label>$LOCALIZE[46]</label>
+					<align>right</align>
+					<aligny>center</aligny>
+					<font>primal_22_Bold</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<animation effect="fade" start="100" end="65" time="0" condition="!StringCompare(System.Date(ddd),$LOCALIZE[46])">Conditional</animation>
+				</control>
+				<control type="label">
+					<description>Sunday</description>
+					<posx>50</posx>
+					<posy>765</posy>
+					<width>75</width>
+					<height>75</height>
+					<label>$LOCALIZE[47]</label>
+					<align>right</align>
+					<aligny>center</aligny>
+					<font>primal_22_Bold</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<animation effect="fade" start="100" end="65" time="0" condition="!StringCompare(System.Date(ddd),$LOCALIZE[47])">Conditional</animation>
+				</control>
+			</control>
+			<control type="group" id="9002">
+				<control type="list" id="200">
+					<description>Monday list</description>
+					<posx>215</posx>
+					<posy>170</posy>
+					<width>770</width>
+					<height>120</height>
+					<orientation>horizontal</orientation>
+					<scrolltime>0</scrolltime>
+					<onup>206</onup>
+					<ondown>201</ondown>
+					<onleft>SetProperty(TVGuide.MondayList,1,Home)</onleft>
+					<onleft>9000</onleft>
+					<onright>200</onright>
+					<itemgap>5</itemgap>
+					<itemlayout height="75" width="222">
+						<control type="label">
+							<description>Next air date</description>
+							<posx>75</posx>
+							<posy>26</posy>
+							<width>150</width>
+							<height>20</height>
+							<label>$INFO[ListItem.Property(NextDate)]</label>
+							<font>primal_18</font>
+					        <textcolor>white</textcolor>
+					        <shadowcolor>black</shadowcolor>
+							<align>center</align>
+						</control>
+						<control type="label">
+							<description>Airing time</description>
+							<posx>75</posx>
+							<posy>58</posy>
+							<width>150</width>
+							<height>20</height>
+							<label>$INFO[ListItem.Property(ShortTime)]</label>
+							<font>primal_18</font>
+					        <textcolor>white</textcolor>
+					        <shadowcolor>black</shadowcolor>
+							<align>center</align>
+						</control>
+						<control type="image">
+							<description>Thumb</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(poster))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),0)</visible>
+						</control>
+						<control type="image">
+							<description>Banner</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(banner))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),1)</visible>
+						</control>
+						<control type="image">
+							<description>Logo</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(clearlogo))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),2)</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout height="75" width="222">
+						<control type="group">
+							<visible>Control.HasFocus(200)</visible>
+							<control type="label">
+								<description>Next air date</description>
+								<posx>75</posx>
+								<posy>26</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(NextDate)]</label>
+								<font>primal_18</font>
+					            <textcolor>orange</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+							<control type="label">
+								<description>Airing time</description>
+								<posx>75</posx>
+								<posy>58</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(ShortTime)]</label>
+								<font>primal_18</font>
+					            <textcolor>orange</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+						</control>
+						<control type="group">
+							<visible>!Control.HasFocus(200)</visible>
+							<control type="label">
+								<description>Next air date</description>
+								<posx>75</posx>
+								<posy>26</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(NextDate)]</label>
+								<font>primal_18</font>
+					            <textcolor>white</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+							<control type="label">
+								<description>Airing time</description>
+								<posx>75</posx>
+								<posy>48</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(ShortTime)]</label>
+								<font>primal_18</font>
+					            <textcolor>white</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+						</control>
+						<control type="image">
+							<description>Thumb</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(poster))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),0)</visible>
+						</control>
+						<control type="image">
+							<description>Banner</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(banner))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),1)</visible>
+						</control>
+						<control type="image">
+							<description>Logo</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(clearlogo))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),2)</visible>
+						</control>
+					</focusedlayout>
+				</control>
+				<control type="list" id="201">
+					<description>Tuesday list</description>
+					<posx>215</posx>
+					<posy>247</posy>
+					<width>770</width>
+					<height>120</height>
+					<orientation>horizontal</orientation>
+					<scrolltime>0</scrolltime>
+					<onup>200</onup>
+					<ondown>202</ondown>
+					<onleft>SetProperty(TVGuide.TuesdayList,1,Home)</onleft>
+					<onleft>9000</onleft>
+					<onright>201</onright>
+					<itemgap>5</itemgap>
+					<itemlayout height="75" width="222">
+						<control type="label">
+							<description>Next air date</description>
+							<posx>75</posx>
+							<posy>36</posy>
+							<width>150</width>
+							<height>20</height>
+							<label>$INFO[ListItem.Property(NextDate)]</label>
+							<font>primal_18</font>
+					        <textcolor>white</textcolor>
+					        <shadowcolor>black</shadowcolor>
+							<align>center</align>
+						</control>
+						<control type="label">
+							<description>Airing time</description>
+							<posx>75</posx>
+							<posy>68</posy>
+							<width>150</width>
+							<height>20</height>
+							<label>$INFO[ListItem.Property(ShortTime)]</label>
+							<font>primal_18</font>
+					        <textcolor>white</textcolor>
+					        <shadowcolor>black</shadowcolor>
+							<align>center</align>
+						</control>
+						<control type="image">
+							<description>Thumb</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(poster))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),0)</visible>
+						</control>
+						<control type="image">
+							<description>Banner</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(banner))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),1)</visible>
+						</control>
+						<control type="image">
+							<description>Logo</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(clearlogo))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),2)</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout height="75" width="222">
+						<control type="group">
+							<visible>Control.HasFocus(201)</visible>
+							<control type="label">
+								<description>Next air date</description>
+								<posx>75</posx>
+								<posy>36</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(NextDate)]</label>
+								<font>primal_18</font>
+					            <textcolor>orange</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+							<control type="label">
+								<description>Airing time</description>
+								<posx>75</posx>
+								<posy>68</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(ShortTime)]</label>
+								<font>primal_18</font>
+					            <textcolor>orange</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+						</control>
+						<control type="group">
+							<visible>!Control.HasFocus(201)</visible>
+							<control type="label">
+								<description>Next air date</description>
+								<posx>75</posx>
+								<posy>36</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(NextDate)]</label>
+								<font>primal_18</font>
+					            <textcolor>white</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+							<control type="label">
+								<description>Airing time</description>
+								<posx>75</posx>
+								<posy>68</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(ShortTime)]</label>
+								<font>primal_18</font>
+					            <textcolor>white</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+						</control>
+						<control type="image">
+							<description>Thumb</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(poster))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),0)</visible>
+						</control>
+						<control type="image">
+							<description>Banner</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(banner))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),1)</visible>
+						</control>
+						<control type="image">
+							<description>Logo</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(clearlogo))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),2)</visible>
+						</control>
+					</focusedlayout>
+				</control>
+				<control type="list" id="202">
+					<description>Wednesday list</description>
+					<posx>215</posx>
+					<posy>365</posy>
+					<width>770</width>
+					<height>120</height>
+					<orientation>horizontal</orientation>
+					<scrolltime>0</scrolltime>
+					<onup>201</onup>
+					<ondown>203</ondown>
+					<onleft>SetProperty(TVGuide.WednesdayList,1,Home)</onleft>
+					<onleft>9000</onleft>
+					<onright>202</onright>
+					<itemgap>5</itemgap>
+					<itemlayout height="75" width="222">
+						<control type="label">
+							<description>Next air date</description>
+							<posx>75</posx>
+							<posy>36</posy>
+							<width>150</width>
+							<height>20</height>
+							<label>$INFO[ListItem.Property(NextDate)]</label>
+							<font>primal_18</font>
+					        <textcolor>white</textcolor>
+					        <shadowcolor>black</shadowcolor>
+							<align>center</align>
+						</control>
+						<control type="label">
+							<description>Airing time</description>
+							<posx>75</posx>
+							<posy>68</posy>
+							<width>150</width>
+							<height>20</height>
+							<label>$INFO[ListItem.Property(ShortTime)]</label>
+							<font>primal_18</font>
+					        <textcolor>white</textcolor>
+					        <shadowcolor>black</shadowcolor>
+							<align>center</align>
+						</control>
+						<control type="image">
+							<description>Thumb</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(poster))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),0)</visible>
+						</control>
+						<control type="image">
+							<description>Banner</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(banner))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),1)</visible>
+						</control>
+						<control type="image">
+							<description>Logo</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(clearlogo))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),2)</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout height="75" width="222">
+						<control type="group">
+							<visible>Control.HasFocus(202)</visible>
+							<control type="label">
+								<description>Next air date</description>
+								<posx>75</posx>
+								<posy>36</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(NextDate)]</label>
+								<font>primal_18</font>
+					            <textcolor>orange</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+							<control type="label">
+								<description>Airing time</description>
+								<posx>75</posx>
+								<posy>68</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(ShortTime)]</label>
+								<font>primal_18</font>
+					            <textcolor>orange</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+						</control>
+						<control type="group">
+							<visible>!Control.HasFocus(202)</visible>
+							<control type="label">
+								<description>Next air date</description>
+								<posx>75</posx>
+								<posy>36</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(NextDate)]</label>
+								<font>primal_18</font>
+					            <textcolor>white</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+							<control type="label">
+								<description>Airing time</description>
+								<posx>75</posx>
+								<posy>68</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(ShortTime)]</label>
+								<font>primal_18</font>
+					            <textcolor>white</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+						</control>
+						<control type="image">
+							<description>Thumb</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(poster))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),0)</visible>
+						</control>
+						<control type="image">
+							<description>Banner</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(banner))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),1)</visible>
+						</control>
+						<control type="image">
+							<description>Logo</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(clearlogo))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),2)</visible>
+						</control>
+					</focusedlayout>
+				</control>
+				<control type="list" id="203">
+					<description>Thursday list</description>
+					<posx>215</posx>
+					<posy>485</posy>
+					<width>770</width>
+					<height>120</height>
+					<orientation>horizontal</orientation>
+					<scrolltime>0</scrolltime>
+					<onup>202</onup>
+					<ondown>204</ondown>
+					<onleft>SetProperty(TVGuide.ThursdayList,1,Home)</onleft>
+					<onleft>9000</onleft>
+					<onright>203</onright>
+					<itemgap>5</itemgap>
+					<itemlayout height="75" width="222">
+						<control type="label">
+							<description>Next air date</description>
+							<posx>75</posx>
+							<posy>36</posy>
+							<width>150</width>
+							<height>20</height>
+							<label>$INFO[ListItem.Property(NextDate)]</label>
+							<font>primal_18</font>
+					        <textcolor>white</textcolor>
+					        <shadowcolor>black</shadowcolor>
+							<align>center</align>
+						</control>
+						<control type="label">
+							<description>Airing time</description>
+							<posx>75</posx>
+							<posy>68</posy>
+							<width>150</width>
+							<height>20</height>
+							<label>$INFO[ListItem.Property(ShortTime)]</label>
+							<font>primal_18</font>
+					        <textcolor>white</textcolor>
+					        <shadowcolor>black</shadowcolor>
+							<align>center</align>
+						</control>
+						<control type="image">
+							<description>Thumb</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(poster))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),0)</visible>
+						</control>
+						<control type="image">
+							<description>Banner</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(banner))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),1)</visible>
+						</control>
+						<control type="image">
+							<description>Logo</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(clearlogo))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),2)</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout height="75" width="222">
+						<control type="group">
+							<visible>Control.HasFocus(203)</visible>
+							<control type="label">
+								<description>Next air date</description>
+								<posx>75</posx>
+								<posy>36</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(NextDate)]</label>
+								<font>primal_18</font>
+					            <textcolor>orange</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+							<control type="label">
+								<description>Airing time</description>
+								<posx>75</posx>
+								<posy>68</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(ShortTime)]</label>
+								<font>primal_18</font>
+					            <textcolor>orange</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+						</control>
+						<control type="group">
+							<visible>!Control.HasFocus(203)</visible>
+							<control type="label">
+								<description>Next air date</description>
+								<posx>75</posx>
+								<posy>36</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(NextDate)]</label>
+								<font>primal_18</font>
+					            <textcolor>white</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+							<control type="label">
+								<description>Airing time</description>
+								<posx>75</posx>
+								<posy>68</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(ShortTime)]</label>
+								<font>primal_18</font>
+					            <textcolor>white</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+						</control>
+						<control type="image">
+							<description>Thumb</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(poster))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),0)</visible>
+						</control>
+						<control type="image">
+							<description>Banner</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(banner))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),1)</visible>
+						</control>
+						<control type="image">
+							<description>Logo</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(clearlogo))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),2)</visible>
+						</control>
+					</focusedlayout>
+				</control>
+				<control type="list" id="204">
+					<description>Friday list</description>
+					<posx>215</posx>
+					<posy>604</posy>
+					<width>870</width>
+					<height>120</height>
+					<orientation>horizontal</orientation>
+					<scrolltime>0</scrolltime>
+					<onup>203</onup>
+					<ondown>205</ondown>
+					<onleft>SetProperty(TVGuide.FridayList,1,Home)</onleft>
+					<onleft>9000</onleft>
+					<onright>204</onright>
+					<itemgap>5</itemgap>
+					<itemlayout height="75" width="222">
+						<control type="label">
+							<description>Next air date</description>
+							<posx>75</posx>
+							<posy>36</posy>
+							<width>150</width>
+							<height>20</height>
+							<label>$INFO[ListItem.Property(NextDate)]</label>
+							<font>primal_18</font>
+					        <textcolor>white</textcolor>
+					        <shadowcolor>black</shadowcolor>
+							<align>center</align>
+						</control>
+						<control type="label">
+							<description>Airing time</description>
+							<posx>75</posx>
+							<posy>68</posy>
+							<width>150</width>
+							<height>20</height>
+							<label>$INFO[ListItem.Property(ShortTime)]</label>
+							<font>primal_18</font>
+					        <textcolor>white</textcolor>
+					        <shadowcolor>black</shadowcolor>
+							<align>center</align>
+						</control>
+						<control type="image">
+							<description>Thumb</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(poster))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),0)</visible>
+						</control>
+						<control type="image">
+							<description>Banner</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(banner))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),1)</visible>
+						</control>
+						<control type="image">
+							<description>Logo</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(clearlogo))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),2)</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout height="75" width="222">
+						<control type="group">
+							<visible>Control.HasFocus(204)</visible>
+							<control type="label">
+								<description>Next air date</description>
+								<posx>75</posx>
+								<posy>36</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(NextDate)]</label>
+								<font>primal_18</font>
+					            <textcolor>orange</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+							<control type="label">
+								<description>Airing time</description>
+								<posx>75</posx>
+								<posy>68</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(ShortTime)]</label>
+								<font>primal_18</font>
+					            <textcolor>orange</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+						</control>
+						<control type="group">
+							<visible>!Control.HasFocus(204)</visible>
+							<control type="label">
+								<description>Next air date</description>
+								<posx>75</posx>
+								<posy>36</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(NextDate)]</label>
+								<font>primal_18</font>
+					            <textcolor>white</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+							<control type="label">
+								<description>Airing time</description>
+								<posx>75</posx>
+								<posy>68</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(ShortTime)]</label>
+								<font>primal_18</font>
+					            <textcolor>white</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+						</control>
+						<control type="image">
+							<description>Thumb</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(poster))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),0)</visible>
+						</control>
+						<control type="image">
+							<description>Banner</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(banner))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),1)</visible>
+						</control>
+						<control type="image">
+							<description>Logo</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(clearlogo))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),2)</visible>
+						</control>
+					</focusedlayout>
+				</control>
+				<control type="list" id="205">
+					<description>Saturday list</description>
+					<posx>215</posx>
+					<posy>723</posy>
+					<width>770</width>
+					<height>120</height>
+					<orientation>horizontal</orientation>
+					<scrolltime>0</scrolltime>
+					<onup>204</onup>
+					<ondown>206</ondown>
+					<onleft>SetProperty(TVGuide.SaturdayList,1,Home)</onleft>
+					<onleft>9000</onleft>
+					<onright>205</onright>
+					<itemgap>5</itemgap>
+					<itemlayout height="75" width="222">
+						<control type="label">
+							<description>Next air date</description>
+							<posx>75</posx>
+							<posy>36</posy>
+							<width>150</width>
+							<height>20</height>
+							<label>$INFO[ListItem.Property(NextDate)]</label>
+							<font>primal_18</font>
+					        <textcolor>white</textcolor>
+					        <shadowcolor>black</shadowcolor>
+							<align>center</align>
+						</control>
+						<control type="label">
+							<description>Airing time</description>
+							<posx>75</posx>
+							<posy>68</posy>
+							<width>150</width>
+							<height>20</height>
+							<label>$INFO[ListItem.Property(ShortTime)]</label>
+							<font>primal_18</font>
+					        <textcolor>white</textcolor>
+					        <shadowcolor>black</shadowcolor>
+							<align>center</align>
+						</control>
+						<control type="image">
+							<description>Thumb</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(poster))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),0)</visible>
+						</control>
+						<control type="image">
+							<description>Banner</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(banner))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),1)</visible>
+						</control>
+						<control type="image">
+							<description>Logo</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(clearlogo))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),2)</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout height="75" width="222">
+						<control type="group">
+							<visible>Control.HasFocus(205)</visible>
+							<control type="label">
+								<description>Next air date</description>
+								<posx>75</posx>
+								<posy>36</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(NextDate)]</label>
+								<font>primal_18</font>
+					            <textcolor>orange</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+							<control type="label">
+								<description>Airing time</description>
+								<posx>75</posx>
+								<posy>68</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(ShortTime)]</label>
+								<font>primal_18</font>
+					            <textcolor>orange</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+						</control>
+						<control type="group">
+							<visible>!Control.HasFocus(205)</visible>
+							<control type="label">
+								<description>Next air date</description>
+								<posx>75</posx>
+								<posy>36</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(NextDate)]</label>
+								<font>primal_18</font>
+					            <textcolor>white</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+							<control type="label">
+								<description>Airing time</description>
+								<posx>75</posx>
+								<posy>68</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(ShortTime)]</label>
+								<font>primal_18</font>
+					            <textcolor>white</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+						</control>
+						<control type="image">
+							<description>Thumb</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(poster))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),0)</visible>
+						</control>
+						<control type="image">
+							<description>Banner</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(banner))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),1)</visible>
+						</control>
+						<control type="image">
+							<description>Logo</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(clearlogo))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),2)</visible>
+						</control>
+					</focusedlayout>
+				</control>
+				<control type="list" id="206">
+					<description>Sunday list</description>
+					<posx>215</posx>
+					<posy>842</posy>
+					<width>770</width>
+					<height>120</height>
+					<orientation>horizontal</orientation>
+					<scrolltime>0</scrolltime>
+					<onup>205</onup>
+					<ondown>200</ondown>
+					<onleft>SetProperty(TVGuide.SundayList,1,Home)</onleft>
+					<onleft>9000</onleft>
+					<onright>206</onright>
+					<itemgap>5</itemgap>
+					<itemlayout height="75" width="222">
+						<control type="label">
+							<description>Next air date</description>
+							<posx>75</posx>
+							<posy>36</posy>
+							<width>150</width>
+							<height>20</height>
+							<label>$INFO[ListItem.Property(NextDate)]</label>
+							<font>primal_18</font>
+					        <textcolor>white</textcolor>
+					        <shadowcolor>black</shadowcolor>
+							<align>center</align>
+						</control>
+						<control type="label">
+							<description>Airing time</description>
+							<posx>75</posx>
+							<posy>68</posy>
+							<width>150</width>
+							<height>20</height>
+							<label>$INFO[ListItem.Property(ShortTime)]</label>
+							<font>primal_18</font>
+					        <textcolor>white</textcolor>
+					        <shadowcolor>black</shadowcolor>
+							<align>center</align>
+						</control>
+						<control type="image">
+							<description>Thumb</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(poster))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),0)</visible>
+						</control>
+						<control type="image">
+							<description>Banner</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(banner))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),1)</visible>
+						</control>
+						<control type="image">
+							<description>Logo</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(clearlogo))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),2)</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout height="75" width="222">
+						<control type="group">
+							<visible>Control.HasFocus(206)</visible>
+							<control type="label">
+								<description>Next air date</description>
+								<posx>75</posx>
+								<posy>36</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(NextDate)]</label>
+								<font>primal_18</font>
+					            <textcolor>orange</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+							<control type="label">
+								<description>Airing time</description>
+								<posx>75</posx>
+								<posy>68</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(ShortTime)]</label>
+								<font>primal_18</font>
+					            <textcolor>orange</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+						</control>
+						<control type="group">
+							<visible>!Control.HasFocus(206)</visible>
+							<control type="label">
+								<description>Next air date</description>
+								<posx>75</posx>
+								<posy>36</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(NextDate)]</label>
+								<font>primal_18</font>
+					            <textcolor>white</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+							<control type="label">
+								<description>Airing time</description>
+								<posx>75</posx>
+								<posy>68</posy>
+								<width>150</width>
+								<height>20</height>
+								<label>$INFO[ListItem.Property(ShortTime)]</label>
+								<font>primal_18</font>
+					            <textcolor>white</textcolor>
+					            <shadowcolor>black</shadowcolor>
+								<align>center</align>
+							</control>
+						</control>
+						<control type="image">
+							<description>Thumb</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(poster))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),0)</visible>
+						</control>
+						<control type="image">
+							<description>Banner</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(banner))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),1)</visible>
+						</control>
+						<control type="image">
+							<description>Logo</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>158</width>
+							<height>40</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Property(Art(clearlogo))]</texture>
+							<visible>StringCompare(Window(Home).Property(TVGuide.ThumbType),2)</visible>
+						</control>
+					</focusedlayout>
+				</control>
+			</control>
+			<control type="group">
+				<description>Additional show info</description>
+				<posx>1440</posx>
+				<posy>140</posy>
+				<visible>Control.HasFocus(200) | !IsEmpty(Window(Home).Property(TVGuide.MondayList))</visible>
+				<control type="label">
+					<description>Episode title</description>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>302</width>
+					<height>75</height>
+					<label>$INFO[Container(200).ListItem.Label]</label>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>font24_title</font>
+					<wrapmultiline>true</wrapmultiline>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>88</posy>
+					<width>302</width>
+					<height>170</height>
+					<aspectratio>stretch</aspectratio>
+					<fadetime>600</fadetime>
+					<texture background="true">$INFO[Container(200).ListItem.Property(Fanart)]</texture>
+					<visible>![Control.IsVisible(2001) + !stringcompare(Control.GetLabel(2001),empty.png)]</visible>
+				</control>
+				<control type="image" id="2001">
+					<posx>0</posx>
+					<posy>88</posy>
+					<width>302</width>
+					<height>170</height>
+					<aspectratio>stretch</aspectratio>
+					<fadetime>600</fadetime>
+					<texture background="true" fallback="TVGuide/empty.png">$INFO[Container(200).ListItem.Property(Path),,landscape.jpg]</texture>
+					<visible>!IsEmpty(Window(Home).Property(TVGuide.PreviewThumbs))</visible>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>88</posy>
+					<width>302</width>
+					<height>170</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>TVGuide/TVGuide-GlassOverlay.png</texture>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>278</posy>
+					<width>302</width>
+					<height>30</height>
+					<label>$INFO[Container(200).ListItem.Property(NextTitle)]</label>
+					<font>font13_title</font>
+					<align>center</align>
+					<aligny>center</aligny>
+					<wrapmultiline>true</wrapmultiline>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>326</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(200).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+					<font>font12</font>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>348</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(200).ListItem.Property(Genre)]</label>
+					<font>font12</font>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>400</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(200).ListItem.Property(ShortTime)]</label>
+					<font>font12</font>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>430</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(200).ListItem.Property(NextDate)]</label>
+					<font>font12</font>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>460</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(200).ListItem.Property(Network)]</label>
+					<font>font12</font>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+			</control>
+			<control type="group">
+				<description>Additional show info</description>
+				<posx>1440</posx>
+				<posy>140</posy>
+				<visible>Control.HasFocus(201) | !IsEmpty(Window(Home).Property(TVGuide.TuesdayList))</visible>
+				<control type="label">
+					<description>Episode title</description>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>302</width>
+					<height>75</height>
+					<label>$INFO[Container(201).ListItem.Label]</label>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>primal_22_Bold</font>
+					<shadowcolor>black</shadowcolor>
+					<wrapmultiline>true</wrapmultiline>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>88</posy>
+					<width>302</width>
+					<height>170</height>
+					<aspectratio>stretch</aspectratio>
+					<fadetime>600</fadetime>
+					<texture background="true">$INFO[Container(201).ListItem.Property(Fanart)]</texture>
+					<visible>![Control.IsVisible(2011) + !stringcompare(Control.GetLabel(2011),empty.png)]</visible>
+				</control>
+				<control type="image" id="2011">
+					<posx>0</posx>
+					<posy>88</posy>
+					<width>302</width>
+					<height>170</height>
+					<aspectratio>stretch</aspectratio>
+					<fadetime>600</fadetime>
+					<texture background="true" fallback="TVGuide/empty.png">$INFO[Container(201).ListItem.Property(Path),,landscape.jpg]</texture>
+					<visible>!IsEmpty(Window(Home).Property(TVGuide.PreviewThumbs))</visible>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>88</posy>
+					<width>302</width>
+					<height>170</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>TVGuide/TVGuide-GlassOverlay.png</texture>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>278</posy>
+					<width>302</width>
+					<height>30</height>
+					<label>$INFO[Container(201).ListItem.Property(NextTitle)]</label>
+					<font>primal_22</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+					<wrapmultiline>true</wrapmultiline>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>326</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(201).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>355</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(201).ListItem.Property(Genre)]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>400</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(201).ListItem.Property(ShortTime)]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>430</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(201).ListItem.Property(NextDate)]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>460</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(201).ListItem.Property(Network)]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+			</control>
+			<control type="group">
+				<description>Additional show info</description>
+				<posx>1440</posx>
+				<posy>140</posy>
+				<visible>Control.HasFocus(202) | !IsEmpty(Window(Home).Property(TVGuide.WednesdayList))</visible>
+				<control type="label">
+					<description>Episode title</description>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>302</width>
+					<height>75</height>
+					<label>$INFO[Container(202).ListItem.Label]</label>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>primal_22_Bold</font>
+					<shadowcolor>black</shadowcolor>
+					<wrapmultiline>true</wrapmultiline>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>88</posy>
+					<width>302</width>
+					<height>170</height>
+					<aspectratio>stretch</aspectratio>
+					<fadetime>600</fadetime>
+					<texture background="true">$INFO[Container(202).ListItem.Property(Fanart)]</texture>
+					<visible>![Control.IsVisible(2021) + !stringcompare(Control.GetLabel(2021),empty.png)]</visible>
+				</control>
+				<control type="image" id="2021">
+					<posx>0</posx>
+					<posy>88</posy>
+					<width>302</width>
+					<height>170</height>
+					<aspectratio>stretch</aspectratio>
+					<fadetime>600</fadetime>
+					<texture background="true" fallback="TVGuide/empty.png">$INFO[Container(202).ListItem.Property(Path),,landscape.jpg]</texture>
+					<visible>!IsEmpty(Window(Home).Property(TVGuide.PreviewThumbs))</visible>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>88</posy>
+					<width>302</width>
+					<height>170</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>TVGuide/TVGuide-GlassOverlay.png</texture>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>278</posy>
+					<width>302</width>
+					<height>30</height>
+					<label>$INFO[Container(202).ListItem.Property(NextTitle)]</label>
+					<font>primal_22</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+					<wrapmultiline>true</wrapmultiline>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>326</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(202).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>355</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(202).ListItem.Property(Genre)]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>400</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(202).ListItem.Property(ShortTime)]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>430</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(202).ListItem.Property(NextDate)]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>460</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(202).ListItem.Property(Network)]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+			</control>
+			<control type="group">
+				<description>Additional show info</description>
+				<posx>1440</posx>
+				<posy>140</posy>
+				<visible>Control.HasFocus(203) | !IsEmpty(Window(Home).Property(TVGuide.ThursdayList))</visible>
+				<control type="label">
+					<description>Episode title</description>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>302</width>
+					<height>75</height>
+					<label>$INFO[Container(203).ListItem.Label]</label>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>primal_22_Bold</font>
+					<shadowcolor>black</shadowcolor>
+					<wrapmultiline>true</wrapmultiline>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>88</posy>
+					<width>302</width>
+					<height>170</height>
+					<aspectratio>stretch</aspectratio>
+					<texture background="true">$INFO[Container(203).ListItem.Property(Fanart)]</texture>
+					<fadetime>600</fadetime>
+					<visible>![Control.IsVisible(2031) + !stringcompare(Control.GetLabel(2031),empty.png)]</visible>
+				</control>
+				<control type="image" id="2031">
+					<posx>0</posx>
+					<posy>88</posy>
+					<width>302</width>
+					<height>170</height>
+					<aspectratio>stretch</aspectratio>
+					<fadetime>600</fadetime>
+					<texture background="true" fallback="TVGuide/empty.png">$INFO[Container(203).ListItem.Property(Path),,landscape.jpg]</texture>
+					<visible>!IsEmpty(Window(Home).Property(TVGuide.PreviewThumbs))</visible>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>88</posy>
+					<width>302</width>
+					<height>170</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>TVGuide/TVGuide-GlassOverlay.png</texture>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>278</posy>
+					<width>302</width>
+					<height>30</height>
+					<label>$INFO[Container(203).ListItem.Property(NextTitle)]</label>
+					<font>primal_22</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+					<wrapmultiline>true</wrapmultiline>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>326</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(203).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>355</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(203).ListItem.Property(Genre)]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>400</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(203).ListItem.Property(ShortTime)]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>430</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(203).ListItem.Property(NextDate)]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>460</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(203).ListItem.Property(Network)]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+			</control>
+			<control type="group">
+				<description>Additional show info</description>
+				<posx>1440</posx>
+				<posy>140</posy>
+				<visible>Control.HasFocus(204) | !IsEmpty(Window(Home).Property(TVGuide.FridayList))</visible>
+				<control type="label">
+					<description>Episode title</description>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>302</width>
+					<height>75</height>
+					<label>$INFO[Container(204).ListItem.Label]</label>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>primal_22_Bold</font>
+					<shadowcolor>black</shadowcolor>
+					<wrapmultiline>true</wrapmultiline>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>88</posy>
+					<width>302</width>
+					<height>170</height>
+					<aspectratio>stretch</aspectratio>
+					<fadetime>600</fadetime>
+					<texture background="true">$INFO[Container(204).ListItem.Property(Fanart)]</texture>
+					<visible>![Control.IsVisible(2041) + !stringcompare(Control.GetLabel(2041),empty.png)]</visible>
+				</control>
+				<control type="image" id="2041">
+					<posx>0</posx>
+					<posy>88</posy>
+					<width>302</width>
+					<height>170</height>
+					<aspectratio>stretch</aspectratio>
+					<fadetime>600</fadetime>
+					<texture background="true" fallback="TVGuide/empty.png">$INFO[Container(204).ListItem.Property(Path),,landscape.jpg]</texture>
+					<visible>!IsEmpty(Window(Home).Property(TVGuide.PreviewThumbs))</visible>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>88</posy>
+					<width>302</width>
+					<height>170</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>TVGuide/TVGuide-GlassOverlay.png</texture>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>278</posy>
+					<width>302</width>
+					<height>30</height>
+					<label>$INFO[Container(204).ListItem.Property(NextTitle)]</label>
+					<font>primal_22</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+					<wrapmultiline>true</wrapmultiline>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>326</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(204).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>355</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(204).ListItem.Property(Genre)]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>400</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(204).ListItem.Property(ShortTime)]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>430</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(204).ListItem.Property(NextDate)]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>460</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(204).ListItem.Property(Network)]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+			</control>
+			<control type="group">
+				<description>Additional show info</description>
+				<posx>1440</posx>
+				<posy>140</posy>
+				<visible>Control.HasFocus(205) | !IsEmpty(Window(Home).Property(TVGuide.SaturdayList))</visible>
+				<control type="label">
+					<description>Episode title</description>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>302</width>
+					<height>75</height>
+					<label>$INFO[Container(205).ListItem.Label]</label>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>primal_22_Bold</font>
+					<shadowcolor>black</shadowcolor>
+					<wrapmultiline>true</wrapmultiline>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>88</posy>
+					<width>302</width>
+					<height>170</height>
+					<aspectratio>stretch</aspectratio>
+					<fadetime>600</fadetime>
+					<texture background="true">$INFO[Container(205).ListItem.Property(Fanart)]</texture>
+					<visible>![Control.IsVisible(2051) + !stringcompare(Control.GetLabel(2051),empty.png)]</visible>
+				</control>
+				<control type="image" id="2051">
+					<posx>0</posx>
+					<posy>88</posy>
+					<width>302</width>
+					<height>170</height>
+					<aspectratio>stretch</aspectratio>
+					<fadetime>600</fadetime>
+					<texture background="true" fallback="TVGuide/empty.png">$INFO[Container(205).ListItem.Property(Path),,landscape.jpg]</texture>
+					<visible>!IsEmpty(Window(Home).Property(TVGuide.PreviewThumbs))</visible>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>88</posy>
+					<width>302</width>
+					<height>170</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>TVGuide/TVGuide-GlassOverlay.png</texture>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>278</posy>
+					<width>302</width>
+					<height>30</height>
+					<label>$INFO[Container(205).ListItem.Property(NextTitle)]</label>
+					<font>primal_22</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+					<wrapmultiline>true</wrapmultiline>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>326</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(205).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>355</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(205).ListItem.Property(Genre)]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>400</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(205).ListItem.Property(ShortTime)]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>430</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(205).ListItem.Property(NextDate)]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>460</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(205).ListItem.Property(Network)]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+			</control>
+			<control type="group">
+				<description>Additional show info</description>
+				<posx>1440</posx>
+				<posy>140</posy>
+				<visible>Control.HasFocus(206) | !IsEmpty(Window(Home).Property(TVGuide.SundayList))</visible>
+				<control type="label">
+					<description>Episode title</description>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>302</width>
+					<height>75</height>
+					<label>$INFO[Container(206).ListItem.Label]</label>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>primal_22_Bold</font>
+					<shadowcolor>black</shadowcolor>
+					<wrapmultiline>true</wrapmultiline>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>88</posy>
+					<width>302</width>
+					<height>170</height>
+					<aspectratio>stretch</aspectratio>
+					<fadetime>600</fadetime>
+					<texture background="true">$INFO[Container(206).ListItem.Property(Fanart)]</texture>
+					<visible>![Control.IsVisible(2061) + !stringcompare(Control.GetLabel(2021),empty.png)]</visible>
+				</control>
+				<control type="image" id="2061">
+					<posx>0</posx>
+					<posy>88</posy>
+					<width>302</width>
+					<height>170</height>
+					<aspectratio>stretch</aspectratio>
+					<fadetime>600</fadetime>
+					<texture background="true" fallback="TVGuide/empty.png">$INFO[Container(206).ListItem.Property(Path),,landscape.jpg]</texture>
+					<visible>!IsEmpty(Window(Home).Property(TVGuide.PreviewThumbs))</visible>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>88</posy>
+					<width>302</width>
+					<height>170</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>TVGuide/TVGuide-GlassOverlay.png</texture>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>278</posy>
+					<width>302</width>
+					<height>30</height>
+					<label>$INFO[Container(206).ListItem.Property(NextTitle)]</label>
+					<font>primal_22</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+					<wrapmultiline>true</wrapmultiline>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>326</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(206).ListItem.Property(Runtime),, $LOCALIZE[12391]]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>355</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(206).ListItem.Property(Genre)]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>400</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(206).ListItem.Property(ShortTime)]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>430</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(206).ListItem.Property(NextDate)]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>460</posy>
+					<width>302</width>
+					<height>15</height>
+					<label>$INFO[Container(206).ListItem.Property(Network)]</label>
+					<font>primal_18</font>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+			</control>
+			<control type="group">
+				<posx>-250</posx>
+				<animation effect="slide" start="0,0" end="250,0" time="400" tween="quadratic" easing="out" condition="ControlGroup(9000).HasFocus | Control.HasFocus(9001) | Control.HasFocus(8999)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="-300,0" time="400" tween="quadratic" easing="out" condition="ControlGroup(9000).HasFocus | Control.HasFocus(9001)">WindowClose</animation>
+				<animation effect="slide" start="0,0" end="-50,0" time="300" tween="quadratic" easing="out" condition="![ControlGroup(9000).HasFocus | Control.HasFocus(9001)]">WindowClose</animation>
+				<animation effect="slide" start="-50,0" end="0,0" time="300" tween="quadratic" easing="out">WindowOpen</animation>
+				<control type="button" id="8999">
+					<description>Fake button for mouse control</description>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>250</width>
+					<height>1000</height>
+					<label>-</label>
+					<font>-</font>
+					<texturenofocus>-</texturenofocus>
+					<texturefocus>-</texturefocus>
+					<visible>true</visible>
+				</control>
+				<control type="button" id="9001">
+					<posx>250</posx>
+					<posy>260</posy>
+					<width>42</width>
+					<height>128</height>
+					<font>-</font>
+					<texturefocus>TVGuide/TVGuide-HasSub.png</texturefocus>
+					<texturenofocus>TVGuide/TVGuide-HasSub.png</texturenofocus>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>260</width>
+					<height>962</height>
+					<texture border="0,0,10,0">skin/menu.png</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="image">
+					<description>LOGO</description>
+					<posx>15</posx>
+					<posy>50</posy>
+					<width>220</width>
+					<height>220</height>
+					<aspectratio>keep</aspectratio>
+					<texture>TVGuide/TVGuide-Icon.png</texture>
+				</control>
+				<control type="grouplist" id="9000">
+					<posx>0</posx>
+					<posy>275</posy>
+					<width>250</width>
+					<height>480</height>
+					<onleft>9002</onleft>
+					<onright>9002</onright>
+					<onup>9000</onup>
+					<ondown>9000</ondown>
+					<itemgap>0</itemgap>
+					<control type="label">
+						<width>250</width>
+						<height>35</height>
+						<font>primal_18_Bold</font>
+						<label>33063</label>
+						<textcolor>orange</textcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+					</control>
+					<control type="button" id="8">
+						<description>Settings</description>
+						<textwidth>235</textwidth>
+						<height>40</height>
+						<width>250</width>
+						<textoffsetx>10</textoffsetx>
+						<textwidth>200</textwidth>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>font13</font>
+						<texturefocus border="5">TVGuide/TVGuide-Button.png</texturefocus>
+						<texturenofocus>-</texturenofocus>
+						<pulseonselect>false</pulseonselect>
+						<label>5</label>
+						<onleft>ClearProperty(TVGuide.MondayList,Home)</onleft>
+						<onleft>ClearProperty(TVGuide.TuesdayList,Home)</onleft>
+						<onleft>ClearProperty(TVGuide.WednesdayList,Home)</onleft>
+						<onleft>ClearProperty(TVGuide.ThursdayList,Home)</onleft>
+						<onleft>ClearProperty(TVGuide.FridayList,Home)</onleft>
+						<onleft>ClearProperty(TVGuide.SaturdayList,Home)</onleft>
+						<onleft>ClearProperty(TVGuide.SundayList,Home)</onleft>
+						<onright>ClearProperty(TVGuide.MondayList,Home)</onright>
+						<onright>ClearProperty(TVGuide.TuesdayList,Home)</onright>
+						<onright>ClearProperty(TVGuide.WednesdayList,Home)</onright>
+						<onright>ClearProperty(TVGuide.ThursdayList,Home)</onright>
+						<onright>ClearProperty(TVGuide.FridayList,Home)</onright>
+						<onright>ClearProperty(TVGuide.SaturdayList,Home)</onright>
+						<onright>ClearProperty(TVGuide.SundayList,Home)</onright>
+					</control>
+				</control>
+			</control>
+		</control>
+		<control type="group">
+			<posx>10</posx>
+			<posy>0</posy>
+			<control type="label">
+			    <posx>270</posx>
+				<posy>40</posy>
+				<width>1060</width>
+				<height>28</height>
+				<font>primal_20</font>
+				<textcolor>white</textcolor>
+				<scroll>false</scroll>
+				<align>right</align>
+				<aligny>center</aligny>
+				<posx>220</posx>
+				<label>$LOCALIZE[SCRIPT450]</label>
+			</control>
+		  <include>Clock</include>
+		</control>
+	</controls>
+</window>

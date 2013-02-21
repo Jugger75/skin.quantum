@@ -1,0 +1,168 @@
+﻿<window id="1">
+  <defaultcontrol>55</defaultcontrol>
+  <allowoverlay>yes</allowoverlay>
+  <views>55,102,590</views>
+  <visible>!Skin.HasSetting(kiosk)</visible>
+  <controls>
+    <!-- Changes Begin Butchabay MOD 1.2.0 -->
+    <control type="group">
+      <animation type="WindowOpen" reversible="false">
+        <effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="300" />
+        <effect type="fade" start="0" end="100" time="300" />
+      </animation>
+      <animation type="WindowClose" reversible="false">
+        <effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="300" />
+        <effect type="fade" start="100" end="0" time="300" />
+      </animation>
+      <!-- Changes End Butchabay MOD 1.2.0 -->
+      <control type="group">
+        <include>VisibleFadeEffect</include>
+        <visible>Control.IsVisible(55)</visible>
+      </control>
+    </control>
+    <include>CommonMediaPlayingBackgroundBrowser</include>
+    <include>Window_OpenClose_Animation</include>
+    <include>BehindDialogFadeOut</include>
+    <include>ScrollOffsetLabel</include>
+    <include>View_55_FileMode</include><!-- view id = 55 -->
+	<include>View_102_SmartPanel</include><!-- view id = 102 -->
+    <include>View_590_Games</include><!-- view id = 590-->
+    <include>CommonPageCount</include>
+    <control type="group">
+      <posx>30</posx>
+      <posy>15</posy>
+      <animation effect="slide" end="-1950,0" time="400" tween="quadratic" easing="out">WindowClose</animation>
+      <animation effect="slide" start="-1950,0" time="400" tween="quadratic" easing="out">WindowOpen</animation>
+      <control type="label">
+        <include>WindowTitleCommons</include>
+        <posx>0</posx>
+        <label>[COLOR=white]$INFO[System.Time]   [B]$LOCALIZE[41098][/B][/COLOR]</label>
+        <visible>!Skin.HasSetting(nobreadcrumb)</visible>
+      </control>
+    </control>
+    <control type="group">
+      <visible>!Skin.HasSetting(kiosk)</visible>
+      <animation effect="slide" start="0,0" end="480,0" time="400" tween="quadratic" easing="out" condition="ControlGroup(9000).HasFocus | ControlGroup(9001).HasFocus | Control.HasFocus(8999)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="-570,0" time="400" tween="quadratic" easing="out" condition="ControlGroup(9000).HasFocus | ControlGroup(9001).HasFocus">WindowClose</animation>
+      <!-- Menu background panel -->
+	  <control type="button" id="8999">
+        <description>Fake button for mouse control</description>
+        <posx>-390</posx>
+        <posy>0</posy>
+        <width>398</width>
+        <height>1080</height>
+        <label>-</label>
+        <font>-</font>
+        <texturenofocus>-</texturenofocus>
+        <texturefocus>-</texturefocus>
+        <visible>true</visible>
+      </control>
+      <control type="image">
+        <posx>-495</posx>
+        <posy>0</posy>
+        <width>420</width>
+        <height>1080</height>
+        <texture border="5">skin/menu_tranz.png</texture>
+        <aspectratio>stretch</aspectratio>
+      </control>
+	  <control type="group">
+		<posx>-450</posx>
+		<posy>52</posy>
+		<control type="label">
+		<description>View options</description>
+		<posx>0</posx>
+		<posy>0</posy>
+		<width>375</width>
+		<height>45</height>
+		<font>primal_24</font>
+		<textcolor>white</textcolor>
+		<scroll>false</scroll>
+		<align>left</align>
+		<aligny>center</aligny>
+		<label>$LOCALIZE[14018]</label>
+	  </control>
+	</control>
+		<!-- MENU ITEMS BELOW -->
+	<control type="group" id="9000">
+	    <posx>-472</posx>
+		<posy>120</posy><!-- <include>CommonNowPlaying</include> --><!-- GET RID OF FROM INCLUDES? -->
+	<control type="button" id="2">
+	    <description>View As button</description>
+		<posx>0</posx>
+		<posy>0</posy>
+		<include>ButtonCommonValues</include>
+		<label>-</label>
+		<onleft>55</onleft>
+		<onright>55</onright>
+		<onup>307</onup>
+		<ondown>3</ondown>
+		</control>
+	<control type="button" id="3">
+	    <description>Sort by button</description>
+		<posx>0</posx>
+		<posy>60</posy>
+		<include>ButtonCommonValues</include>
+		<label>103</label>
+		<onleft>55</onleft>
+		<onright>4</onright>
+		<onup>2</onup>
+		<ondown>4</ondown>
+		</control>
+	<control type="togglebutton" id="4">
+	    <description>Sort asc</description>
+		<posx>330</posx>
+		<posy>80</posy>
+		<label>-</label>
+		<onleft>3</onleft>
+		<onright>55</onright>
+		<onup>3</onup>
+		<ondown>305</ondown>
+	</control>
+	    <!-- <control type="button" id="8">
+		<description>Search</description>
+		<posx>0</posx>
+		<posy>80</posy>
+		<include>ButtonCommonValues</include>
+		<label>137</label>
+		<onclick>SendClick(8)</onclick>
+		<onup>4</onup>
+		<ondown>305</ondown>
+	</control> --><!-- GROUP OF RADIO BUTTONS  -->
+	<control type="grouplist" id="9010">
+	   <posx>0</posx>
+	   <posy>240</posy>
+	   <width>375</width>
+	   <height>825</height>
+	   <onleft>55</onleft>
+	   <onright>55</onright>
+	   <onup>4</onup>
+	   <ondown>2</ondown>
+	   <itemgap>0</itemgap>
+	<control type="radiobutton" id="305">
+	   <description>Toggle Fanart View Media Info</description>
+	   <include>ButtonCommonValues</include>
+	   <label>31005</label>
+	   <onclick>Skin.ToggleSetting(View590HideInfo)</onclick>
+	   <selected>Skin.HasSetting(View590HideInfo)</selected>
+	   <visible>Control.IsVisible(590)</visible>
+    </control>
+	<control type="radiobutton" id="306">
+	   <description>Toggle Fanart View Media Info</description>
+	   <include>ButtonCommonValues</include>
+	   <label>31005</label>
+	   <onclick>Skin.ToggleSetting(View591HideInfo)</onclick>
+	   <selected>Skin.HasSetting(View591HideInfo)</selected>
+	   <visible>Control.IsVisible(591)</visible>
+	</control><control type="radiobutton" id="307">
+	   <description>Toggle Fanart View Media Info</description>
+	   <include>ButtonCommonValues</include>
+	   <label>31005</label>
+	   <onclick>Skin.ToggleSetting(View592HideInfo)</onclick>
+	   <selected>Skin.HasSetting(View592HideInfo)</selected>
+	   <visible>Control.IsVisible(592)</visible>
+	</control>
+	</control>
+	</control>
+   </control>
+  </controls>
+</window>

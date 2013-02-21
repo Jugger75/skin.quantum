@@ -1,0 +1,156 @@
+﻿<includes>
+
+    <include name="VolumeRadio">
+      <!-- ================ Volume Knopf ==================== -->
+      <control type="group">
+      <posx>0</posx>
+      <posy>0</posy>
+	    <!--<control type="progress" id="1256">
+          <description>progress control</description>
+          <posx>75</posx>
+          <posy>12</posy>
+          <width>300</width>
+          <height>10</height>
+          <info>Player.Volume</info>
+        </control>
+		<control type="slider" id="1">
+		  <description>Volume Slider</description>
+		  <posx>15</posx>
+		  <posy>8</posy>
+		  <width>450</width>
+		  <height>25</height>
+		  <info>Player.Volume</info>
+		  <action>Volume</action>
+	    </control>-->
+		<control type="image">
+          <posx>1560</posx>
+          <posy>109</posy>
+          <width>250</width>
+          <height>260</height>
+          <aspectratio>keep</aspectratio>
+          <texture>Views/radio/knopp_off.png</texture>
+		  <action>Volume</action>
+		  <visible>!Player.HasAudio</visible>
+        </control>
+		<control type="image">
+          <posx>1560</posx>
+          <posy>110</posy>
+          <width>250</width>
+          <height>260</height>
+          <aspectratio>keep</aspectratio>
+          <texture>Views/radio/knopp_on.png</texture>
+		  <action>Volume</action>
+		  <visible>Player.HasAudio</visible>
+        </control>
+		<control type="image">
+          <posx>1602</posx>
+          <posy>152</posy>
+          <width>165</width>
+          <height>175</height>
+          <aspectratio>keep</aspectratio>
+          <texture>Views/radio/knopp2_off.png</texture>
+		  <visible>!Player.HasAudio</visible>
+        </control>
+		<control type="image">
+		  <visible>Player.HasAudio</visible>
+          <posx>1602</posx>
+          <posy>152</posy>
+          <width>165</width>
+          <height>175</height>
+          <aspectratio>keep</aspectratio>
+          <texture>Views/radio/knopp2_on.png</texture>
+          <animation effect="rotate" start="-110" end="-110" center="auto" loop="false" time="10" reversible="false" condition="Player.Muted | substring(Player.Volume,-60.0)">Conditional</animation>
+          <animation effect="rotate" start="-112" end="-114" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-59.3)">Conditional</animation>
+          <animation effect="rotate" start="-114" end="-116" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-58.7)">Conditional</animation>
+          <animation effect="rotate" start="-116" end="-118" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-58.0)">Conditional</animation>
+          <animation effect="rotate" start="-118" end="-120" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-57.3)">Conditional</animation>
+          <animation effect="rotate" start="-120" end="-122" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-56.7)">Conditional</animation>
+          <animation effect="rotate" start="-122" end="-124" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-56.0)">Conditional</animation>
+          <animation effect="rotate" start="-124" end="-126" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-55.3)">Conditional</animation>
+          <animation effect="rotate" start="-126" end="-128" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-54.7)">Conditional</animation>
+          <animation effect="rotate" start="-128" end="-130" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-54.0)">Conditional</animation>
+          <animation effect="rotate" start="-130" end="-132" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-53.3)">Conditional</animation>
+          <animation effect="rotate" start="-132" end="-134" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-52.7)">Conditional</animation>
+          <animation effect="rotate" start="-134" end="-136" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-52.0)">Conditional</animation>
+	      <animation effect="rotate" start="-136" end="-138" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-51.3)">Conditional</animation>
+	      <animation effect="rotate" start="-138" end="-140" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-50.7)">Conditional</animation>
+	      <animation effect="rotate" start="-140" end="-142" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-50.0)">Conditional</animation>
+	      <animation effect="rotate" start="-142" end="-144" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-49.3)">Conditional</animation>
+	      <animation effect="rotate" start="-144" end="-146" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-48.7)">Conditional</animation>
+		  <animation effect="rotate" start="-146" end="-148" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-48.0)">Conditional</animation>
+		  <animation effect="rotate" start="-148" end="-150" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-47.3)">Conditional</animation>
+		  <animation effect="rotate" start="-150" end="-152" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-46.7)">Conditional</animation>
+		  <animation effect="rotate" start="-152" end="-154" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-46.0)">Conditional</animation>
+		  <animation effect="rotate" start="-154" end="-156" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-45.3)">Conditional</animation>
+		  <animation effect="rotate" start="-156" end="-158" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-44.7)">Conditional</animation>
+		  <animation effect="rotate" start="-158" end="-160" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-44.0)">Conditional</animation>
+		  <animation effect="rotate" start="-160" end="-162" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-43.3)">Conditional</animation>
+		  <animation effect="rotate" start="-162" end="-164" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-42.7)">Conditional</animation>
+		  <animation effect="rotate" start="-164" end="-166" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-42.0)">Conditional</animation>
+		  <animation effect="rotate" start="-166" end="-168" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-41.3)">Conditional</animation>
+		  <animation effect="rotate" start="-168" end="-170" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-40.7)">Conditional</animation>
+		  <animation effect="rotate" start="-170" end="-172" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-40.0)">Conditional</animation>
+		  <animation effect="rotate" start="-172" end="-174" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-39.3)">Conditional</animation>
+		  <animation effect="rotate" start="-174" end="-176" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-38.7)">Conditional</animation>
+		  <animation effect="rotate" start="-176" end="-178" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-38.0)">Conditional</animation>
+		  <animation effect="rotate" start="-178" end="-180" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-37.3)">Conditional</animation>
+		  <animation effect="rotate" start="-180" end="-182" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-36.7)">Conditional</animation>
+		  <animation effect="rotate" start="-182" end="-184" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-36.0)">Conditional</animation>
+		  <animation effect="rotate" start="-184" end="-186" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-35.3)">Conditional</animation>
+		  <animation effect="rotate" start="-186" end="-188" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-34.7)">Conditional</animation>
+		  <animation effect="rotate" start="-188" end="-190" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-34.0)">Conditional</animation>
+		  <animation effect="rotate" start="-190" end="-192" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-33.3)">Conditional</animation>
+		  <animation effect="rotate" start="-192" end="-194" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-32.7)">Conditional</animation>
+		  <animation effect="rotate" start="-194" end="-196" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-32.0)">Conditional</animation>
+		  <animation effect="rotate" start="-196" end="-198" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-31.3)">Conditional</animation>
+		  <animation effect="rotate" start="-198" end="-200" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-30.7)">Conditional</animation>
+		  <animation effect="rotate" start="-200" end="-202" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-30.0)">Conditional</animation>
+		  <animation effect="rotate" start="-202" end="-204" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-29.3)">Conditional</animation>
+		  <animation effect="rotate" start="-204" end="-206" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-28.7)">Conditional</animation>
+		  <animation effect="rotate" start="-206" end="-208" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-28.0)">Conditional</animation>
+		  <animation effect="rotate" start="-208" end="-210" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-27.3)">Conditional</animation>
+		  <animation effect="rotate" start="-210" end="-212" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-26.7)">Conditional</animation>
+		  <animation effect="rotate" start="-212" end="-214" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-26.0)">Conditional</animation>
+		  <animation effect="rotate" start="-214" end="-216" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-25.3)">Conditional</animation>
+		  <animation effect="rotate" start="-216" end="-218" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-24.7)">Conditional</animation>
+		  <animation effect="rotate" start="-218" end="-220" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-24.0)">Conditional</animation>
+		  <animation effect="rotate" start="-220" end="-224" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-23.3)">Conditional</animation>
+		  <animation effect="rotate" start="-224" end="-226" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-22.7)">Conditional</animation>
+		  <animation effect="rotate" start="-226" end="-228" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-22.0)">Conditional</animation>
+		  <animation effect="rotate" start="-228" end="-230" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-21.3)">Conditional</animation>
+		  <animation effect="rotate" start="-230" end="-232" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-20.7)">Conditional</animation>
+		  <animation effect="rotate" start="-232" end="-234" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-20.0)">Conditional</animation>
+		  <animation effect="rotate" start="-234" end="-236" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-19.3)">Conditional</animation>
+		  <animation effect="rotate" start="-236" end="-238" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-18.7)">Conditional</animation>
+		  <animation effect="rotate" start="-238" end="-240" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-18.0)">Conditional</animation>
+		  <animation effect="rotate" start="-240" end="-242" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-17.3)">Conditional</animation>
+		  <animation effect="rotate" start="-242" end="-244" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-16.7)">Conditional</animation>
+		  <animation effect="rotate" start="-244" end="-246" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-16.0)">Conditional</animation>
+		  <animation effect="rotate" start="-246" end="-248" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-15.3)">Conditional</animation>
+		  <animation effect="rotate" start="-248" end="-250" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-14.7)">Conditional</animation>
+		  <animation effect="rotate" start="-250" end="-252" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-14.0)">Conditional</animation>
+		  <animation effect="rotate" start="-252" end="-254" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-13.3)">Conditional</animation>
+		  <animation effect="rotate" start="-254" end="-256" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-12.7)">Conditional</animation>
+		  <animation effect="rotate" start="-256" end="-258" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-12.0)">Conditional</animation>
+		  <animation effect="rotate" start="-258" end="-261" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-11.3)">Conditional</animation>
+		  <animation effect="rotate" start="-264" end="-267" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-10.7)">Conditional</animation>
+		  <animation effect="rotate" start="-270" end="-273" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-10.0)">Conditional</animation>
+		  <animation effect="rotate" start="-276" end="-279" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-9.3)">Conditional</animation>
+		  <animation effect="rotate" start="-282" end="-285" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-8.7)">Conditional</animation>
+		  <animation effect="rotate" start="-288" end="-291" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-8.0)">Conditional</animation>
+		  <animation effect="rotate" start="-294" end="-297" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-7.3)">Conditional</animation>
+		  <animation effect="rotate" start="-300" end="-303" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-6.7)">Conditional</animation>
+		  <animation effect="rotate" start="-306" end="-309" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-6.0)">Conditional</animation>
+		  <animation effect="rotate" start="-312" end="-315" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-5.3)">Conditional</animation>
+		  <animation effect="rotate" start="-318" end="-321" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-4.7)">Conditional</animation>
+		  <animation effect="rotate" start="-324" end="-327" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-4.0)">Conditional</animation>
+		  <animation effect="rotate" start="-330" end="-333" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-3.3)">Conditional</animation>
+		  <animation effect="rotate" start="-336" end="-339" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-2.7)">Conditional</animation>
+		  <animation effect="rotate" start="-342" end="-345" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-2.0)">Conditional</animation>
+		  <animation effect="rotate" start="-348" end="-351" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-1.3)">Conditional</animation>
+		  <animation effect="rotate" start="-354" end="-357" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-0.7)">Conditional</animation>
+		  <animation effect="rotate" start="-360" end="-360" center="auto" loop="false" time="100" reversible="false" condition="substring(Player.Volume,-0.0)">Conditional</animation>
+        </control>
+	  </control>
+  </include>
+</includes>

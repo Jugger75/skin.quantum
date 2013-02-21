@@ -1,0 +1,791 @@
+﻿<includes>
+  <include name="View_109_MusikRadio">
+
+    <control type="group">
+	  <include>ViewsAnimation</include>
+      <visible>Control.IsVisible(109)</visible>
+	<control type="image">
+      <posx>0</posx>
+      <posy>0</posy>
+      <width>1920</width>
+      <height>1080</height>
+      <aspectratio>stretch</aspectratio>
+      <texture>Views/soundview.png</texture>
+    </control>
+	</control>
+	
+	<!-- ================ Info Panel unten rechts ==================== -->
+	<control type="group">
+	  <posx>100</posx>
+      <posy>200</posy>
+	  <include>ViewsAnimation</include>
+      <visible>Control.IsVisible(109)</visible>
+	  <animation effect="slide" end="720,0" time="1000" delay="5000" reversible="true" condition="Player.HasAudio">conditional</animation>
+	</control>
+	<control type="label">
+        <include>ViewsAnimation</include>
+        <description>Partymode Header label</description>
+        <posx>520</posx>
+        <posy>530</posy>
+        <height>30</height>
+        <font>primal_18</font>
+        <aligny>left</aligny>
+        <textcolor>green</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <label>$LOCALIZE[589] ON</label>
+        <visible>MusicPartyMode.Enabled + Skin.HasSetting(playlist)</visible>
+		<visible>Control.IsVisible(109)</visible>
+      </control>
+      <control type="grouplist" id="560">
+	    <animation effect="fade" end="100" time="1000" delay="4990" reversible="true" condition="Player.HasAudio">conditional</animation>
+        <posx>1200</posx>
+        <posy>500</posy>
+        <width>600</width>
+        <height>720</height>
+        <align>left</align>
+        <itemgap>5</itemgap>
+        <orientation>vertical</orientation>
+        <visible>Player.HasMedia + !IsEmpty(MusicPlayer.Offset(1).Title)</visible>
+		<visible>Control.IsVisible(109)</visible>
+	  <control type="label">
+        <description>time label</description>
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>600</width>
+        <height>42</height>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>primal_18</font>
+        <textcolor>orange</textcolor>
+        <label>$LOCALIZE[31059]</label>
+      </control>
+	  <control type="label">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>600</width>
+        <height>24</height>
+        <aligny>left</aligny>
+        <label>01: $INFO[MusicPlayer.Offset(1).Title]</label>
+        <font>primal_16</font>
+		<scroll>false</scroll>
+		<scrollspeed>20</scrollspeed>
+        <scrollsuffix> - </scrollsuffix>
+        <visible>!IsEmpty(MusicPlayer.Offset(1).Title)</visible>
+      </control>
+      <control type="label">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>600</width>
+        <height>24</height>
+        <aligny>left</aligny>
+        <label>02: $INFO[MusicPlayer.Offset(2).Title]</label>
+        <font>primal_16</font>
+		<scroll>false</scroll>
+		<scrollspeed>20</scrollspeed>
+        <scrollsuffix> - </scrollsuffix>
+        <visible>!IsEmpty(MusicPlayer.Offset(2).Title)</visible>
+      </control>
+	  <control type="label">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>600</width>
+        <height>24</height>
+        <aligny>left</aligny>
+        <label>03: $INFO[MusicPlayer.Offset(3).Title]</label>
+        <font>primal_16</font>
+		<scroll>false</scroll>
+		<scrollspeed>20</scrollspeed>
+        <scrollsuffix> - </scrollsuffix>
+        <visible>!IsEmpty(MusicPlayer.Offset(3).Title)</visible>
+      </control>
+      <control type="label">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>600</width>
+        <height>24</height>
+        <aligny>left</aligny>
+        <label>04: $INFO[MusicPlayer.Offset(4).Title]</label>
+        <font>primal_16</font>
+		<scroll>false</scroll>
+		<scrollspeed>20</scrollspeed>
+        <scrollsuffix> - </scrollsuffix>
+        <visible>!IsEmpty(MusicPlayer.Offset(4).Title)</visible>
+      </control>
+      <control type="label">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>600</width>
+        <height>24</height>
+        <aligny>left</aligny>
+        <label>05: $INFO[MusicPlayer.Offset(5).Title]</label>
+        <font>primal_16</font>
+		<scroll>false</scroll>
+		<scrollspeed>20</scrollspeed>
+        <scrollsuffix> - </scrollsuffix>
+        <visible>!IsEmpty(MusicPlayer.Offset(5).Title)</visible>
+      </control>
+      <control type="label">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>600</width>
+        <height>24</height>
+        <aligny>left</aligny>
+        <label>06: $INFO[MusicPlayer.Offset(6).Title]</label>
+        <font>primal_16</font>
+		<scroll>false</scroll>
+		<scrollspeed>20</scrollspeed>
+        <scrollsuffix> - </scrollsuffix>
+        <visible>!IsEmpty(MusicPlayer.Offset(6).Title)</visible>
+      </control>
+      <control type="label">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>600</width>
+        <height>24</height>
+        <aligny>left</aligny>
+        <label>07: $INFO[MusicPlayer.Offset(7).Title]</label>
+        <font>primal_16</font>
+		<scroll>false</scroll>
+		<scrollspeed>20</scrollspeed>
+        <scrollsuffix> - </scrollsuffix>
+        <visible>!IsEmpty(MusicPlayer.Offset(7).Title)</visible>
+      </control>
+        <control type="label">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>600</width>
+        <height>24</height>
+        <aligny>left</aligny>
+        <label>08: $INFO[MusicPlayer.Offset(8).Title]</label>
+        <font>primal_16</font>
+		<scroll>false</scroll>
+		<scrollspeed>20</scrollspeed>
+        <scrollsuffix> - </scrollsuffix>
+        <visible>!IsEmpty(MusicPlayer.Offset(8).Title)</visible>
+      </control>
+      <control type="label">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>600</width>
+        <height>24</height>
+        <aligny>left</aligny>
+        <label>09: $INFO[MusicPlayer.Offset(9).Title]</label>
+        <font>primal_16</font>
+		<scroll>false</scroll>
+		<scrollspeed>20</scrollspeed>
+        <scrollsuffix> - </scrollsuffix>
+        <visible>!IsEmpty(MusicPlayer.Offset(9).Title)</visible>
+      </control>
+	  <control type="label">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>600</width>
+        <height>24</height>
+        <aligny>left</aligny>
+        <label>10: $INFO[MusicPlayer.Offset(10).Title]</label>
+        <font>primal_16</font>
+		<scroll>false</scroll>
+		<scrollspeed>20</scrollspeed>
+        <scrollsuffix> - </scrollsuffix>
+        <visible>!IsEmpty(MusicPlayer.Offset(10).Title)</visible>
+      </control>
+	  <control type="label">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>600</width>
+        <height>24</height>
+        <aligny>left</aligny>
+        <label>11: $INFO[MusicPlayer.Offset(11).Title]</label>
+        <font>primal_16</font>
+		<scroll>false</scroll>
+		<scrollspeed>20</scrollspeed>
+        <scrollsuffix> - </scrollsuffix>
+        <visible>!IsEmpty(MusicPlayer.Offset(11).Title)</visible>
+      </control>
+	  <control type="label">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>600</width>
+        <height>24</height>
+        <aligny>left</aligny>
+        <label>12: $INFO[MusicPlayer.Offset(12).Title]</label>
+        <font>primal_16</font>
+		<scroll>false</scroll>
+		<scrollspeed>20</scrollspeed>
+        <scrollsuffix> - </scrollsuffix>
+        <visible>!IsEmpty(MusicPlayer.Offset(12).Title)</visible>
+      </control>
+	  <control type="label">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>600</width>
+        <height>24</height>
+        <aligny>left</aligny>
+        <label>13: $INFO[MusicPlayer.Offset(13).Title]</label>
+        <font>primal_16</font>
+		<scroll>false</scroll>
+		<scrollspeed>20</scrollspeed>
+        <scrollsuffix> - </scrollsuffix>
+        <visible>!IsEmpty(MusicPlayer.Offset(13).Title)</visible>
+      </control>
+	</control>
+	
+	<!-- ================ CD Panel Panel unten rechts ==================== -->
+	<control type="group">
+	  <posx>180</posx>
+      <posy>280</posy>
+	  <include>ViewsAnimation</include>
+      <visible>Control.IsVisible(109)</visible>
+	<control type="image">
+      <animation effect="rotate" end="-360" center="auto" time="10000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+      <animation effect="rotate" end="-360" center="auto" time="10000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+	  <animation effect="rotate" end="-360" center="auto" time="500" loop="true" reversible="false" condition="Player.Forwarding">Conditional</animation>
+	  <animation effect="rotate" end="360" center="auto" time="500" loop="true" reversible="false" condition="Player.Rewinding">Conditional</animation>
+      <width>245</width>
+      <height>245</height>
+      <posx>700</posx>
+      <posy>200</posy>
+      <texture fallback="cdartdefault.png">$INFO[Player.FolderPath]cdart.png</texture>
+      <aspectratio align="bottom">keep</aspectratio>
+      <visible>Player.HasAudio</visible>
+	  <visible>Skin.HasSetting(MusicCDArt)</visible>
+    </control>
+	<control type="image">
+      <width>245</width>
+      <height>245</height>
+      <posx>700</posx>
+      <posy>200</posy>
+      <texture fallback="cdartdefault.png">$INFO[Player.FolderPath]cdart.png</texture>
+      <aspectratio align="bottom">keep</aspectratio>
+      <visible>Player.HasAudio</visible>
+	  <visible>!Skin.HasSetting(MusicCDArt)</visible>
+    </control>
+	<control type="image">
+      <width>490</width>
+      <height>490</height>
+      <posx>610</posx>
+      <posy>200</posy>
+      <texture fallback="cdartdefault.png">$INFO[Player.FolderPath]cdart.png</texture>
+      <aspectratio align="bottom">keep</aspectratio>
+      <visible>!Player.HasAudio</visible>
+    </control>
+	</control>
+	
+	 <!-- ================ Coverbox Panel unten rechts ==================== -->
+	<control type="group">
+	  <include>ViewsAnimation</include>
+      <posx>0</posx>
+      <posy>0</posy>
+	  <visible>Control.IsVisible(109)</visible>
+	  <control type="image"><!-- ON -->
+		<description>Background</description>
+		<posx>780</posx> 
+		<posy>470</posy> 
+		<width>260</width> 
+		<height>260</height>
+		<texture background="true">Views/musik_view/papercover_unten.png</texture>
+		<aspectratio>stretch</aspectratio>
+		<visible>Player.HasAudio</visible>
+	  </control>
+	  <control type="image"><!-- OFF -->
+		<description>Background</description>
+		<posx>786</posx> 
+		<posy>466</posy> 
+		<width>18</width> 
+		<height>518</height>
+		<texture background="true">Views/musik_view/papercover_unten.png</texture>
+		<aspectratio>stretch</aspectratio>
+		<visible>!Player.HasAudio</visible>
+	  </control>
+	  <control type="image"><!-- ON -->
+		<posx>785</posx>
+		<posy>475</posy>
+		<width>250</width>
+		<height>250</height>
+		<texture background="true" diffuse="Views/musik_view/papercover.png">$INFO[ListItem.Icon]</texture>
+		<visible>Player.HasAudio</visible>
+	  </control>
+	  <control type="image"><!-- OFF -->
+		<posx>785</posx>
+		<posy>475</posy>
+		<width>500</width>
+		<height>500</height>
+		<texture background="true" diffuse="Views/musik_view/papercover.png">$INFO[ListItem.Icon]</texture>
+		<visible>!Player.HasAudio</visible>
+	  </control>
+	</control>
+	
+	 <!-- ================ Musik Cover und Logo Panel unten rechts ==================== -->
+	<control type="group">
+	  <include>ViewsAnimation</include>
+      <posx>0</posx>
+      <posy>200</posy>
+	  <visible>Control.IsVisible(109)</visible>
+		<control type="image"><!-- Logo -->
+		  <description>Logo</description>
+		  <posx>1380</posx> 
+		  <posy>360</posy> 
+		  <width>400</width> 
+		  <height>320</height>
+		  <texture background="true">$INFO[Skin.String(Music_Folder_Path)]$INFO[ListItem.Artist]/logo.png</texture>
+		  <aspectratio align="center" aligny="center">keep</aspectratio>
+		  <animation effect="fade" end="100" time="1000" delay="1000" reversible="true" condition="!Player.HasAudio">conditional</animation>
+		  <visible>!Player.HasAudio</visible>
+		</control>
+		<control type="image"><!-- Logo ON -->
+		  <description>Logo</description>
+		  <posx>790</posx> 
+		  <posy>500</posy> 
+		  <width>350</width> 
+		  <height>270</height>
+		  <texture background="true">$INFO[Skin.String(Music_Folder_Path)]$INFO[ListItem.Artist]/logo.png</texture>
+		  <aspectratio align="center" aligny="center">keep</aspectratio>
+		  <animation effect="fade" end="100" time="1000" delay="4990" reversible="true" condition="Player.HasAudio">conditional</animation>
+		  <visible>Player.HasAudio</visible>
+		</control>
+	</control>
+	  
+    <!-- Panel -->
+	<control type="list" id="109">
+	    <include>ViewsAnimation</include>
+		<posx>170</posx>
+        <posy>110</posy>
+        <width>1075</width>
+        <height>845</height>
+		<onleft>162</onleft>
+		<onright>650</onright>
+		<onup>109</onup>
+		<ondown>109</ondown>
+		<viewtype label="PrimalMusikRadio">list</viewtype>
+		<orientation>vertical</orientation>
+		<pagecontrol>162</pagecontrol>
+		<scrolltime>200</scrolltime>
+		<preloaditems>2</preloaditems>
+		<visible>Container.Content(Albums) | Container.Content(Songs) | Container.Content(Artists) | Window.IsActive(1)</visible>
+		<itemlayout height="35" width="210">
+		<control type="group">	
+		<posx>0</posx>
+		<posy>0</posy>
+		<control type="label">
+		  <description>Title</description>
+		  <posx>0</posx>
+		  <posy>-4</posy>
+		  <width>520</width>
+		  <height>35</height>
+		  <label>$INFO[listitem.Artist] - $INFO[listitem.Label]</label>
+		  <selectedcolor>ff8A4B08</selectedcolor>
+		  <align>left</align>
+		  <aligny>top</aligny>
+		  <font>primal_18</font>
+		  <textcolor>white</textcolor>
+		  <shadowcolor>black</shadowcolor>
+		  <scroll>false</scroll>
+		  <visible>!Container.Content(Songs) + !Container.Content(Artists)</visible>
+		</control>
+		<control type="label">
+		  <description>Title</description>
+		  <posx>0</posx>
+		  <posy>-4</posy>
+		  <width>520</width>
+		  <height>35</height>
+		  <label>$INFO[listitem.Artist]</label>
+		  <selectedcolor>ff8A4B08</selectedcolor>
+		  <align>left</align>
+		  <aligny>top</aligny>
+		  <font>primal_18</font>
+		  <textcolor>white</textcolor>
+		  <shadowcolor>black</shadowcolor>
+		  <scroll>false</scroll>
+		  <visible>Container.Content(Artists)</visible>
+		</control>
+		<control type="label">
+		  <description>Title</description>
+		  <posx>0</posx>
+		  <posy>-4</posy>
+		  <width>520</width>
+		  <height>35</height>
+		  <label>$INFO[listitem.Title]</label>
+		  <selectedcolor>ff8A4B08</selectedcolor>
+		  <align>left</align>
+		  <aligny>top</aligny>
+		  <font>primal_18</font>
+		  <textcolor>white</textcolor>
+		  <shadowcolor>black</shadowcolor>
+		  <scroll>false</scroll>
+		  <visible>Container.Content(Songs)</visible>
+		</control>
+		</control>		
+		</itemlayout>
+		<focusedlayout height="35" width="210">
+		<control type="group">	
+		<posx>0</posx>
+		<posy>0</posy>
+		<control type="label">
+		  <description>Title</description>
+		  <posx>0</posx>
+		  <posy>-4</posy>
+		  <width>520</width>
+		  <height>35</height>
+		  <label>$INFO[listitem.Artist] - $INFO[listitem.Label]</label>
+		  <selectedcolor>ff8A4B08</selectedcolor>
+		  <align>left</align>
+		  <aligny>top</aligny>
+		  <font>primal_18</font>
+		  <textcolor>orange</textcolor>
+		  <shadowcolor>black</shadowcolor>
+		  <scroll>true</scroll>
+		  <visible>!Container.Content(Songs) + !Container.Content(Artists)</visible>
+		</control>
+		<control type="label">
+		  <description>Title</description>
+		  <posx>0</posx>
+		  <posy>-4</posy>
+		  <width>520</width>
+		  <height>35</height>
+		  <label>$INFO[listitem.Artist]</label>
+		  <selectedcolor>ff8A4B08</selectedcolor>
+		  <align>left</align>
+		  <aligny>top</aligny>
+		  <font>primal_18</font>
+		  <textcolor>orange</textcolor>
+		  <shadowcolor>black</shadowcolor>
+		  <scroll>false</scroll>
+		  <visible>Container.Content(Artists)</visible>
+		</control>
+		<control type="label">
+		  <description>Title</description>
+		  <posx>0</posx>
+		  <posy>-4</posy>
+		  <width>520</width>
+		  <height>35</height>
+		  <label>$INFO[listitem.Title]</label>
+		  <selectedcolor>ff8A4B08</selectedcolor>
+		  <align>left</align>
+		  <aligny>top</aligny>
+		  <font>primal_18</font>
+		  <textcolor>orange</textcolor>
+		  <shadowcolor>black</shadowcolor>
+		  <scroll>true</scroll>
+		  <visible>Container.Content(Songs)</visible>
+		</control>
+	   </control>
+	  </focusedlayout>
+    </control>
+	
+	<control type="label">
+	  <include>ViewsAnimation</include>
+	  <description>NowPlaying label</description>
+	  <posx>-250</posx>
+	  <posy>600</posy>
+	  <height>45</height>
+	  <width>700</width>
+	  <label>[UPPERCASE]$INFO[listitem.Artist][/UPPERCASE]</label>
+	  <align>left</align>
+	  <aligny>center</aligny>
+	  <font>primal_40_Bold</font>
+	  <textcolor>grey4</textcolor>
+	  <animation effect="rotate" end="90" center="auto" loop="false" reversible="false" condition="!VideoPlayer.IsFullscreen">Conditional</animation>
+	  <visible>Control.IsVisible(109)</visible>
+	</control>
+	
+	<!-- ================ Volume Knopf Panel oben rechts ==================== -->
+	<control type="grouplist">
+	  <description>Volume</description>
+	  <include>ViewsAnimation</include>
+	  <include>VolumeRadio</include>
+	  <visible>Control.IsVisible(109)</visible>
+    </control>
+	
+	<!-- ================ Musik Infos Panel oben rechts ==================== -->
+	<control type="group">
+	  <include>ViewsAnimation</include>
+      <posx>660</posx>
+      <posy>20</posy>
+	  <visible>Control.IsVisible(109)</visible>
+		<control type="label">
+		  <description>Time remaining</description>
+		  <posx>140</posx>
+		  <posy>280</posy>
+		  <height>45</height>
+		  <width>60</width>
+		  <label>$INFO[Player.Time]</label>
+		  <align>left</align>
+		  <aligny>center</aligny>
+		  <font>primal_16</font>
+		  <textcolor>white</textcolor>
+		  <shadowcolor>black</shadowcolor>
+		  <scroll>false</scroll>
+		  <scrollspeed>30</scrollspeed>
+          <scrollsuffix> - </scrollsuffix>
+		  <visible>Player.HasAudio</visible>
+	    </control>
+	    <control type="progress">
+          <description>Progressbar</description>
+          <posx>205</posx>
+          <posy>297</posy>
+          <width>500</width>
+          <height>10</height>
+          <info>Player.Progress</info>
+		  <visible>Player.HasAudio</visible>
+        </control>
+	    <control type="label">
+		  <description>Time remaining</description>
+		  <posx>720</posx>
+		  <posy>280</posy>
+		  <height>45</height>
+		  <width>225</width>
+		  <label>$INFO[Player.Duration]</label>
+		  <align>left</align>
+		  <aligny>center</aligny>
+		  <font>primal_16</font>
+		  <textcolor>white</textcolor>
+		  <scroll>true</scroll>
+		  <shadowcolor>black</shadowcolor>
+		  <visible>Player.HasAudio</visible>
+	    </control>
+		<control type="label">
+          <posx>140</posx>
+          <posy>80</posy>
+          <width>500</width>
+          <height>38</height>
+          <label>$INFO[MusicPlayer.Artist]</label>
+          <scroll>true</scroll>
+          <align>left</align>
+          <font>primal_20</font>
+          <textcolor>orange</textcolor>
+          <shadowcolor>black</shadowcolor>
+		  <visible>Player.HasAudio</visible>
+        </control>
+		<control type="label">
+          <posx>140</posx>
+          <posy>143</posy>
+          <width>500</width>
+          <height>38</height>
+          <label>$INFO[MusicPlayer.Title]</label>
+          <scroll>true</scroll>
+          <align>left</align>
+          <font>primal_16</font>
+          <textcolor>white</textcolor>
+          <shadowcolor>black</shadowcolor>
+		  <visible>Player.HasAudio</visible>
+        </control>
+		<control type="label">
+          <posx>140</posx>
+          <posy>180</posy>
+          <width>500</width>
+          <height>38</height>
+          <label>$INFO[MusicPlayer.Album]</label>
+          <scroll>true</scroll>
+          <align>left</align>
+          <font>primal_16</font>
+          <textcolor>white</textcolor>
+          <shadowcolor>black</shadowcolor>
+		  <visible>Player.HasAudio</visible>
+        </control>
+		<control type="label">
+          <posx>140</posx>
+          <posy>248</posy>
+          <width>500</width>
+          <height>38</height>
+          <label>Codec: $INFO[MusicPlayer.Codec] - Channel: $INFO[MusicPlayer.Channels] - Bitrate: $INFO[MusicPlayer.BitRate] - Samplerate: $INFO[MusicPlayer.SampleRate] kHz</label>
+          <scroll>true</scroll>
+          <align>left</align>
+          <font>primal_13</font>
+          <textcolor>white</textcolor>
+          <shadowcolor>black</shadowcolor>
+		  <visible>Player.HasAudio</visible>
+        </control>
+		<control type="image">
+          <posx>850</posx>
+		  <posy>68</posy>
+		  <width>2</width>
+		  <height>290</height>
+          <aspectratio>stretch</aspectratio>
+          <texture>separator22.png</texture>
+        </control>
+		<control type="multiimage">
+		  <posx>733</posx>
+		  <posy>243</posy>
+		  <width>20</width>
+		  <height>40</height>
+		  <imagepath>Views/radio/equ/</imagepath>
+		  <timeperimage>100</timeperimage>
+		  <randomize>true</randomize>
+		  <fadetime>10</fadetime>
+		  <visible>Player.Playing</visible>
+		  <colordiffuse>-</colordiffuse>
+		  <visible>Player.HasAudio</visible>
+	    </control>
+		<control type="image">
+          <posx>733</posx>
+		  <posy>263</posy>
+		  <width>20</width>
+		  <height>10</height>
+          <aspectratio>stretch</aspectratio>
+          <texture>Views/radio/equ/stop/0.png</texture>
+		  <visible>Player.HasAudio</visible>
+        </control>
+	  </control>
+
+	<!-- ================ Musik Infos ==================== -->
+	<control type="group">
+	  <include>ViewsAnimation</include>
+      <posx>800</posx>
+      <posy>100</posy>
+	  <visible>Control.IsVisible(109)</visible>
+	  <visible>!Player.HasAudio</visible>
+	  <visible>Container.Content(Albums) | Container.Content(Songs)</visible>
+	    <control type="label">
+          <posx>0</posx>
+          <posy>0</posy>
+          <width>600</width>
+          <height>38</height>
+          <label>$INFO[ListItem.Artist,[COLOR=orange]$LOCALIZE[60202]: [/COLOR]]</label>
+          <scroll>true</scroll>
+          <align>left</align>
+          <font>primal_18</font>
+          <textcolor>white</textcolor>
+          <shadowcolor>black</shadowcolor>
+          <wrapmultiline>false</wrapmultiline>
+        </control>
+		<control type="label">
+          <posx>0</posx>
+          <posy>40</posy>
+          <width>600</width>
+          <height>38</height>
+          <label>$INFO[ListItem.Album,[COLOR=orange]$LOCALIZE[60201]: [/COLOR]]</label>
+          <wrapmultiline>false</wrapmultiline>
+          <align>left</align>
+          <font>primal_18</font>
+          <textcolor>white</textcolor>
+          <shadowcolor>black</shadowcolor>
+        </control>
+		<control type="label">
+          <description>Year txt</description>
+          <posx>0</posx>
+          <posy>80</posy>
+          <width>450</width>
+          <height>38</height>
+          <label>$INFO[listitem.Year,[COLOR=orange]Year: [/COLOR]]</label>
+          <align>left</align>
+          <font>primal_18</font>
+          <textcolor>white</textcolor>
+        </control>
+		<control type="label">
+          <posx>0</posx>
+          <posy>120</posy>
+          <width>600</width>
+          <height>38</height>
+          <label>$INFO[ListItem.Genre,[COLOR=orange]Genre: [/COLOR]]</label>
+          <scroll>true</scroll>
+          <align>left</align>
+          <font>primal_18</font>
+          <textcolor>white</textcolor>
+          <shadowcolor>black</shadowcolor>
+          <wrapmultiline>false</wrapmultiline>
+        </control>
+	</control>
+	<!-- ================ Artists Infos ==================== -->
+	<control type="group">
+	  <include>ViewsAnimation</include>
+      <posx>800</posx>
+      <posy>100</posy>
+	  <visible>Control.IsVisible(109)</visible>
+	  <visible>!Player.HasAudio</visible>
+	  <visible>Container.Content(Artists)</visible>
+	    <control type="label">
+          <posx>0</posx>
+          <posy>0</posy>
+          <width>600</width>
+          <height>38</height>
+          <label>$INFO[ListItem.Artist,[COLOR=orange]$LOCALIZE[60202]: [/COLOR]]</label>
+          <scroll>true</scroll>
+          <align>left</align>
+          <font>primal_18</font>
+          <textcolor>white</textcolor>
+          <shadowcolor>black</shadowcolor>
+          <wrapmultiline>false</wrapmultiline>
+        </control>
+		<control type="label">
+          <posx>0</posx>
+          <posy>40</posy>
+          <width>600</width>
+          <height>38</height>
+          <label>$INFO[ListItem.Property(Artist_Genre),[COLOR=orange]$LOCALIZE[60240]: [/COLOR]]</label>
+          <scroll>true</scroll>
+          <align>left</align>
+          <font>primal_18</font>
+          <textcolor>white</textcolor>
+          <shadowcolor>black</shadowcolor>
+          <wrapmultiline>false</wrapmultiline>
+        </control>
+		<control type="label">
+          <posx>0</posx>
+          <posy>80</posy>
+          <width>600</width>
+          <height>38</height>
+          <label>$INFO[ListItem.Property(Artist_Born),[COLOR=orange]$LOCALIZE[31028]: [/COLOR]]</label>
+          <scroll>true</scroll>
+          <align>left</align>
+          <font>primal_18</font>
+          <textcolor>white</textcolor>
+          <shadowcolor>black</shadowcolor>
+          <wrapmultiline>false</wrapmultiline>
+        </control>
+		<control type="label">
+          <posx>0</posx>
+          <posy>120</posy>
+          <width>600</width>
+          <height>38</height>
+          <label>$INFO[ListItem.Property(Artist_Died),[COLOR=orange]$LOCALIZE[31029]: [/COLOR]]</label>
+          <scroll>true</scroll>
+          <align>left</align>
+          <font>primal_18</font>
+          <textcolor>white</textcolor>
+          <shadowcolor>black</shadowcolor>
+          <wrapmultiline>false</wrapmultiline>
+        </control>
+		<control type="textbox">
+		  <description>Plot</description>
+		  <posx>0</posx>
+          <posy>160</posy>
+          <width>680</width>
+		  <height>115</height>
+		  <font>primal_18</font>
+		  <align>justify</align>
+		  <textcolor>white</textcolor>
+		  <label>$INFO[ListItem.Property(Artist_Description),[COLOR=orange]$LOCALIZE[31033]: [/COLOR]]</label>
+		</control>
+	</control>
+	<control type="videowindow" id="8">
+	  <posx>1555</posx>
+	  <posy>810</posy>
+	  <width>300</width>
+	  <height>170</height>
+	  <align>left</align>
+	  <visible>Skin.Hassetting(videowindowglobal)</visible>
+	  <visible>Control.IsVisible(109)</visible>
+	</control>
+    <control type="group">
+      <posx>0</posx>
+      <posy>8</posy>
+      <control type="scrollbar" id="162">
+        <posx>0</posx>
+        <posy>100</posy>
+        <width>38</width>
+        <height>850</height>
+        <texturesliderbackground border="0,14,0,14">ScrollBarV.png</texturesliderbackground>
+        <texturesliderbar border="0,14,0,14">ScrollBarV_bar.png</texturesliderbar>
+        <texturesliderbarfocus border="0,14,0,14">ScrollBarV_bar_focus.png</texturesliderbarfocus>
+        <textureslidernib>ScrollBarNib.png</textureslidernib>
+        <textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+		<onleft>2</onleft>
+		<onright>109</onright>
+        <showonepage>false</showonepage>
+        <orientation>Vertical</orientation>
+		<visible>Control.IsVisible(109)</visible>
+        <visible allowhiddenfocus="true">Control.IsVisible(109) + Control.HasFocus(162)</visible>
+      </control>
+    </control>
+  </include>
+</includes>

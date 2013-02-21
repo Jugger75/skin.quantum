@@ -1,0 +1,323 @@
+﻿<includes>
+  <include name="View_65_MoviesMulti">
+
+	<control type="grouplist">
+	  <posx>0</posx>
+	  <posy>-1300</posy>
+	  <description>Info Panel 1</description>
+	  <include>InfoPanel01_Movies</include>
+	  <visible>Control.IsVisible(65)</visible>
+	  <visible>Skin.HasSetting(InfoPanel01_Movies65)</visible>
+	</control>
+	<control type="grouplist">
+	  <posx>0</posx>
+	  <posy>0</posy>
+	  <description>Info Panel 2</description>
+	  <include>InfoPanel02_Movies</include>
+	  <visible>Control.IsVisible(65)</visible>
+	  <visible>Skin.HasSetting(InfoPanel02_Movies65)</visible>
+	</control>
+	
+	<control type="label">
+	  <animation effect="slide" time="400" start="0,0"  end="0,-100" tween="quadratic" easing="out" condition="Control.HasFocus(65) | [!Control.HasFocus(6001) + !Control.HasFocus(6002) + !Control.HasFocus(6003) + !Control.HasFocus(6400) + !Control.HasFocus(6401)]">Conditional</animation>
+	<animation effect="slide" time="400" start="0,0"  end="0,100" tween="quadratic" easing="out" condition="Control.HasFocus(65) | [!Control.HasFocus(6001) + !Control.HasFocus(6002) + !Control.HasFocus(6003) + !Control.HasFocus(6400) + !Control.HasFocus(6401)]">WindowClose</animation>
+	  <description>Titel</description>
+	  <posx>1900</posx>
+	  <posy>685</posy>
+	  <width>950</width>
+	  <height>38</height>
+	  <label>41194</label>
+	  <align>right</align>
+	  <aligny>center</aligny>
+	  <font>primal_28_Bold</font>
+	  <scroll>false</scroll>
+	  <textcolor>white</textcolor>
+	  <shadowcolor>black</shadowcolor>
+	  <visible>Skin.HasSetting(InfoPanel01_Movies65)</visible>
+	  <visible>Control.IsVisible(65) + Container.Content(Sets)</visible>
+	</control>
+	<control type="label">
+	  <animation effect="slide" time="400" start="0,0"  end="0,-100" tween="quadratic" easing="out" condition="Control.HasFocus(65) | [!Control.HasFocus(6001) + !Control.HasFocus(6002) + !Control.HasFocus(6003) + !Control.HasFocus(6400) + !Control.HasFocus(6401)]">Conditional</animation>
+	<animation effect="slide" time="400" start="0,0"  end="0,100" tween="quadratic" easing="out" condition="Control.HasFocus(65) | [!Control.HasFocus(6001) + !Control.HasFocus(6002) + !Control.HasFocus(6003) + !Control.HasFocus(6400) + !Control.HasFocus(6401)]">WindowClose</animation>
+	  <description>Titel</description>
+	  <posx>20</posx>
+	  <posy>685</posy>
+	  <width>950</width>
+	  <height>38</height>
+	  <label>$INFO[ListItem.Title]</label>
+	  <align>left</align>
+	  <aligny>center</aligny>
+	  <font>primal_28_Bold</font>
+	  <scroll>false</scroll>
+	  <textcolor>white</textcolor>
+	  <shadowcolor>black</shadowcolor>
+	  <visible>Skin.HasSetting(InfoPanel01_Movies65)</visible>
+	  <visible>Control.IsVisible(65)</visible>
+	</control>
+	  
+	<control type="image">
+	  <posx>0</posx>
+	  <posy>0</posy>
+	  <width>1920</width>
+	  <height>1080</height>
+	  <texture>Views/view02.png</texture>
+	  <visible>Control.IsVisible(65)</visible>
+	</control>
+	
+    <control type="wraplist" id="65">
+	  <visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Sets) | Container.Content(Genres)</visible>
+      <posx>20</posx>
+      <posy>620</posy>
+      <width>2250</width>
+      <height>600</height>
+      <onleft>65</onleft>
+      <onright>65</onright>
+      <onup>6001</onup>
+	  <ondown>2</ondown>
+	  <viewtype label="MoviesMulti">list</viewtype>
+      <orientation>horizontal</orientation>
+      <scrolltime tween="quadratic" easing="out">600</scrolltime>
+      <focusposition>3</focusposition>
+      <preloaditems>2</preloaditems>
+      <itemlayout condition="Container.Content(Movies) | Container.Content(Sets)" height="525" width="275">
+	    <control type="image">
+		  <posx>-15</posx>
+          <posy>40</posy>
+          <width>270</width>
+          <height>370</height>
+		  <aspectratio>stretch</aspectratio>
+		  <texture background="true">Views/dvd_box_hg.png</texture>
+		  <visible>Container.Content(Movies) | Container.Content(Sets)</visible>
+		</control>
+        <control type="image">
+          <posx>0</posx>
+          <posy>52</posy>
+          <width>240</width>
+          <height>345</height>
+          <aspectratio>stretch</aspectratio>
+          <texture background="true" diffuse="Views/dvd_overlay.png" fallback="skin/cover_fallback.png">$VAR[PosterThumb]</texture>
+		  <visible>Container.Content(Movies) | Container.Content(Sets)</visible>
+        </control>
+        <control type="image">
+          <posx>0</posx>
+          <posy>403</posy>
+          <width>240</width>
+          <height>345</height>
+          <aspectratio>stretch</aspectratio>
+          <texture background="true" diffuse="Views/dvd_overlay.png" fallback="skin/cover_fallback.png" flipy="true">$VAR[PosterThumb]</texture>
+          <colordiffuse>ff444444</colordiffuse>
+		  <visible>Container.Content(Movies) | Container.Content(Sets)</visible>
+        </control>
+      </itemlayout>
+	  <itemlayout condition="Container.Content(TVShows) | Container.Content(Seasons)" height="525" width="275">
+	    <control type="image">
+		  <posx>-15</posx>
+          <posy>40</posy>
+          <width>270</width>
+          <height>370</height>
+		  <aspectratio>stretch</aspectratio>
+		  <texture background="true">Views/dvd_box_hg.png</texture>
+		  <visible>Container.Content(TVShows) | Container.Content(Seasons)</visible>
+		</control>
+        <control type="image">
+          <posx>0</posx>
+          <posy>52</posy>
+          <width>240</width>
+          <height>345</height>
+          <aspectratio>stretch</aspectratio>
+          <texture background="true" diffuse="Views/dvd_overlay.png" fallback="skin/cover_fallback.png">$VAR[PosterThumb]</texture>
+		  <visible>Container.Content(TVShows) | Container.Content(Seasons)</visible>
+        </control>
+        <control type="image">
+          <posx>0</posx>
+          <posy>403</posy>
+          <width>240</width>
+          <height>345</height>
+          <aspectratio>stretch</aspectratio>
+          <texture background="true" diffuse="Views/dvd_overlay.png" fallback="skin/cover_fallback.png" flipy="true">$VAR[PosterThumb]</texture>
+          <colordiffuse>ff444444</colordiffuse>
+		  <visible>Container.Content(TVShows) | Container.Content(Seasons)</visible>
+        </control>
+      </itemlayout>
+	  <itemlayout condition="Container.Content(Genres)" height="525" width="275">
+	    <control type="image">
+		  <posx>-15</posx>
+          <posy>40</posy>
+          <width>270</width>
+          <height>370</height>
+		  <aspectratio>stretch</aspectratio>
+		  <texture background="true">Views/dvd_box_hg.png</texture>
+		  <visible>Container.Content(Genres)</visible>
+		</control>
+        <control type="image">
+          <posx>0</posx>
+          <posy>52</posy>
+          <width>240</width>
+          <height>345</height>
+          <aspectratio>stretch</aspectratio>
+          <texture background="true" diffuse="Views/dvd_overlay.png" fallback="skin/cover_fallback.png">special://skin/extras/moviegenresposter/$INFO[ListItem.Label].jpg</texture>
+		  <visible>Container.Content(Genres)</visible>
+        </control>
+        <control type="image">
+          <posx>0</posx>
+          <posy>403</posy>
+          <width>240</width>
+          <height>345</height>
+          <aspectratio>stretch</aspectratio>
+          <texture background="true" diffuse="Views/dvd_overlay.png" fallback="skin/cover_fallback.png" flipy="true">special://skin/extras/moviegenresposter/$INFO[ListItem.Label].jpg</texture>
+          <colordiffuse>ff444444</colordiffuse>
+		  <visible>Container.Content(Genres)</visible>
+        </control>
+      </itemlayout>
+      <focusedlayout condition="Container.Content(Movies) | Container.Content(Sets)" height="525" width="264">
+	    <control type="image">
+		  <posx>-23</posx>
+          <posy>35</posy>
+          <width>270</width>
+          <height>370</height>
+		  <aspectratio>stretch</aspectratio>
+		  <texture background="true">Views/dvd_box_hg.png</texture>
+		  <animation effect="zoom" start="0,0,263,378" end="0,0,263,378" center="100,100" time="300">Focus</animation>
+		  <visible>Container.Content(Movies) | Container.Content(Sets)</visible>
+		</control>
+        <control type="image">
+          <posx>-7</posx>
+          <posy>51</posy>
+          <width>240</width>
+          <height>345</height>
+          <aspectratio>stretch</aspectratio>
+          <texture background="true" diffuse="Views/dvd_overlay.png" fallback="skin/cover_fallback.png">$VAR[PosterThumb]</texture>
+          <animation effect="zoom" start="0,0,263,378" end="0,0,263,378" center="100,100" time="300">Focus</animation>
+		  <visible>Container.Content(Movies) | Container.Content(Sets)</visible>
+        </control>
+        <control type="image">
+          <posx>-7</posx>
+          <posy>401</posy>
+          <width>240</width>
+          <height>345</height>
+          <aspectratio>stretch</aspectratio>
+          <texture background="true" diffuse="Views/dvd_overlay.png" fallback="skin/cover_fallback.png" flipy="true">$VAR[PosterThumb]</texture>
+          <colordiffuse>ff444444</colordiffuse>
+          <animation effect="zoom" start="0,0,263,378" end="0,0,263,378" center="100,100" time="300">Focus</animation>
+		  <visible>Container.Content(Movies) | Container.Content(Sets)</visible>
+        </control>
+		<control type="image">
+		  <posx>-9</posx>
+		  <posy>50</posy>
+		  <width>91</width>
+		  <height>91</height>
+		  <aspectratio>stretch</aspectratio>
+		  <texture>OverlayIcons/overlaytrailer.png</texture>
+		  <animation effect="zoom" start="0,0,98,98" end="0,0,98,98" center="100,100" time="300">Focus</animation>
+		  <visible>!IsEmpty(ListItem.Trailer)</visible>
+		  <visible>Container.Content(Movies) | Container.Content(Sets)</visible>
+		</control>
+      </focusedlayout>
+	  <focusedlayout condition="Container.Content(TVShows) | Container.Content(Seasons)" height="525" width="264">
+	    <control type="image">
+		  <posx>-23</posx>
+          <posy>30</posy>
+          <width>270</width>
+          <height>370</height>
+		  <aspectratio>stretch</aspectratio>
+		  <texture background="true">Views/dvd_box_hg.png</texture>
+		  <animation effect="zoom" start="0,0,263,378" end="0,0,263,378" center="100,100" time="300">Focus</animation>
+		  <visible>Container.Content(TVShows) | Container.Content(Seasons)</visible>
+		</control>
+        <control type="image">
+          <posx>-7</posx>
+          <posy>46</posy>
+          <width>240</width>
+          <height>345</height>
+          <aspectratio>stretch</aspectratio>
+          <texture background="true" diffuse="Views/dvd_overlay.png" fallback="skin/cover_fallback.png">$VAR[PosterThumb]</texture>
+          <animation effect="zoom" start="0,0,263,378" end="0,0,263,378" center="100,100" time="300">Focus</animation>
+		  <visible>Container.Content(TVShows) | Container.Content(Seasons)</visible>
+        </control>
+        <control type="image">
+          <posx>-7</posx>
+          <posy>396</posy>
+          <width>240</width>
+          <height>345</height>
+          <aspectratio>stretch</aspectratio>
+          <texture background="true" diffuse="Views/dvd_overlay.png" fallback="skin/cover_fallback.png" flipy="true">$VAR[PosterThumb]</texture>
+          <colordiffuse>ff444444</colordiffuse>
+          <animation effect="zoom" start="0,0,263,378" end="0,0,263,378" center="100,100" time="300">Focus</animation>
+		  <visible>Container.Content(TVShows) | Container.Content(Seasons)</visible>
+        </control>
+		<control type="image">
+		  <posx>-9</posx>
+		  <posy>45</posy>
+		  <width>91</width>
+		  <height>91</height>
+		  <aspectratio>stretch</aspectratio>
+		  <texture>OverlayIcons/overlaytrailer.png</texture>
+		  <animation effect="zoom" start="0,0,98,98" end="0,0,98,98" center="100,100" time="300">Focus</animation>
+		  <visible>!IsEmpty(ListItem.Trailer)</visible>
+		  <visible>Container.Content(TVShows) | Container.Content(Seasons)</visible>
+		</control>
+      </focusedlayout>
+	  <focusedlayout condition="Container.Content(Genres)" height="525" width="264">
+	    <control type="image">
+		  <posx>-23</posx>
+          <posy>35</posy>
+          <width>270</width>
+          <height>370</height>
+		  <aspectratio>stretch</aspectratio>
+		  <texture background="true">Views/dvd_box_hg.png</texture>
+		  <animation effect="zoom" start="0,0,263,378" end="0,0,263,378" center="100,100" time="300">Focus</animation>
+		  <visible>Container.Content(Genres)</visible>
+		</control>
+        <control type="image">
+          <posx>-8</posx>
+          <posy>50</posy>
+          <width>240</width>
+          <height>345</height>
+          <aspectratio>stretch</aspectratio>
+          <texture background="true" diffuse="Views/dvd_overlay.png" fallback="skin/cover_fallback.png">special://skin/extras/moviegenresposter/$INFO[ListItem.Label].jpg</texture>
+          <animation effect="zoom" start="0,0,263,378" end="0,0,263,378" center="100,100" time="300">Focus</animation>
+		  <visible>Container.Content(Genres)</visible>
+        </control>
+        <control type="image">
+          <posx>-8</posx>
+          <posy>401</posy>
+          <width>240</width>
+          <height>345</height>
+          <aspectratio>stretch</aspectratio>
+          <texture background="true" diffuse="Views/dvd_overlay.png" fallback="skin/cover_fallback.png" flipy="true">special://skin/extras/moviegenresposter/$INFO[ListItem.Label].jpg</texture>
+          <colordiffuse>ff444444</colordiffuse>
+          <animation effect="zoom" start="0,0,263,378" end="0,0,263,378" center="100,100" time="300">Focus</animation>
+		  <visible>Container.Content(Genres)</visible>
+        </control>
+		<control type="image">
+		  <posx>-9</posx>
+		  <posy>50</posy>
+		  <width>91</width>
+		  <height>91</height>
+		  <aspectratio>stretch</aspectratio>
+		  <texture>OverlayIcons/overlaytrailer.png</texture>
+		  <animation effect="zoom" start="0,0,98,98" end="0,0,98,98" center="100,100" time="300">Focus</animation>
+		  <visible>!IsEmpty(ListItem.Trailer)</visible>
+		  <visible>Container.Content(Genres)</visible>
+		</control>
+      </focusedlayout>
+    </control>
+
+	  <control type="group">
+      <control type="scrollbar" id="60">
+        <posx>-45</posx>
+        <posy>-750</posy>
+        <width>38</width>
+        <height>525</height>
+        <texturesliderbackground border="0,14,0,14">ScrollBarV.png</texturesliderbackground>
+        <textureslidernib>ScrollBarV.png</textureslidernib>
+        <textureslidernibfocus>ScrollBarV_bar_focus.png</textureslidernibfocus>
+        <onup>101</onup>
+        <ondown>2</ondown>
+        <showonepage>true</showonepage>
+        <orientation>horizontal</orientation>
+        <visible allowhiddenfocus="true">Control.IsVisible(65) + Control.HasFocus(60)</visible>
+      </control>
+    </control>
+  </include>
+</includes>

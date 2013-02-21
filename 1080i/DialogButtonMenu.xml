@@ -1,0 +1,218 @@
+﻿<window type="buttonMenu" id="111">
+  <defaultcontrol always="true">13</defaultcontrol>
+  <include>dialogeffect</include>
+  <coordinates>
+    <system>1</system>
+    <posx>0</posx>
+    <posy>0</posy>
+  </coordinates>
+  <controls>
+    <control type="image">
+      <description>background image</description>
+      <posx>570</posx>
+      <posy>550</posy>
+      <width>730</width>
+      <height>400</height>
+      <texture border="40">skin/info_hg2.png</texture>
+    </control>
+    <control type="group">
+      <posx>420</posx>
+      <posy>550</posy>
+      <control type="label" id="3100">
+        <description>Label control</description>
+        <posx>750</posx>
+        <posy>38</posy>
+        <width>975</width>
+        <height>52</height>
+        <label>-</label>
+        <align>right</align>
+        <aligny>center</aligny>
+        <font>primal_26</font>
+        <textcolor>white</textcolor>
+      </control>
+      <control type="grouplist">
+        <posx>22</posx>
+        <posy>128</posy>
+        <width>960</width>
+        <itemgap>30</itemgap>
+        <align>center</align>
+        <orientation>Horizontal</orientation>
+        <control type="togglebutton" id="9">
+          <description>Master mode button</description>
+          <width>75</width>
+          <height>75</height>
+          <label>20046</label>
+          <altlabel>20045</altlabel>
+          <texturefocus>onoff_button/ButtonMenuMasterFO.png</texturefocus>
+          <texturenofocus>onoff_button/ButtonMenuMasterNF.png</texturenofocus>
+          <usealttexture>!System.IsMaster</usealttexture>
+          <alttexturefocus>onoff_button/ButtonMenuNoMasterFO.png</alttexturefocus>
+          <alttexturenofocus>onoff_button/ButtonMenuNoMasterNF.png</alttexturenofocus>
+          <onclick>xbmc.mastermode</onclick>
+          <pulseonselect>no</pulseonselect>
+          <font>-</font>
+          <visible>System.HasLocks</visible>
+        </control>
+        <control type="button" id="10">
+          <description>LogOff Profile</description>
+          <width>75</width>
+          <height>75</height>
+          <texturefocus>onoff_button/ButtonMenuLogOffFO.png</texturefocus>
+          <texturenofocus>onoff_button/ButtonMenuLogOffNF.png</texturenofocus>
+          <onclick>dialog.close(all,true)</onclick>
+          <onclick>System.LogOff</onclick>
+          <pulseonselect>no</pulseonselect>
+          <font>-</font>
+          <label>$LOCALIZE[20126] $INFO[system.profilename]</label>
+          <visible>System.HasLoginScreen</visible>
+          <visible>System.Loggedon</visible>
+        </control>
+        <control type="button" id="11">
+          <description>Exit xbmc</description>
+          <width>75</width>
+          <height>75</height>
+          <texturefocus>onoff_button/ButtonMenuExitFO.png</texturefocus>
+          <texturenofocus>onoff_button/ButtonMenuExitNF.png</texturenofocus>
+          <onclick>XBMC.Quit()</onclick>
+          <pulseonselect>no</pulseonselect>
+          <font>-</font>
+          <label>$LOCALIZE[13012] XBMC</label>
+        </control>
+        <control type="group" id="13">
+          <width>75</width>
+          <defaultcontrol always="true">15</defaultcontrol>
+          <control type="button" id="17">
+            <description>Cancel Shutdown Timer button</description>
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>75</width>
+            <height>75</height>
+            <texturefocus>-</texturefocus>
+            <texturenofocus>-</texturenofocus>
+            <onclick>XBMC.CancelAlarm(shutdowntimer)</onclick>
+            <pulseonselect>no</pulseonselect>
+            <font>-</font>
+            <label>20151</label>
+            <onleft>11</onleft>
+            <onright>12</onright>
+            <onup>15</onup>
+            <ondown>16</ondown>
+            <visible>System.HasAlarm(shutdowntimer)</visible>
+          </control>
+          <control type="button" id="16">
+            <description>Custom Shutdown Timer button</description>
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>75</width>
+            <height>75</height>
+            <texturefocus>-</texturefocus>
+            <texturenofocus>-</texturenofocus>
+            <onclick>XBMC.AlarmClock(shutdowntimer,XBMC.Shutdown())</onclick>
+            <pulseonselect>no</pulseonselect>
+            <font>-</font>
+            <label>20150</label>
+            <onleft>11</onleft>
+            <onright>12</onright>
+            <onup>17</onup>
+            <ondown>15</ondown>
+          </control>
+          <control type="button" id="15">
+            <description>Shutdown button</description>
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>75</width>
+            <height>75</height>
+            <texturefocus>-</texturefocus>
+            <texturenofocus>onoff_button/ButtonMenuShutdownNF.png</texturenofocus>
+            <onclick>XBMC.Shutdown()</onclick>
+            <pulseonselect>no</pulseonselect>
+            <font>-</font>
+            <label>13005</label>
+            <onleft>11</onleft>
+            <onright>12</onright>
+            <onup>16</onup>
+            <ondown>17</ondown>
+          </control>
+          <control type="image">
+            <description>Shutdown focus image</description>
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>75</width>
+            <height>75</height>
+            <texture>onoff_button/ButtonMenuShutdownFO.png</texture>
+            <visible>Control.HasFocus(15) | Control.HasFocus(16) | Control.HasFocus(17)</visible>
+          </control>
+        </control>
+        <control type="button" id="12">
+          <description>Suspend xbmc</description>
+          <width>75</width>
+          <height>75</height>
+          <texturefocus>onoff_button/ButtonMenuSleepFO.png</texturefocus>
+          <texturenofocus>onoff_button/ButtonMenuSleepNF.png</texturenofocus>
+          <onclick>XBMC.Suspend()</onclick>
+          <pulseonselect>no</pulseonselect>
+          <font>-</font>
+          <label>$LOCALIZE[13011]</label>
+        </control>
+        <control type="button" id="14">
+          <description>Reboot button</description>
+          <width>75</width>
+          <height>75</height>
+          <texturefocus>onoff_button/ButtonMenuRestartFO.png</texturefocus>
+          <texturenofocus>onoff_button/ButtonMenuRestartNF.png</texturenofocus>
+          <onclick>XBMC.Reset()</onclick>
+          <pulseonselect>no</pulseonselect>
+          <font>-</font>
+          <label>13013</label>
+        </control>
+        <control type="button" id="19">
+          <description>Settings button</description>
+          <width>75</width>
+          <height>75</height>
+          <texturefocus>onoff_button/ButtonMenuSettingsFO.png</texturefocus>
+          <texturenofocus>onoff_button/ButtonMenuSettingsNF.png</texturenofocus>
+          <onclick>ActivateWindow(Settings)</onclick>
+          <pulseonselect>no</pulseonselect>
+          <font>-</font>
+          <label>$LOCALIZE[5]</label>
+        </control>
+      </control>
+      <control type="group">
+        <posx>405</posx>
+        <posy>105</posy>
+        <visible>ControlGroup(13).HasFocus</visible>
+        <include>VisibleFadeEffect</include>
+        <animation effect="slide" start="0,0" end="82,0" time="0" condition="System.HasLocks">Conditional</animation>
+        <animation effect="slide" start="0,0" end="82,0" time="0" condition="System.HasLoginScreen + System.LoggedOn">Conditional</animation>
+        <control type="image">
+          <description>Shutdown Arrow Up image</description>
+          <posx>-24</posx>
+          <posy>-8</posy>
+          <width>30</width>
+          <height>22</height>
+          <texture>onoff_button/ArrowUp.png</texture>
+        </control>
+        <control type="image">
+          <description>Shutdown Arrow Down image</description>
+          <posx>-24</posx>
+          <posy>105</posy>
+          <width>30</width>
+          <height>22</height>
+          <texture>onoff_button/ArrowDown.png</texture>
+        </control>
+      </control>
+      <control type="label">
+        <posx>15</posx>
+        <posy>285</posy>
+        <width>975</width>
+        <height>52</height>
+        <font>font12</font>
+        <textcolor>white</textcolor>
+        <align>center</align>
+        <aligny>center</aligny>
+        <label>$LOCALIZE[31329] [B]$INFO[System.Alarmpos][/B]</label>
+        <visible>System.HasAlarm(shutdowntimer)</visible>
+      </control>
+    </control>
+  </controls>
+</window>

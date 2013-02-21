@@ -1,0 +1,1269 @@
+﻿<window id="2006">
+  <defaultcontrol always="true">999</defaultcontrol>
+  <allowoverlay>no</allowoverlay>
+  <controls>
+    <control type="visualisation" id="2">
+      <description>visualisation</description>
+      <posx>0</posx>
+      <posy>0</posy>
+      <width>1920</width>
+      <height>1080</height>
+    </control>
+    <include>cdwall-musicvisualisation</include>
+    <control type="image">
+      <description>Default background</description>
+      <posx>0</posx>
+      <posy>0</posy>
+      <width>1920</width>
+      <height>1080</height>
+      <colordiffuse>88FFFFFF</colordiffuse>
+      <visible>!Skin.HasSetting(CustomBackground) + !Skin.HasSetting(BlackBackground) + !Skin.HasSetting(Artistslideshow) + !Skin.HasSetting(CDWallNoVisualisation)</visible>
+      <texture fallback="special://skin/backgrounds/DefaultFanart.jpg">$INFO[MusicPlayer.Property(Fanart_Image)]</texture>
+      <animation effect="zoom" start="110" end="135" center="auto" time="15000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg_global)">Conditional</animation>
+      <animation effect="slide" end="-30,-30" delay="4000" time="8000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg_global)">Conditional</animation>
+      <animation effect="slide" end="60,0" delay="10000" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg_global)">Conditional</animation>
+    </control>
+    <control type="multiimage">
+      <posx>0</posx>
+      <posy>0</posy>
+      <width>1920</width>
+      <height>1080</height>
+      <imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
+      <aspectratio>keep</aspectratio>
+      <timeperimage>5000</timeperimage>
+      <colordiffuse>88FFFFFF</colordiffuse>
+      <fadetime>2000</fadetime>
+      <randomize>true</randomize>
+      <!--<animation effect="fade" start="0" end="100" time="300">Visible</animation>
+      <animation effect="fade" start="100" end="0" time="300">Hidden</animation>
+      <animation effect="zoom" start="110" end="130" center="auto" time="6000" pulse="true" condition="true">Conditional</animation>
+      <animation effect="slide" start="-30,-30" end="60,60" time="7000" pulse="true" condition="true">Conditional</animation>-->
+      <visible>IsEmpty(Window.Property(ArtistSlideshowRefresh))</visible>
+      <visible>Skin.HasSetting(Artistslideshow)</visible>
+      <visible>!Skin.HasSetting(BlackBackground)</visible>
+      <visible>!Skin.HasSetting(CustomBackground)</visible>
+      <visible>!Skin.HasSetting(DefaultBackground)</visible>
+    </control>
+    <control type="multiimage">
+      <description>Custom background</description>
+      <posx>0</posx>
+      <posy>0</posy>
+      <width>1920</width>
+      <height>1080</height>
+      <fadetime>2000</fadetime>
+      <timeperimage>5000</timeperimage>
+      <colordiffuse>88FFFFFF</colordiffuse>
+      <visible>Skin.HasSetting(CustomBackground) + !Skin.HasSetting(BlackBackground) + !Skin.HasSetting(DefaultBackground) + !Skin.HasSetting(Artistslideshow)</visible>
+      <imagepath>$INFO[Skin.String(Home_Custom_Back_MusicVisualisation_Folder)]</imagepath>
+      <animation effect="zoom" start="110" end="135" center="auto" time="15000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg_global)">Conditional</animation>
+      <animation effect="slide" end="-30,-30" delay="4000" time="8000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg_global)">Conditional</animation>
+      <animation effect="slide" end="60,0" delay="10000" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg_global)">Conditional</animation>
+    </control>
+    <control type="image">
+      <description>Black background</description>
+      <posx>0</posx>
+      <posy>0</posy>
+      <width>1920</width>
+      <height>1080</height>
+      <colordiffuse>88FFFFFF</colordiffuse>
+      <visible>Skin.HasSetting(BlackBackground) + !Skin.HasSetting(CustomBackground) + !Skin.HasSetting(DefaultBackground) + !Skin.HasSetting(Artistslideshow)</visible>
+      <texture>BlackFanart.png</texture>
+    </control>
+    <control type="group">
+      <posx>-52</posx>
+      <posy>-22</posy>
+      <visible>!Skin.HasSetting(BlackBackground)</visible>
+      <visible>!Skin.HasSetting(CustomBackground)</visible>
+      <visible>!Skin.HasSetting(DefaultBackground)</visible>
+      <visible>Player.HasAudio + Skin.HasSetting(CDWallNoVisualisation)</visible>
+      <control type="multiimage">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>6300</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>225</posx>
+        <posy>0</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>7700</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>450</posx>
+        <posy>0</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>8000</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>675</posx>
+        <posy>0</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>6000</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>900</posx>
+        <posy>0</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>4000</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>1125</posx>
+        <posy>0</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>5500</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>1350</posx>
+        <posy>0</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>5000</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>1575</posx>
+        <posy>0</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>6200</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>1800</posx>
+        <posy>0</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>6600</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>0</posx>
+        <posy>225</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>6500</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>225</posx>
+        <posy>225</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>7200</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>450</posx>
+        <posy>225</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>5100</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>675</posx>
+        <posy>225</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>5200</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>900</posx>
+        <posy>225</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>4100</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>1125</posx>
+        <posy>225</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>5700</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>1350</posx>
+        <posy>225</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>4400</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>1575</posx>
+        <posy>225</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>6800</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>1800</posx>
+        <posy>225</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>7800</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>0</posx>
+        <posy>450</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>8100</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>225</posx>
+        <posy>450</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>4900</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>450</posx>
+        <posy>450</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>5300</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>675</posx>
+        <posy>450</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>4500</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>900</posx>
+        <posy>450</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>7000</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>1125</posx>
+        <posy>450</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>6400</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>1350</posx>
+        <posy>450</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>8300</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>1575</posx>
+        <posy>450</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>7500</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>1800</posx>
+        <posy>450</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>6900</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>0</posx>
+        <posy>675</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>4200</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>225</posx>
+        <posy>675</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>5800</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>450</posx>
+        <posy>675</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>5600</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>675</posx>
+        <posy>675</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>7300</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>900</posx>
+        <posy>675</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>4700</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>1125</posx>
+        <posy>675</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>4800</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>1350</posx>
+        <posy>675</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>5400</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>1575</posx>
+        <posy>675</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>7100</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>1800</posx>
+        <posy>675</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>5200</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>0</posx>
+        <posy>900</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>7600</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>225</posx>
+        <posy>900</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>4300</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>450</posx>
+        <posy>900</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>5900</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>675</posx>
+        <posy>900</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>6100</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>900</posx>
+        <posy>900</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>8200</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>1125</posx>
+        <posy>900</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>6700</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>1350</posx>
+        <posy>900</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>4600</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>1575</posx>
+        <posy>900</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>7900</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+      <control type="multiimage">
+        <posx>1800</posx>
+        <posy>900</posy>
+        <width>225</width>
+        <height>225</height>
+        <aspectratio>stretch</aspectratio>
+        <imagepath background="true">$INFO[Skin.String(CDWall_Folder_Path)]</imagepath>
+        <colordiffuse>88FFFFFF</colordiffuse>
+        <timeperimage>7400</timeperimage>
+        <fadetime>500</fadetime>
+        <randomize>true</randomize>
+      </control>
+    </control>
+    <control type="image">
+      <posx>0</posx>
+      <posy>0</posy>
+      <width>1920</width>
+      <height>1080</height>
+      <texture background="true">cdwall-grid.png</texture>
+      <colordiffuse>88FFFFFF</colordiffuse>
+      <visible>Player.HasAudio + Skin.HasSetting(CDWallNoVisualisation)</visible>
+    </control>
+    <control type="group">
+      <visible>Player.ShowInfo + ![Window.IsVisible(VisualisationSettings) | Window.IsVisible(VisualisationPresetList)]</visible>
+      <animation effect="fade" start="0" end="100" time="300" tween="quadratic" easing="out">WindowOpen</animation>
+      <animation effect="fade" start="100" end="0" time="300" delay="150" tween="quadratic" easing="out">WindowClose</animation>
+      <animation effect="fade" start="0" end="100" time="300" tween="quadratic" easing="out">visible</animation>
+      <animation effect="fade" start="100" end="0" time="300" delay="150" tween="quadratic" easing="out">hidden</animation>
+      <!-- Zombie -->
+      <control type="image">
+        <!-- Top Bar background -->
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>1920</width>
+        <height>188</height>
+        <aspectratio>stretch</aspectratio>
+        <texture>skin/info_hg_osd.png</texture>
+        <!-- flip y when up the top -->
+        <visible>Skin.HasSetting(zombie_osd)</visible>
+      </control>
+      <control type="image">
+        <!-- Top Bar background -->
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>1920</width>
+        <height>188</height>
+        <aspectratio>stretch</aspectratio>
+        <texture>skin/info_hg_osd.png</texture>
+        <!-- flip y when up the top -->
+        <visible>Skin.HasSetting(zombie_osd)</visible>
+      </control>
+      <control type="image">
+        <!-- background -->
+        <posx>0</posx>
+        <posy>150r</posy>
+        <width>1920</width>
+        <height>150</height>
+        <aspectratio>stretch</aspectratio>
+        <texture>skin/info_hg_osd.png</texture>
+        <visible>Skin.HasSetting(zombie_osd)</visible>
+      </control>
+      <control type="image">
+        <!-- STARS Music-->
+        <description>Album rating</description>
+        <posx>896</posx>
+        <posy>153</posy>
+        <width>135</width>
+        <height>28</height>
+        <texture>$INFO[Player.StarRating]</texture>
+        <colordiffuse>FFFFFFFF</colordiffuse>
+        <visible>Skin.HasSetting(zombie_osd)</visible>
+      </control>
+      <control type="image">
+        <!-- background -->
+        <posx>-15</posx>
+        <posy>255r</posy>
+        <width>1950</width>
+        <height>255</height>
+        <aspectratio>stretch</aspectratio>
+        <texture>skin/info_hg_osd.png</texture>
+        <visible>!Skin.HasSetting(zombie_osd)</visible>
+      </control>
+      <!-- ==================== CD ART ================== -->
+      <control type="group">
+        <visible>Skin.HasSetting(cdart)</visible>
+        <posx>270</posx>
+        <posy>596</posy>
+        <animation effect="fade" time="900" condition="Skin.HasSetting(zombie_osd)">VisibleChange</animation>
+        <animation effect="slide" time="300" start="-525,0" end="0,0" delay="0" condition="Skin.HasSetting(zombie_osd)">WindowOpen</animation>
+        <animation effect="slide" time="300" start="0,0" end="-540,0" delay="0" condition="Skin.HasSetting(zombie_osd)">WindowClose</animation>
+        <!-- CD Animation -->
+        <control type="image">
+          <description>Cd Disc</description>
+          <animation effect="slide" start="-177" end="0" time="900" tween="cubic" easing="out" delay="1000">WindowOpen</animation>
+          <animation type="WindowClose">
+            <effect type="slide" start="0" end="-171" time="800" tween="cubic" easing="in" delay="0" />
+            <effect type="fade" start="100" end="0" time="1300" />
+            <condition type="!Player.Playing" />
+          </animation>
+          <animation effect="rotate" end="-360" center="auto" time="2000" loop="true" reversible="false" condition="!Player.Paused + !Skin.HasSetting(zombie_osd)">Conditional</animation>
+          <animation effect="rotate" end="-360" center="auto" time="2000" loop="true" reversible="false" condition="!Player.Paused + Skin.HasSetting(zombie_osd)">Conditional</animation>
+          <width>420</width>
+          <height>420</height>
+          <posx>0</posx>
+          <posy>0</posy>
+          <texture fallback="cdartdefault.png">$INFO[Player.FolderPath]cdart.png</texture>
+          <aspectratio align="bottom">keep</aspectratio>
+          <visible>!Skin.HasSetting(cdart2) + !Skin.HasSetting(cdart3)</visible>
+        </control>
+        <control type="image">
+          <description>Cd Disc</description>
+          <animation effect="slide" start="-177" end="0" time="900" tween="cubic" easing="out" delay="1000">WindowOpen</animation>
+          <animation type="WindowClose">
+            <effect type="slide" start="0" end="-171" time="800" tween="cubic" easing="in" delay="0" />
+            <effect type="fade" start="100" end="0" time="1300" />
+            <condition type="!Player.Playing" />
+          </animation>
+          <animation effect="rotate" end="-360" center="auto" time="2000" loop="true" reversible="false" condition="!Player.Paused + !Skin.HasSetting(zombie_osd)">Conditional</animation>
+          <animation effect="rotate" end="-360" center="auto" time="2000" loop="true" reversible="false" condition="!Player.Paused + Skin.HasSetting(zombie_osd)">Conditional</animation>
+          <width>420</width>
+          <height>420</height>
+          <posx>0</posx>
+          <posy>0</posy>
+          <texture fallback="cdartdefault 2b.png">$INFO[Player.FolderPath]cdart.png</texture>
+          <aspectratio align="bottom">keep</aspectratio>
+          <visible>Skin.HasSetting(cdart2)</visible>
+        </control>
+        <control type="image">
+          <description>Cd Disc</description>
+          <animation effect="slide" start="-177" end="0" time="900" tween="cubic" easing="out" delay="1000">WindowOpen</animation>
+          <animation type="WindowClose">
+            <effect type="slide" start="0" end="-171" time="800" tween="cubic" easing="in" delay="0" />
+            <effect type="fade" start="100" end="0" time="1300" />
+            <condition type="!Player.Playing" />
+          </animation>
+          <animation effect="rotate" end="-360" center="auto" time="2000" loop="true" reversible="false" condition="!Player.Paused + !Skin.HasSetting(zombie_osd)">Conditional</animation>
+          <animation effect="rotate" end="-360" center="auto" time="2000" loop="true" reversible="false" condition="!Player.Paused + Skin.HasSetting(zombie_osd)">Conditional</animation>
+          <width>420</width>
+          <height>420</height>
+          <posx>0</posx>
+          <posy>0</posy>
+          <texture fallback="cdartdefault 3w.png">$INFO[Player.FolderPath]cdart.png</texture>
+          <aspectratio align="bottom">keep</aspectratio>
+          <visible>Skin.HasSetting(cdart3)</visible>
+        </control>
+        <control type="multiimage">
+          <description>Cd Disc</description>
+          <animation effect="slide" start="-177" end="0" time="900" tween="cubic" easing="out" delay="1000">WindowOpen</animation>
+          <animation type="WindowClose">
+            <effect type="slide" start="0" end="-171" time="800" tween="cubic" easing="in" delay="0" />
+            <effect type="fade" start="100" end="0" time="1300" />
+            <condition type="!Player.Playing" />
+          </animation>
+          <animation effect="rotate" end="-360" center="auto" time="2000" loop="true" reversible="false" condition="!Player.Paused + !Skin.HasSetting(zombie_osd)">Conditional</animation>
+          <animation effect="rotate" end="-360" center="auto" time="2000" loop="true" reversible="false" condition="!Player.Paused + Skin.HasSetting(zombie_osd)">Conditional</animation>
+          <width>420</width>
+          <height>420</height>
+          <posx>0</posx>
+          <posy>0</posy>
+          <imagepath background="true">special://skin/extras/defaultcdarts</imagepath>
+          <aspectratio align="bottom">keep</aspectratio>
+          <fadetime>FanartCrossfadeTime</fadetime>
+          <timeperimage>210000</timeperimage>
+          <visible>Skin.HasSetting(randomdefaultcdart)</visible>
+        </control>
+      </control>
+      <!-- =========== END CDART ============= -->
+      <control type="group">
+        <!-- cover image -->
+        <posx>45</posx>
+        <posy>592r</posy>
+        <animation effect="fade" time="900" condition="Skin.HasSetting(zombie_osd)">VisibleChange</animation>
+        <animation effect="slide" time="300" start="-525,0" end="0,0" delay="0" condition="Skin.HasSetting(zombie_osd)">WindowOpen</animation>
+        <animation effect="slide" time="300" start="0,0" end="-540,0" delay="0" condition="Skin.HasSetting(zombie_osd)">WindowClose</animation>
+        <control type="image">
+          <posx>0</posx>
+          <posy>90</posy>
+          <width>450</width>
+          <height>450</height>
+          <aspectratio aligny="bottom">stretch</aspectratio>
+          <fadetime>IconCrossfadeTime</fadetime>
+          <texture background="true" diffuse="views/diffuse/big-diffuse.png">$INFO[MusicPlayer.cover]</texture>
+          <bordertexture border="6">contentpanelvertical.png</bordertexture>
+          <bordersize>6</bordersize>
+        </control>
+        <control type="image">
+          <posx>-60</posx>
+          <posy>26</posy>
+          <width>574</width>
+          <height>576</height>
+          <aspectratio>stretch</aspectratio>
+          <texture>views/music_overlay.png</texture>
+        </control>
+      </control>
+      <control type="progress">
+        <description>Progressbar</description>
+        <posx>38</posx>
+        <posy>38r</posy>
+        <width>1852</width>
+        <height>21</height>
+        <info>Player.Progress</info>
+      </control>
+      <control type="group">
+        <posx>555</posx>
+        <posy>232r</posy>
+        <control type="grouplist">
+          <description>Media Codec Flagging Images</description>
+          <posx>510</posx>
+          <posy>-8</posy>
+          <width>825</width>
+          <align>right</align>
+          <visible>!Skin.HasSetting(zombie_osd)</visible>
+          <itemgap>30</itemgap>
+          <orientation>horizontal</orientation>
+          <control type="image">
+            <description>Rating image</description>
+            <width>180</width>
+            <height>60</height>
+            <aspectratio align="right">keep</aspectratio>
+            <texture>$INFO[Player.StarRating]</texture>
+          </control>
+          <control type="image">
+            <description>Codec Image</description>
+            <width>120</width>
+            <height>60</height>
+            <aspectratio>keep</aspectratio>
+            <texture>$INFO[MusicPlayer.Codec,flagging/audio/,.png]</texture>
+            <visible>!Skin.HasSetting(newFlags)</visible>
+          </control>
+          <control type="image">
+            <description>Codec Image</description>
+            <width>120</width>
+            <height>60</height>
+            <aspectratio>keep</aspectratio>
+            <texture>$INFO[MusicPlayer.Codec,flagging/audioNew/,.png]</texture>
+            <visible>Skin.HasSetting(newFlags)</visible>
+          </control>
+          <control type="image">
+            <description>Channels Image</description>
+            <width>120</width>
+            <height>60</height>
+            <aspectratio>keep</aspectratio>
+            <texture>$INFO[MusicPlayer.Channels,flagging/audio/,.png]</texture>
+            <visible>!Skin.HasSetting(newFlags)</visible>
+          </control>
+          <control type="image">
+            <description>Channels Image</description>
+            <width>120</width>
+            <height>60</height>
+            <aspectratio>keep</aspectratio>
+            <texture>$INFO[MusicPlayer.Channels,flagging/audioNew/,.png]</texture>
+            <visible>Skin.HasSetting(newFlags)</visible>
+          </control>
+        </control>
+        <!-- Zombie -->
+        <control type="grouplist">
+          <description>Media Codec Flagging Images</description>
+          <posx>506</posx>
+          <posy>-720</posy>
+          <width>825</width>
+          <align>right</align>
+          <visible>Skin.HasSetting(zombie_osd)</visible>
+          <itemgap>30</itemgap>
+          <orientation>horizontal</orientation>
+          <control type="image">
+            <description>Codec Image</description>
+            <width>120</width>
+            <height>60</height>
+            <aspectratio>keep</aspectratio>
+            <texture>$INFO[MusicPlayer.Codec,flagging/audio/,.png]</texture>
+            <visible>!Skin.HasSetting(newFlags)</visible>
+          </control>
+          <control type="image">
+            <description>Codec Image</description>
+            <width>120</width>
+            <height>60</height>
+            <aspectratio>keep</aspectratio>
+            <texture>$INFO[MusicPlayer.Codec,flagging/audioNew/,.png]</texture>
+            <visible>Skin.HasSetting(newFlags)</visible>
+          </control>
+        </control>
+        <control type="grouplist">
+          <description>Media Codec Flagging Images</description>
+          <posx>-1230</posx>
+          <posy>-720</posy>
+          <width>825</width>
+          <align>right</align>
+          <visible>Skin.HasSetting(zombie_osd)</visible>
+          <itemgap>30</itemgap>
+          <orientation>horizontal</orientation>
+          <control type="image">
+            <description>Channels Image</description>
+            <width>120</width>
+            <height>60</height>
+            <aspectratio>keep</aspectratio>
+            <texture>$INFO[MusicPlayer.Channels,flagging/audio/,.png]</texture>
+            <visible>!Skin.HasSetting(newFlags)</visible>
+          </control>
+          <control type="image">
+            <description>Channels Image</description>
+            <width>120</width>
+            <height>60</height>
+            <aspectratio>keep</aspectratio>
+            <texture>$INFO[MusicPlayer.Channels,flagging/audioNew/,.png]</texture>
+            <visible>Skin.HasSetting(newFlags)</visible>
+          </control>
+        </control>
+        <!-- Zombie -->
+        <control type="label">
+          <description>Now Playing Label</description>
+          <posx>0</posx>
+          <posy>0</posy>
+          <width>750</width>
+          <height>38</height>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>primal_20</font>
+          <textcolor>white</textcolor>
+          <label>31040</label>
+          <visible>!Skin.HasSetting(cdart) + !Skin.HasSetting(zombie_osd)</visible>
+        </control>
+        <control type="label">
+          <description>Now Playing Label</description>
+          <!-- moves to right if cdart enabled -->
+          <posx>150</posx>
+          <posy>0</posy>
+          <width>600</width>
+          <height>38</height>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>primal_20</font>
+          <textcolor>white</textcolor>
+          <label>31040</label>
+          <visible>Skin.HasSetting(cdart) + !Skin.HasSetting(zombie_osd)</visible>
+        </control>
+        <control type="label">
+          <posx>0</posx>
+          <posy>42</posy>
+          <width>870</width>
+          <height>45</height>
+          <label>$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, - ]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>primal_24</font>
+          <textcolor>white</textcolor>
+          <visible>!Skin.HasSetting(cdart) + !Skin.HasSetting(zombie_osd)</visible>
+        </control>
+        <control type="label">
+          <posx>150</posx>
+          <posy>42</posy>
+          <width>735</width>
+          <height>45</height>
+          <label>$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, - ]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>primal_24</font>
+          <textcolor>white</textcolor>
+          <visible>Skin.HasSetting(cdart) + !Skin.HasSetting(zombie_osd)</visible>
+        </control>
+        <control type="label">
+          <posx>0</posx>
+          <posy>92</posy>
+          <width>870</width>
+          <height>45</height>
+          <label>$INFO[MusicPlayer.Title]</label>
+          <scroll>true</scroll>
+          <align>left</align>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <font>primal_30</font>
+          <textcolor>white</textcolor>
+          <visible>!Skin.HasSetting(cdart) + !Skin.HasSetting(zombie_osd)</visible>
+        </control>
+        <control type="label">
+          <posx>150</posx>
+          <posy>92</posy>
+          <width>765</width>
+          <height>45</height>
+          <label>$INFO[MusicPlayer.Title]</label>
+          <scroll>true</scroll>
+          <align>left</align>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <font>primal_30</font>
+          <textcolor>white</textcolor>
+          <visible>Skin.HasSetting(cdart) + !Skin.HasSetting(zombie_osd)</visible>
+        </control>
+        <!-- Zombie -->
+        <control type="label">
+          <posx>-52</posx>
+          <posy>-832</posy>
+          <width>915</width>
+          <height>68</height>
+          <align>center</align>
+          <aligny>bottom</aligny>
+          <label>[UPPERCASE]$INFO[MusicPlayer.Artist][/UPPERCASE]</label>
+          <scroll>true</scroll>
+          <font>primal_40</font>
+          <textcolor>white</textcolor>
+          <visible>Skin.HasSetting(zombie_osd)</visible>
+        </control>
+        <control type="label">
+          <posx>-110</posx>
+          <posy>-772</posy>
+          <width>1020</width>
+          <height>45</height>
+          <label>[UPPERCASE]$INFO[MusicPlayer.Album, ][/UPPERCASE]</label>
+          <align>center</align>
+          <aligny>bottom</aligny>
+          <font>primal_30</font>
+          <textcolor>white</textcolor>
+          <visible>Skin.HasSetting(zombie_osd)</visible>
+        </control>
+        <control type="label">
+          <posx>-106</posx>
+          <posy>-728</posy>
+          <width>1020</width>
+          <height>45</height>
+          <label>[UPPERCASE]$INFO[MusicPlayer.Title, ][/UPPERCASE]</label>
+          <align>center</align>
+          <aligny>bottom</aligny>
+          <font>primal_20</font>
+          <textcolor>white</textcolor>
+          <visible>Skin.HasSetting(zombie_osd)</visible>
+        </control>
+        <control type="label">
+          <description>Player duration Times</description>
+          <posx>-26</posx>
+          <posy>135</posy>
+          <width>870</width>
+          <height>38</height>
+          <label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
+          <align>center</align>
+          <aligny>center</aligny>
+          <font>primal_35</font>
+          <textcolor>white</textcolor>
+          <visible>Skin.HasSetting(zombie_osd)</visible>
+        </control>
+        <control type="label">
+          <posx>182</posx>
+          <posy>90</posy>
+          <width>450</width>
+          <height>30</height>
+          <label>[UPPERCASE]$INFO[musicplayer.Playlistposition,$LOCALIZE[554]: ]$INFO[musicplayer.Playlistlength, / ][/UPPERCASE]</label>
+          <align>center</align>
+          <aligny>center</aligny>
+          <font>primal_20</font>
+          <textcolor>white</textcolor>
+          <visible>Skin.HasSetting(zombie_osd)</visible>
+        </control>
+        <control type="label">
+          <posx>1335</posx>
+          <posy>-892</posy>
+          <width>525</width>
+          <height>150</height>
+          <label>$INFO[musicplayer.Codec,Info: ,] : $INFO[musicplayer.Bitrate,kbps]</label>
+          <!--				<label>$INFO[musicplayer.Codec,· Codec: ,]$INFO[musicplayer.Bitrate,[CR]· Bitrate: ,kbps]$INFO[musicplayer.bitspersample,[CR]· Bits:,bit]$INFO[musicplayer.Samplerate,[CR]· Freq.: ,kHz]$INFO[musicplayer.Channels,[CR]· Channels: ]</label> -->
+          <align>right</align>
+          <aligny>center</aligny>
+          <font>primal_16</font>
+          <textcolor>white</textcolor>
+          <visible>Skin.HasSetting(zombie_osd)</visible>
+        </control>
+        <control type="label">
+          <posx>1335</posx>
+          <posy>-862</posy>
+          <width>525</width>
+          <height>150</height>
+          <label> $INFO[musicplayer.bitspersample,:,bit]</label>
+          <!--				<label>$INFO[musicplayer.Codec,· Codec: ,]$INFO[musicplayer.Bitrate,[CR]· Bitrate: ,kbps]$INFO[musicplayer.bitspersample,[CR]· Bits:,bit]$INFO[musicplayer.Samplerate,[CR]· Freq.: ,kHz]$INFO[musicplayer.Channels,[CR]· Channels: ]</label> -->
+          <align>right</align>
+          <aligny>center</aligny>
+          <font>primal_16</font>
+          <textcolor>white</textcolor>
+          <visible>Skin.HasSetting(zombie_osd)</visible>
+        </control>
+        <control type="label">
+          <posx>1335</posx>
+          <posy>-832</posy>
+          <width>525</width>
+          <height>150</height>
+          <label>$INFO[musicplayer.Samplerate,: ,kHz]$INFO[musicplayer.Channels,: ,ch]</label>
+          <!--				<label>$INFO[musicplayer.Codec,· Codec: ,]$INFO[musicplayer.Bitrate,[CR]· Bitrate: ,kbps]$INFO[musicplayer.bitspersample,[CR]· Bits:,bit]$INFO[musicplayer.Samplerate,[CR]· Freq.: ,kHz]$INFO[musicplayer.Channels,[CR]· Channels: ]</label> -->
+          <align>right</align>
+          <aligny>center</aligny>
+          <font>primal_16</font>
+          <textcolor>white</textcolor>
+          <visible>Skin.HasSetting(zombie_osd)</visible>
+        </control>
+        <!-- Zombie -->
+        <control type="label">
+          <posx>0</posx>
+          <posy>150</posy>
+          <width>450</width>
+          <height>30</height>
+          <label>$INFO[musicplayer.Playlistposition,$LOCALIZE[554]: ]$INFO[musicplayer.Playlistlength, / ]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>primal_20</font>
+          <textcolor>white</textcolor>
+          <visible>!Skin.HasSetting(cdart)</visible>
+        </control>
+        <control type="label">
+          <posx>150</posx>
+          <posy>150</posy>
+          <width>450</width>
+          <height>30</height>
+          <label>$INFO[musicplayer.Playlistposition,$LOCALIZE[554]: ]$INFO[musicplayer.Playlistlength, / ]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>primal_20</font>
+          <textcolor>white</textcolor>
+          <visible>Skin.HasSetting(cdart) + !Skin.HasSetting(zombie_osd)</visible>
+        </control>
+        <control type="label">
+          <posx>1335</posx>
+          <posy>-8</posy>
+          <width>525</width>
+          <height>150</height>
+          <label>$INFO[musicplayer.Codec,Info: ,]$INFO[musicplayer.Bitrate,: ,kbps]$INFO[musicplayer.bitspersample,:,bit]$INFO[musicplayer.Samplerate,: ,kHz]$INFO[musicplayer.Channels,: ,ch]</label>
+          <!--				<label>$INFO[musicplayer.Codec,· Codec: ,]$INFO[musicplayer.Bitrate,[CR]· Bitrate: ,kbps]$INFO[musicplayer.bitspersample,[CR]· Bits:,bit]$INFO[musicplayer.Samplerate,[CR]· Freq.: ,kHz]$INFO[musicplayer.Channels,[CR]· Channels: ]</label> -->
+          <align>right</align>
+          <aligny>center</aligny>
+          <font>primal_16</font>
+          <textcolor>white</textcolor>
+          <visible>!Skin.HasSetting(zombie_osd)</visible>
+        </control>
+        <control type="label">
+          <posx>1335</posx>
+          <posy>98</posy>
+          <width>555</width>
+          <height>38</height>
+          <label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
+          <align>right</align>
+          <aligny>center</aligny>
+          <font>primal_30</font>
+          <textcolor>white</textcolor>
+          <visible>!Skin.HasSetting(zombie_osd)</visible>
+        </control>
+        <control type="label">
+          <posx>1335</posx>
+          <posy>150</posy>
+          <width>735</width>
+          <height>30</height>
+          <label>$LOCALIZE[209] : $INFO[MusicPlayer.offset(1).Artist,, - ]$INFO[MusicPlayer.offset(1).Title]</label>
+          <align>right</align>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <font>primal_20</font>
+          <textcolor>white</textcolor>
+        </control>
+      </control>
+    </control>
+    <control type="group">
+      <visible>Player.ShowInfo</visible>
+      <animation effect="slide" start="0,0" end="240,0" delay="0" time="300" condition="!Window.IsVisible(MusicOSD)">hidden</animation>
+      <animation effect="slide" start="240,0" end="0,0" delay="0" time="300" condition="!Window.IsVisible(MusicOSD)">visible</animation>
+      <include>Clock</include>
+    </control>
+    <control type="group" id="0">
+      <posx>360</posx>
+      <posy>150</posy>
+      <include>VisibleFadeEffect</include>
+      <visible>Player.ShowCodec + ![Window.IsVisible(121) | Window.IsVisible(122)]</visible>
+      <control type="image">
+        <description>gradient</description>
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>1200</width>
+        <height>300</height>
+        <colordiffuse>CCFFFFFF</colordiffuse>
+        <texture border="20">OverlayDialogBackground.png</texture>
+      </control>
+      <control type="label">
+        <posx>45</posx>
+        <posy>30</posy>
+        <width>540</width>
+        <height>38</height>
+        <label>$LOCALIZE[31046]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>primal_20_bold</font>
+        <textcolor>white</textcolor>
+      </control>
+      <control type="label">
+        <posx>45</posx>
+        <posy>75</posy>
+        <width>540</width>
+        <height>150</height>
+        <label>$INFO[musicplayer.Codec,· Codec: ,]$INFO[musicplayer.Bitrate,[CR]· Bitrate: ,kbps]$INFO[musicplayer.bitspersample,[CR]· Bits:,bit]$INFO[musicplayer.Samplerate,[CR]· Freq.: ,kHz]$INFO[musicplayer.Channels,[CR]· Channels: ]</label>
+        <align>left</align>
+        <aligny>top</aligny>
+        <font>primal_18</font>
+        <textcolor>white</textcolor>
+      </control>
+      <control type="label">
+        <posx>1140</posx>
+        <posy>30</posy>
+        <width>540</width>
+        <height>38</height>
+        <label>$LOCALIZE[250]</label>
+        <align>right</align>
+        <aligny>center</aligny>
+        <font>primal_20_bold</font>
+        <textcolor>white</textcolor>
+      </control>
+      <control type="label">
+        <posx>900</posx>
+        <posy>75</posy>
+        <width>right</width>
+        <height>38</height>
+        <label>$INFO[Visualisation.Name] [I]($LOCALIZE[20166])[/I] ·[CR]fps: $INFO[System.FPS] ·</label>
+        <align>left</align>
+        <aligny>top</aligny>
+        <font>primal_18</font>
+        <textcolor>white</textcolor>
+        <visible>Visualisation.Locked</visible>
+      </control>
+      <control type="label">
+        <posx>900</posx>
+        <posy>75</posy>
+        <width>540</width>
+        <height>38</height>
+        <label>$INFO[Visualisation.Name] ·[CR]fps: $INFO[System.FPS] ·</label>
+        <align>left</align>
+        <aligny>top</aligny>
+        <font>primal_18</font>
+        <textcolor>white</textcolor>
+        <visible>!Visualisation.Locked</visible>
+      </control>
+      <control type="label">
+        <posx>1140</posx>
+        <posy>158</posy>
+        <width>540</width>
+        <height>38</height>
+        <label>$LOCALIZE[31047]</label>
+        <align>right</align>
+        <aligny>center</aligny>
+        <font>primal_20_bold</font>
+        <textcolor>white</textcolor>
+      </control>
+      <control type="label">
+        <posx>1140</posx>
+        <posy>202</posy>
+        <width>540</width>
+        <height>38</height>
+        <label fallback="· (UnAvailable)">$INFO[Visualisation.Preset,, ·]</label>
+        <align>right</align>
+        <aligny>top</aligny>
+        <font>primal_18</font>
+        <textcolor>white</textcolor>
+        <wrapmultiline>true</wrapmultiline>
+      </control>
+    </control>
+    <control type="button" id="999">
+      <posx>-15</posx>
+      <posy>-15</posy>
+      <width>1</width>
+      <height>1</height>
+      <onfocus>RunScript(script.artistslideshow)</onfocus>
+    </control>
+  </controls>
+</window>

@@ -1,0 +1,32 @@
+Changelog:
+
+0.9.6
+- Design revised
+- Blue Theme as standart
+- small bug fix
+
+0.9.5
+- Music DVD View added
+- Blue Flags added
+- Some Design improvements
+
+0.9.4
+- Music List View added
+- Blue Theme added
+- Fixed some bugs
+
+0.9.3
+- TV section completely
+- Fixed some bugs
+
+0.9.2
+- Fanart Fadetime refined
+- Alternatives Homemenu added (horizontal)
+- Music Panel View added
+
+0.9.1
+- Fixed a bug in the addon menu
+- Fixed a bug where the widgets are activated immediately after install
+
+0.9.0
+- first public release
